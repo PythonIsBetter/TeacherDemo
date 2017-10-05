@@ -17,13 +17,14 @@
     </div>
     <div >
       <ion-list>
-        <button ion-item>
+        <button ion-item (click)="personalInfo($event, item)">
           <ion-icon name="person" item-left></ion-icon>
           个人信息
           <div class="item-note" item-right>
             >
           </div>
         </button>
+
         <button ion-item (click)="itemTapped($event, item)">
           <ion-icon name="star" item-left></ion-icon>
           资源收藏
