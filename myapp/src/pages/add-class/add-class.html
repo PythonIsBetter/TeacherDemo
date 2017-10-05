@@ -1,0 +1,48 @@
+<!--
+  Generated template for the AddClassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <meta charset="UTF-8" http-equiv="Access-Control-Allow-Origin" content="*">
+  <ion-navbar>
+    <ion-title>创建课程</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="list" align="center" style="line-height:80px">
+    <div>
+      <label class="item item-input" >
+      <span class="input-label">班级编码：</span>
+      <input type="text" id="idx" class="input1">
+      </label>
+    </div>
+    <div>
+      <label class="item item-input" >
+        <span class="input-label" >班级名称：</span>
+        <input type="text" id="namex" class="input1">
+      </label>
+    </div>
+    <div>
+      <label class="item item-input" >
+        <span class="input-label" >科目：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" id="subjectx" class="input1" >
+      </label>
+    </div>
+    <div>
+      <label class="item item-input" >
+        <span class="input-label" >班主任：</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" id="headx" class="input1">
+      </label>
+    </div>
+    <div class="padding">
+      <button  (click)="addclass()"><b>创建</b></button>
+    </div>
+
+  </div>
+</ion-content>

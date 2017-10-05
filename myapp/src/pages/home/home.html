@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <h1 align="center">班级</h1>
+    <div class="rightbutton">
+      <img src="../../assets/icon/Plus.png"  (click)="itemTapped($event, item)" height="40" width="40">
+    </div>
+
+  </ion-navbar>
+  <div class="buttons">
+
+  </div>
+</ion-header>
+
+<ion-content padding class="back">
+  <div >
+    <button ion-item *ngFor="let class of classes" (click)="test()">
+      <!--<div>{{class.id}}</div>-->
+      <!--<div>{{class.name}}</div>-->
+      <!--<div>{{class.subject}}</div>-->
+      <!--<div>{{class.head}}</div>-->
+      <div class="item-note dian" item-left>
+        <b>·</b>
+      </div>
+      {{class.subject}}{{class.name}}({{class.id}})
+      <div class="item-note" item-right>
+        >
+      </div>
+    </button>
+  </div>
+  <!--<h2>Welcome to Ionic!</h2>-->
+<!--&lt;!&ndash;<img src="../../assets/icon/favicon.ico">&ndash;&gt;-->
+  <!--<p id="sc">-->
+    <!--test demo-->
+  <!--</p>-->
+  <!--<p>-->
+    <!--Take a look at the <code>src/pages/</code> directory to add or change tabs,-->
+    <!--update any existing page or create new pages.-->
+  <!--</p>-->
+
+</ion-content>
