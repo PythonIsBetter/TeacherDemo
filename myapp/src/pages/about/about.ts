@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {StoragePage} from "../storage/storage";
-import {PersonalInformation} from "../personalInfo/personalInfo";
+import {PersonalInfoPage} from "../personal-info/personal-info";
 
 @Component(
   {
@@ -23,7 +23,7 @@ export class AboutPage
 
   personalInfo(event,item)
   {
-    this.navCtrl.push(PersonalInformation,
+    this.navCtrl.push(PersonalInfoPage,
       {
         item:item
       });
