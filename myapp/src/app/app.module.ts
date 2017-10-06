@@ -16,6 +16,7 @@ import {Http}from '@angular/http';
 import {HttpModule}from '@angular/http';
 import {StoragePage} from "../pages/storage/storage";
 import {PersonalInfoPage} from "../pages/personal-info/personal-info";
+import {ClassDetailPage} from "../pages/class-detail/class-detail";
 @NgModule({
   declarations: [
     MyApp,
@@ -26,7 +27,8 @@ import {PersonalInfoPage} from "../pages/personal-info/personal-info";
     ClassPage,
     AddClassPage,
     StoragePage,
-    PersonalInfoPage
+    PersonalInfoPage,
+    ClassDetailPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import {PersonalInfoPage} from "../pages/personal-info/personal-info";
     ClassPage,
     AddClassPage,
     StoragePage,
-    PersonalInfoPage
+    PersonalInfoPage,
+    ClassDetailPage
   ],
   providers: [
     StatusBar,

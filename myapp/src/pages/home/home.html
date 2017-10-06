@@ -1,7 +1,9 @@
 <ion-header>
 
   <ion-navbar>
-    <h1 align="center">班级</h1>
+    <ion-title text-center>
+      班级
+    </ion-title>
     <div class="rightbutton">
       <img src="../../assets/icon/Plus.png"  (click)="itemTapped($event, item)" height="40" width="40">
     </div>
@@ -14,7 +16,7 @@
 
 <ion-content padding class="back">
   <div >
-    <button ion-item *ngFor="let class of classes" (click)="test()">
+    <button ion-item *ngFor="let class of classes" (click)="itemTapped1($event, class)">
       <!--<div>{{class.id}}</div>-->
       <!--<div>{{class.name}}</div>-->
       <!--<div>{{class.subject}}</div>-->
