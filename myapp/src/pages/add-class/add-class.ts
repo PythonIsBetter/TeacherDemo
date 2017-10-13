@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http,Response}from "@angular/http";
+import { ToastController } from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 /**
@@ -23,7 +24,7 @@ export class AddClassPage {
   subject:string;
   head:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
 
     this.url="http://101.201.238.157/demo/index/cla_insert";
   }
@@ -59,9 +60,21 @@ export class AddClassPage {
         //alert(res.json());
         if(res.json().data=="1")
         {
-          alert("创建成功");
+         // alert("创建成功");
+          let toast = this.toastCtrl.create({
+            message: '创建成功',
+            duration: 2000,
+            position:'middle'
+          });
+         toast.present();
         }else{
-          alert("创建失败");
+          // alert("创建失败");
+          let toast = this.toastCtrl.create({
+            message: '创建失败',
+            duration: 2000,
+            position:'middle'
+          });
+          toast.present();
         }
 
       });

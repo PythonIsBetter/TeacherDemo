@@ -26,7 +26,7 @@ export class HomePage {
       id:"111111",
       name:"一班",
       subject:"XX",
-      head:"teach",
+      head:"teach"
     });
     //this.url="http://localhost:8090/public/admin/index/insert";
     //this.url="http://101.201.238.157/demo/index/cla_insert";
