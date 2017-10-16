@@ -23,7 +23,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,public http :Http) {
     this.classes=[];
     this.classes.push({
-      id:"111111",
+      id:"12345",
       name:"一班",
       subject:"XX",
       head:"teach"

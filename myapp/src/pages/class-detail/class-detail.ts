@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {StuManagePage} from "../stu-manage/stu-manage";
 
 /**
  * Generated class for the ClassDetailPage page.
@@ -23,5 +24,9 @@ export class ClassDetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ClassDetailPage');
   }
-
+  itemTapped1(event, item) {
+    this.navCtrl.push(StuManagePage, {
+      item: item
+    });
+  }
 }
