@@ -19,6 +19,7 @@ import {PersonalInfoPage} from "../pages/personal-info/personal-info";
 import {ClassDetailPage} from "../pages/class-detail/class-detail";
 import {StuManagePage} from "../pages/stu-manage/stu-manage";
 import {AddStuPage} from "../pages/add-stu/add-stu";
+import {StuConPage} from "../pages/stu-con/stu-con";
 @NgModule({
   declarations: [
     MyApp,
@@ -32,7 +33,8 @@ import {AddStuPage} from "../pages/add-stu/add-stu";
     PersonalInfoPage,
     ClassDetailPage,
     StuManagePage,
-    AddStuPage
+    AddStuPage,
+    StuConPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import {AddStuPage} from "../pages/add-stu/add-stu";
     PersonalInfoPage,
     ClassDetailPage,
     StuManagePage,
-    AddStuPage
+    AddStuPage,
+    StuConPage
   ],
   providers: [
     StatusBar,

@@ -4,6 +4,7 @@ import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import {AddStuPage} from "../add-stu/add-stu";
+import {StuConPage} from "../stu-con/stu-con";
 
 /**
  * Generated class for the StuManagePage page.
@@ -64,6 +65,12 @@ export class StuManagePage {
 
   itemTapped(event, item) {
     this.navCtrl.push(AddStuPage, {
+      item: item
+    });
+  }
+
+  itemTapped1(event, item) {
+    this.navCtrl.push(StuConPage, {
       item: item
     });
   }
