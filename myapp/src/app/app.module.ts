@@ -20,6 +20,8 @@ import {ClassDetailPage} from "../pages/class-detail/class-detail";
 import {StuManagePage} from "../pages/stu-manage/stu-manage";
 import {AddStuPage} from "../pages/add-stu/add-stu";
 import {StuConPage} from "../pages/stu-con/stu-con";
+import {PublishHomeworkPage} from "../pages/publish-homework/publish-homework";
+import {SelectQuestionPage} from "../pages/select-question/select-question";
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +36,9 @@ import {StuConPage} from "../pages/stu-con/stu-con";
     ClassDetailPage,
     StuManagePage,
     AddStuPage,
-    StuConPage
+    StuConPage,
+    PublishHomeworkPage,
+    SelectQuestionPage
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,9 @@ import {StuConPage} from "../pages/stu-con/stu-con";
     ClassDetailPage,
     StuManagePage,
     AddStuPage,
-    StuConPage
+    StuConPage,
+    PublishHomeworkPage,
+    SelectQuestionPage
   ],
   providers: [
     StatusBar,
