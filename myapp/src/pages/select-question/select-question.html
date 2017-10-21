@@ -20,10 +20,10 @@
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center">1</button>
-    <button class="num"  align="center">2</button>
-    <button class="num"  align="center">3</button>
-    <button class="num"  align="center">4</button>
+    <button class="num"  align="center" (click)="edit($event, 1)">1</button>
+    <button class="num"  align="center" (click)="edit($event, 2)">2</button>
+    <button class="num"  align="center" (click)="edit($event, 3)">3</button>
+    <button class="num"  align="center" (click)="edit($event, 4)">4</button>
   </div>
 
   <div class="list" align="left" style="margin-top: 60px;">
@@ -49,5 +49,12 @@
     <button class="num"  align="center">3</button>
     <button class="num"  align="center">4</button>
   </div>
+
+  <div class="padding"  align="center">
+    <button  (click)="selectQuestion($event, selectedItem)"><b>发布</b></button>
+  </div>
+
+  <br>
+  <br>
 
 </ion-content>

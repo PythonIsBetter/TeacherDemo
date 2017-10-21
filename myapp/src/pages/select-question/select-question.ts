@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {EditQuestionPage} from "../edit-question/edit-question";
 
 /**
  * Generated class for the SelectQuestionPage page.
@@ -15,12 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SelectQuestionPage
 {
+ // num:number;
+  selectedItem: any;
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
+    this.selectedItem = navParams.get('item');
   }
 
   ionViewDidLoad()
   {
     console.log('ionViewDidLoad SelectQuestionPage');
+  }
+
+  edit(event, item)
+  {
+    this.navCtrl.push(EditQuestionPage,
+      {
+        item:item
+      });
   }
 }

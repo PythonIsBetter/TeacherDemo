@@ -45,4 +45,16 @@ page-select-question
     float: left;//让多个div在一行内显示
     font-size: 20px;//字体大小
   }
+
+  .padding button
+  {
+    width: 600px;
+    height: 40px;
+    background: #51a7e8;
+    color: #FFFFFF;
+    font-family: 黑体;
+    border-radius:25px;
+    -moz-border-radius:25px;
+    margin-top: 60px;
+  }
 }

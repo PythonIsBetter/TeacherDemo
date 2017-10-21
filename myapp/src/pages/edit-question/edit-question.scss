@@ -1,0 +1,74 @@
+page-edit-question
+{
+  .list
+  {
+    //list的宽度和高度
+    width: 600px;
+    height: 600px;
+    font-size: 30px;//字体大小
+    margin:0 auto; //框框居中
+    //框框的阴影
+    -webkit-box-shadow: #666 10px 10px 20px;
+    -moz-box-shadow: #666 10px 10px 20px;
+    box-shadow: #666 0px 0px 20px;
+  }
+
+  .que
+  {
+    position: absolute;
+    left: 500px;
+    top: 50px;
+  }
+
+  .add
+  {
+    float:right;//+号靠右
+    font-size: 35px;
+    margin-right: 20px;
+    margin-top: 40px;
+    background-color: rgba(102, 102, 102, 0.27);//按钮背景灰色
+  }
+
+  .line
+  {
+    position: absolute;
+    left: 459px;
+    top: 100px;
+    height:3px;
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.63);
+  }
+
+  .b1
+  {
+    //圆形按钮位置和大小
+    width: 70px;
+    height: 70px;
+    line-height:70px;
+    border-radius: 70px; //让它从方的变成圆的
+    border: 3px solid;//边框的粗细和颜色
+    background-color: rgba(102, 102, 102, 0.53);//数字是按钮，因此把背景变透明
+    float: left;//让多个div在一行内显示
+    font-size: 20px;//字体大小
+    color: white;
+  }
+
+  .b2
+  {
+    //圆形按钮位置和大小
+    width: 300px;
+    height: 70px;
+    line-height:70px;
+    border-radius: 70px;
+    border: 3px solid;//边框的粗细和颜色
+    background-color: rgba(102, 102, 102, 0.53);//数字是按钮，因此把背景变透明
+    float: left;//让多个div在一行内显示
+    font-size: 20px;//字体大小
+    color: white;
+  }
+
+  .true
+  {
+    background-color: rgba(0, 255, 87, 0.67);//数字是按钮，因此把背景变透明
+  }
+}
