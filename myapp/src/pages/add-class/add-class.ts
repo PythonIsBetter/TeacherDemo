@@ -23,14 +23,28 @@ export class AddClassPage {
   name:string;
   subject:string;
   head:string;
-
+  subjects:Array<string>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
 
     this.url="http://101.201.238.157/demo/index/cla_insert";
+   // this.name=(<HTMLSelectElement>document.getElementsByClassName("mySelect")[0]).name;
+    //this.name= (<HTMLInputElement>document.getElementById("namex")).value;
+    this.subjects=[];
+    this.subjects.push("测试科目");
+    this.http.request('http://101.201.238.157/demo/index/selectSubject')
+      .subscribe((res:Response)=>{
+        for(let i=0;i<res.json().data.length;i++)
+        {
+          this.subjects.push(
+            res.json().data[i].subject_name,
+          );
+        }
+      });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddClassPage');
+
   }
   addclass():void{
     // this.id="111";
@@ -46,9 +60,12 @@ export class AddClassPage {
     //     //alert(res.json());
     //
     //   });
+    let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex;
+
+    //****************
     this.id= (<HTMLInputElement>document.getElementById("idx")).value;
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
-    this.subject= (<HTMLInputElement>document.getElementById("subjectx")).value;
+    this.subject= this.subjects[selectIndex];
     this.head= (<HTMLInputElement>document.getElementById("headx")).value;
     this.url=this.url+"?"+"id="+this.id+"&"
       +"name="+this.name+"&"+"subject="+this.subject
@@ -77,7 +94,18 @@ export class AddClassPage {
           toast.present();
         }
 
-      });
+      },
+        err=>{
+          let toast = this.toastCtrl.create({
+            message: '创建失败',
+            duration: 2000,
+            position:'middle'
+          });
+          toast.present();
+        }
+      );
+    //**************
+
     // let params=JSON.stringify({id:this.id,name:this.name,subject:this.subject,head:this.head});
     // this.http.post(this.url,params).subscribe(res=>{
     //       //alert(res.json());

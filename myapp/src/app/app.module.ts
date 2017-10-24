@@ -22,6 +22,7 @@ import {AddStuPage} from "../pages/add-stu/add-stu";
 import {StuConPage} from "../pages/stu-con/stu-con";
 import {PublishHomeworkPage} from "../pages/publish-homework/publish-homework";
 import {SelectQuestionPage} from "../pages/select-question/select-question";
+import {StuPrePage} from "../pages/stu-pre/stu-pre";
 import {EditQuestionPage} from "../pages/edit-question/edit-question";
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import {EditQuestionPage} from "../pages/edit-question/edit-question";
     AddStuPage,
     StuConPage,
     PublishHomeworkPage,
+    SelectQuestionPage,
+    StuPrePage
     SelectQuestionPage,
     EditQuestionPage
   ],
@@ -63,6 +66,8 @@ import {EditQuestionPage} from "../pages/edit-question/edit-question";
     AddStuPage,
     StuConPage,
     PublishHomeworkPage,
+    SelectQuestionPage,
+    StuPrePage
     SelectQuestionPage,
     EditQuestionPage
   ],

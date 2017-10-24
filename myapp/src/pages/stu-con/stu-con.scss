@@ -13,15 +13,37 @@ page-stu-con {
     background: #FFFFFF;
     width: 100%;
     margin-top: 5px;
+    margin-bottom: 10px;
   }
   .left{
     display: inline-block;
     width: 50%;
-    margin-top: 15px;
-    margin-left: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
 
   }
+
   .right{
+
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
+  .leftex{
+    display: inline-block;
+    width: 33%;
+    margin-top: 10px;
+    margin-left: 10px;
+
+  }
+  .centerex{
+    display: inline-block;
+    width: 33%;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .rightex{
 
     display: inline-block;
     margin-top: 10px;
@@ -31,6 +53,11 @@ page-stu-con {
 
    width: 100px;
     height: 100px;
+  }
+  .div-charts2{
+
+    width: 80px;
+    height: 80px;
   }
   b{
     color: #51a7e8;

@@ -1,0 +1,49 @@
+<!--
+  Generated template for the StuPrePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{student.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <div class="testname">{{test.name}}</div>
+    <div class="testnum">总计{{test.num}}题</div>
+  </div>
+  <section class="container">
+    <div>
+      <div class="progress">
+        <span  class="blue" id="right"><span>正确</span></span>
+      </div>
+      <span>23题</span>
+    </div>
+    <div>
+      <div class="progress">
+        <span class="red" id="wrong"><span>错误</span></span>
+      </div>
+      <span>2题</span>
+    </div>
+    <div>
+      <div class="progress">
+        <span id="null"><span>未做</span></span>
+      </div>
+      <span>1题</span>
+    </div>
+
+    <div *ngFor="let num of num ;let i = index;"class="num">
+      <div  *ngIf="IsInArray(i,numRight)" class="numRight"><span class="num1">{{i}}</span></div>
+      <div  *ngIf="IsInArray(i,numWrong)" class="numNotRight"><span class="num1">{{i}}</span></div>
+      <div  *ngIf="!IsInArray(i,numRight)&&!IsInArray(i,numWrong)" class="numNull"><span class="num1">{{i}}</span></div>
+    </div>
+
+
+  </section>
+</ion-content>

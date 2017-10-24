@@ -9,7 +9,12 @@
   <ion-navbar>
     <ion-title>创建课程</ion-title>
   </ion-navbar>
-
+  <script>
+    var module=$(".subjectx");
+    module.click(function(e){
+     alert("aaa")
+    })
+  </script>
 </ion-header>
 
 
@@ -31,7 +36,13 @@
     <div>
       <label class="item item-input" >
         <span class="input-label" >科目：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" id="subjectx" class="input1" >
+        <!--<input type="text" id="subjectx" class="input1" >-->
+        <div class="select">
+          <select name='make' id="mySelect">
+            <option *ngFor="let subject of subjects">{{subject}}</option>
+
+          </select>
+        </div>
       </label>
     </div>
     <div>

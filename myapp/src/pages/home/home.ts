@@ -20,8 +20,10 @@ export class HomePage {
   subject:string;
   head:string;
   classes:Array<{id:String,name:String,subject:String,head:String}>;
+
   constructor(public navCtrl: NavController,public http :Http) {
     this.classes=[];
+
     this.classes.push({
       id:"12345",
       name:"一班",
@@ -42,6 +44,7 @@ export class HomePage {
         });
       }
     });
+
 
   }
   itemTapped(event, item) {
