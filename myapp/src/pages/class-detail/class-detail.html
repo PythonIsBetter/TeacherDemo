@@ -46,12 +46,12 @@
       <!--<div>{{class.subject}}</div>-->
       <!--<div>{{class.head}}</div>-->
       <ion-icon name="list-box" item-left></ion-icon>
-      作业报告
+      作业报告（图片示意里没有）
       <div class="item-note" item-right>
         >
       </div>
     </button>
-    <button ion-item (click)="test()">
+    <button ion-item (click)="publishNotice($event, selectedItem)">
       <!--<div>{{class.id}}</div>-->
       <!--<div>{{class.name}}</div>-->
       <!--<div>{{class.subject}}</div>-->
@@ -62,7 +62,7 @@
         >
       </div>
     </button>
-    <button ion-item (click)="test()">
+    <button ion-item (click)="shareFile($event, selectedItem)">
       <!--<div>{{class.id}}</div>-->
       <!--<div>{{class.name}}</div>-->
       <!--<div>{{class.subject}}</div>-->

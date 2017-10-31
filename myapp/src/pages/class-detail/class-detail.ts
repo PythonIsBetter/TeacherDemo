@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StuManagePage} from "../stu-manage/stu-manage";
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
+import {PublishNoticePage} from "../publish-notice/publish-notice";
+import {ShareFilePage} from "../share-file/share-file";
 
 /**
  * Generated class for the ClassDetailPage page.
@@ -41,6 +43,24 @@ export class ClassDetailPage
   publishHomework(event, item)
   {
     this.navCtrl.push(PublishHomeworkPage,
+      {
+        item:item
+      });
+  }
+
+  //发布通知
+  publishNotice(event, item)
+  {
+    this.navCtrl.push(PublishNoticePage,
+      {
+        item:item
+      });
+  }
+
+  //资料分享
+  shareFile(event, item)
+  {
+    this.navCtrl.push(ShareFilePage,
       {
         item:item
       });

@@ -24,6 +24,8 @@ import {PublishHomeworkPage} from "../pages/publish-homework/publish-homework";
 import {SelectQuestionPage} from "../pages/select-question/select-question";
 import {StuPrePage} from "../pages/stu-pre/stu-pre";
 import {EditQuestionPage} from "../pages/edit-question/edit-question";
+import {PublishNoticePage} from "../pages/publish-notice/publish-notice";
+import {ShareFilePage} from "../pages/share-file/share-file";
 @NgModule({
   declarations: [
     MyApp,
@@ -41,9 +43,11 @@ import {EditQuestionPage} from "../pages/edit-question/edit-question";
     StuConPage,
     PublishHomeworkPage,
     SelectQuestionPage,
-    StuPrePage
+    StuPrePage,
     SelectQuestionPage,
-    EditQuestionPage
+    EditQuestionPage,
+    PublishNoticePage,
+    ShareFilePage
   ],
   imports: [
     BrowserModule,
@@ -67,9 +71,11 @@ import {EditQuestionPage} from "../pages/edit-question/edit-question";
     StuConPage,
     PublishHomeworkPage,
     SelectQuestionPage,
-    StuPrePage
+    StuPrePage,
     SelectQuestionPage,
-    EditQuestionPage
+    EditQuestionPage,
+    PublishNoticePage,
+    ShareFilePage
   ],
   providers: [
     StatusBar,
