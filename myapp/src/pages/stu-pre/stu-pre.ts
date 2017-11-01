@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {QuaDetailPage} from "../qua-detail/qua-detail";
 
 /**
  * Generated class for the StuPrePage page.
@@ -44,5 +45,11 @@ export class StuPrePage {
          return true;
        }
      }return false;
+  }
+
+  itemTapped(event, item) {
+    this.navCtrl.push(QuaDetailPage, {
+      item: item
+    });
   }
 }

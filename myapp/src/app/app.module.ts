@@ -24,6 +24,7 @@ import {PublishHomeworkPage} from "../pages/publish-homework/publish-homework";
 import {SelectQuestionPage} from "../pages/select-question/select-question";
 import {StuPrePage} from "../pages/stu-pre/stu-pre";
 import {EditQuestionPage} from "../pages/edit-question/edit-question";
+import {QuaDetailPage} from "../pages/qua-detail/qua-detail";
 import {PublishNoticePage} from "../pages/publish-notice/publish-notice";
 import {ShareFilePage} from "../pages/share-file/share-file";
 @NgModule({
@@ -45,6 +46,8 @@ import {ShareFilePage} from "../pages/share-file/share-file";
     SelectQuestionPage,
     StuPrePage,
     SelectQuestionPage,
+    EditQuestionPage,
+    QuaDetailPage,
     EditQuestionPage,
     PublishNoticePage,
     ShareFilePage
@@ -75,7 +78,9 @@ import {ShareFilePage} from "../pages/share-file/share-file";
     SelectQuestionPage,
     EditQuestionPage,
     PublishNoticePage,
-    ShareFilePage
+    ShareFilePage,
+    EditQuestionPage,
+    QuaDetailPage
   ],
   providers: [
     StatusBar,

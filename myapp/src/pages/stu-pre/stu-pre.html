@@ -39,7 +39,7 @@
     </div>
 
     <div *ngFor="let num of num ;let i = index;"class="num">
-      <div  *ngIf="IsInArray(i,numRight)" class="numRight"><span class="num1">{{i}}</span></div>
+      <div  *ngIf="IsInArray(i,numRight)" class="numRight"  (click)="itemTapped($event,num)" ><span class="num1">{{i}}</span></div>
       <div  *ngIf="IsInArray(i,numWrong)" class="numNotRight"><span class="num1">{{i}}</span></div>
       <div  *ngIf="!IsInArray(i,numRight)&&!IsInArray(i,numWrong)" class="numNull"><span class="num1">{{i}}</span></div>
     </div>

@@ -1,0 +1,44 @@
+<!--
+  Generated template for the QuaDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="num">第{{num}}题</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <label>集合  </label>
+  </ion-item>
+
+  <ion-list inset>
+    <label ion-text *ngIf="listDetailData">
+
+      1、({{listDetailData[0].subjectKind}}) {{listDetailData[0].titleBody}}?<br>
+      <ion-list>
+        <button (click)="nextPage()">
+          A、{{listDetailData[0].A}}<br>
+        </button><br>
+
+        <button (click)="nextPage()">
+          B、{{listDetailData[0].B}}<br>
+        </button><br>
+        <button (click)="nextPage()">
+          C、{{listDetailData[0].C}}<br>
+        </button><br>
+        <button (click)="nextPage()">
+          D、{{listDetailData[0].D}}<br>
+        </button><br>
+      </ion-list>
+
+
+    </label>
+  </ion-list>
+</ion-content>
