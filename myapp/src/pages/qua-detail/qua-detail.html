@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title *ngIf="num">第{{num}}题</ion-title>
+    <ion-title *ngIf="ques">第{{ques.titleid}}题</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-item>
-    <label>集合  </label>
+    <label>{{subtitle}}  </label>
   </ion-item>
 
   <ion-list inset>
@@ -37,8 +37,9 @@
           D、{{listDetailData[0].D}}<br>
         </button><br>
       </ion-list>
-
-
+      <div *ngIf="rightAnswer">正确答案:{{rightAnswer}}</div>
+      <div *ngIf="stuAnswer">选择答案:{{stuAnswer}}<span *ngIf="rightAnswer==stuAnswer">正确</span><span *ngIf="rightAnswer!=stuAnswer">错误</span></div>
+      <div *ngIf="analysis">解析：{{analysis}}</div>
     </label>
   </ion-list>
 </ion-content>

@@ -27,7 +27,7 @@ export class StuManagePage {
   condition :string;
   selectedItem: any;
   url:string;
-  students:Array<{name:String,age:String,sex:String,school:String}>;
+  students:Array<{id:String,name:String,age:String,sex:String,school:String}>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
     this.selectedItem = navParams.get('item');
 
@@ -36,6 +36,7 @@ export class StuManagePage {
     this.url=this.url+"?"+"id="+this.selectedItem.id;
     this.students=[];
     this.students.push({
+      id:"测试id",
       name:"XXX",
       age:"X岁",
       sex:"男",
@@ -48,6 +49,7 @@ export class StuManagePage {
         for(let i=0;i<res.json().data.length;i++)
         {
           this.students.push({
+            id:res.json().data[i].login_id,
             name:res.json().data[i].name,
             age:res.json().data[i].age,
             sex:res.json().data[i].sex,

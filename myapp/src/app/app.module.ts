@@ -27,6 +27,7 @@ import {EditQuestionPage} from "../pages/edit-question/edit-question";
 import {QuaDetailPage} from "../pages/qua-detail/qua-detail";
 import {PublishNoticePage} from "../pages/publish-notice/publish-notice";
 import {ShareFilePage} from "../pages/share-file/share-file";
+import {SubItemPage} from "../pages/sub-item/sub-item";
 @NgModule({
   declarations: [
     MyApp,
@@ -50,7 +51,8 @@ import {ShareFilePage} from "../pages/share-file/share-file";
     QuaDetailPage,
     EditQuestionPage,
     PublishNoticePage,
-    ShareFilePage
+    ShareFilePage,
+    SubItemPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,8 @@ import {ShareFilePage} from "../pages/share-file/share-file";
     PublishNoticePage,
     ShareFilePage,
     EditQuestionPage,
-    QuaDetailPage
+    QuaDetailPage,
+    SubItemPage
   ],
   providers: [
     StatusBar,

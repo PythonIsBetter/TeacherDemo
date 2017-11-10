@@ -1,6 +1,7 @@
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StuPrePage} from "../stu-pre/stu-pre";
+import {SubItemPage} from "../sub-item/sub-item";
 declare var echarts;
 /**
  * Generated class for the StuConPage page.
@@ -35,18 +36,19 @@ export class StuConPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.tests=[];
     this.student = navParams.get('item');
+
     // this.test1="75";
     // this.test2="50";
     // this.exam1="100";
     // this.exam2="75";
     // this.exam3="50";
     this.tests.push({
-      id:"12345",
+      id:"1",
       name:"专项练习一",
       num:"75"
     },
       {
-        id:"12345",
+        id:"2",
         name:"专项练习二",
         num:"50"
       },
@@ -74,7 +76,18 @@ export class StuConPage {
       item2:item2
     });
   }
+
+  itemTapped1(event, item,item2) {
+    this.navCtrl.push(SubItemPage, {
+      item: item,
+      item2:item2
+    });
+  }
   ionViewDidLoad() {
+
+  }
+
+  ionViewDidEnter(){
     console.log('ionViewDidLoad StuConPage');
     let ctx = this.container.nativeElement;
     this.chart = echarts.init(ctx);
@@ -332,5 +345,4 @@ export class StuConPage {
       }
     );
   }
-
 }

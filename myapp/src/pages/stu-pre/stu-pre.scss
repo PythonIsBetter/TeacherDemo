@@ -1,17 +1,17 @@
 page-stu-pre {
 
   .container {
-    margin: 50px auto;
-    padding-left: 50px;
+    margin: 10px auto;
+
   }
   .container > div {
     margin-bottom: 20px;
   }
   .testname{
     display: inline-block;
-    width: 80%;
+    width: 60%;
     font-size: 25px;
-    margin-left: 60px;
+    margin-left: 20px;
   }
 
   .progress {
@@ -105,37 +105,37 @@ page-stu-pre {
 
   }
   .numRight{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     -moz-border-radius: 50%;;
     -webkit-border-radius: 50%;
     border:3px solid #51a7e8;
-    padding-top:40px;
-    padding-left: 43px;
+    padding-top:25px;
+    padding-left: 30px;
   }
   .numNull{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     -moz-border-radius: 50%;;
     -webkit-border-radius: 50%;
     border:3px solid #8f8f8f;
-    padding-top:40px;
-    padding-left: 43px;
+    padding-top:25px;
+    padding-left: 30px;
   }
   .numNotRight{
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background: #db3a27;
     -moz-border-radius: 50%;;
     -webkit-border-radius: 50%;
-    padding-top:40px;
-    padding-left: 43px;
+    padding-top:25px;
+    padding-left: 30px;
   }
   span.num1{
-    //margin-left: 50px;
-    //margin-top: 100px;
+    //margin-left: 20px;
+    //margin-top: 10px;
   }
 }
