@@ -27,11 +27,11 @@
     <!--<div  #container1 class="div-charts"></div>-->
     <div class="left">
       <div>{{tests[0].name}}：<b>{{tests[0].num}}</b></div>
-      <div #container2 class="div-charts" (click)="itemTapped($event, tests[0],student)"></div>
+      <div #container2 class="div-charts" (click)="itemTapped1($event, tests[0],student)"></div>
     </div>
     <div class="right">
        <div>{{tests[1].name}}：<b>{{tests[1].num}}</b></div>
-       <div #container1 class="div-charts" (click)="itemTapped($event, tests[1],student)"></div>
+       <div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>
     </div>
   </div>
 
