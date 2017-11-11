@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>选择题目</ion-title>
+    <ion-title>为{{selectedItem}}选择题目吧</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,43 +16,41 @@
 
   <div class="list" align="left">
     选择题
-    <button class="add">
+    <button class="add" (click)="edit(1)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center" (click)="edit($event, 1)">1</button>
-    <button class="num"  align="center" (click)="edit($event, 2)">2</button>
-    <button class="num"  align="center" (click)="edit($event, 3)">3</button>
-    <button class="num"  align="center" (click)="edit($event, 4)">4</button>
+    <button class="num"  align="center" *ngFor="let X of xz">{{X}}</button>
   </div>
 
   <div class="list" align="left" style="margin-top: 60px;">
-    判断题
-    <button class="add">
+    填空题
+    <button class="add" (click)="edit(2)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center">1</button>
-    <button class="num"  align="center">2</button>
-    <button class="num"  align="center">3</button>
-    <button class="num"  align="center">4</button>
+    <button class="num"  align="center" *ngFor="let T of tk">{{T}}</button>
   </div>
 
   <div class="list" align="left"  style="margin-top: 60px;">
-    应用题
-    <button class="add">
+    判断题
+    <button class="add" (click)="edit(3)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center">1</button>
-    <button class="num"  align="center">2</button>
-    <button class="num"  align="center">3</button>
-    <button class="num"  align="center">4</button>
+    <button class="num"  align="center" *ngFor="let P of pd">{{P}}</button>
   </div>
 
-  <div class="padding"  align="center">
-    <button  (click)="selectQuestion($event, selectedItem)"><b>发布</b></button>
+  <div class="list" align="left"  style="margin-top: 60px;">
+    解答题
+    <button class="add" (click)="edit(4)">
+      +
+    </button>
+    <hr class="line"/>
+    <button class="num"  align="center" *ngFor="let J of jd">{{J}}</button>
   </div>
+
+    <button class="padding"  align="center"><b>发布</b></button>
 
   <br>
   <br>

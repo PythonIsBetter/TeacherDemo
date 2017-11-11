@@ -3,8 +3,8 @@ page-select-question
   .list
   {
     //list的宽度和高度
-    width: 600px;
-    height: 200px;
+    width: 100%;
+    height: 70%;
     font-size: 30px;//字体大小
     margin:0 auto; //框框居中
     //框框的阴影
@@ -26,35 +26,35 @@ page-select-question
   {
     //横线长度、颜色
     margin-top:20px;
-    height:3px;
-    width: 600px;
+    height:1%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.63);
   }
 
   .num
   {
     //圆形按钮位置和大小
-    width: 70px;
-    height: 70px;
-    margin-top: 15px;
-    margin-left: 15px;
-    line-height:70px;
-    border-radius: 70px; //让它从方的变成圆的
-    border: 3px solid rgba(6, 255, 238, 0.38);//边框的粗细和颜色
+    width: 10%;
+    height: 20%;
+    margin-top: 2%;
+    margin-left: 3%;
+    line-height: 20%;
+    border-radius: 100%; //让它从方的变成圆的
+    border: 2px solid rgba(0, 21, 255, 0.91);//边框的粗细和颜色
     background-color: transparent;//数字是按钮，因此把背景变透明
     float: left;//让多个div在一行内显示
     font-size: 20px;//字体大小
   }
 
-  .padding button
+  .padding
   {
-    width: 600px;
-    height: 40px;
+    height: 6%;
+    width: 80%;
     background: #51a7e8;
     color: #FFFFFF;
     font-family: 黑体;
-    border-radius:25px;
     -moz-border-radius:25px;
-    margin-top: 60px;
+    margin-top: 10%;
+    margin-left: 10%;
   }
 }

@@ -23,11 +23,13 @@ import {StuConPage} from "../pages/stu-con/stu-con";
 import {PublishHomeworkPage} from "../pages/publish-homework/publish-homework";
 import {SelectQuestionPage} from "../pages/select-question/select-question";
 import {StuPrePage} from "../pages/stu-pre/stu-pre";
-import {EditQuestionPage} from "../pages/edit-question/edit-question";
 import {QuaDetailPage} from "../pages/qua-detail/qua-detail";
 import {PublishNoticePage} from "../pages/publish-notice/publish-notice";
 import {ShareFilePage} from "../pages/share-file/share-file";
 import {SubItemPage} from "../pages/sub-item/sub-item";
+import {AddXuanZePage} from "../pages/add-xuan-ze/add-xuan-ze";
+import {AddTianKongPage} from "../pages/add-tian-kong/add-tian-kong";
+import {AddPanDuanPage} from "../pages/add-pan-duan/add-pan-duan";
 @NgModule({
   declarations: [
     MyApp,
@@ -47,12 +49,13 @@ import {SubItemPage} from "../pages/sub-item/sub-item";
     SelectQuestionPage,
     StuPrePage,
     SelectQuestionPage,
-    EditQuestionPage,
     QuaDetailPage,
-    EditQuestionPage,
     PublishNoticePage,
     ShareFilePage,
-    SubItemPage
+    SubItemPage,
+    AddXuanZePage,
+    AddTianKongPage,
+    AddPanDuanPage
   ],
   imports: [
     BrowserModule,
@@ -78,12 +81,13 @@ import {SubItemPage} from "../pages/sub-item/sub-item";
     SelectQuestionPage,
     StuPrePage,
     SelectQuestionPage,
-    EditQuestionPage,
     PublishNoticePage,
     ShareFilePage,
-    EditQuestionPage,
     QuaDetailPage,
-    SubItemPage
+    SubItemPage,
+    AddXuanZePage,
+    AddTianKongPage,
+    AddPanDuanPage
   ],
   providers: [
     StatusBar,

@@ -14,16 +14,10 @@
 
 <ion-content padding>
 
-  <div class="list" align="center">
-    <div>
-      <label class="item item-input" >
-        <span class="input-label">作业名称： </span>
-        <input type="text" id="idx" class="input1">
-      </label>
-    </div>
-    <div class="padding">
-      <button  (click)="selectQuestion($event, selectedItem)"><b>下一步</b></button>
-    </div>
+  <div class="item" >
+    作业名称：<input type="text" id="homeworkName" class="input">
   </div>
+
+  <button  class="padding" align="center" (click)="selectQuestion($event)"><b>下一步</b></button>
 
 </ion-content>
