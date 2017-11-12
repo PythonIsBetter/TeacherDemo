@@ -13,11 +13,34 @@
 </ion-header>
 
 <ion-content padding>
+  <div>
+    <ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 45px;top: 25px;"></ion-icon>
 
-  <div class="item" >
-    作业名称：<input type="text" id="homeworkName" class="input">
+    <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]='inpustring'>
+
+    </ion-searchbar>
+    <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
+      <ion-list>
+        <ion-item *ngFor="let item of items" (click)="itemSelectedchild($event,item.id)">
+          {{ item.cname }}
+        </ion-item>
+      </ion-list>
+    </div>
+
   </div>
+  <!--<ion-searchbar  [formControl]="titleFilter"></ion-searchbar>-->
 
-  <button  class="padding" align="center" (click)="selectQuestion($event)"><b>下一步</b></button>
+  <ion-list inset>
+    <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
+      <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
+      <img src="assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;">{{item.cname}}</span>
+      <img  src="assets/icon/you.png" style="width: 25px;float: right;"/>
+
+
+    </div>
+    <!--<div>{{list[0].item.cname}}</div>-->
+
+  </ion-list>
 
 </ion-content>

@@ -31,8 +31,9 @@ export class SelectQuestionPage
 
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
-    this.examID=navParams.get('examID');
+
     this.selectedItem = navParams.get('item');
+    this.examID=this.selectedItem.id;
     this.xz=navParams.get('xz');
     this.tk=navParams.get('tk');
     this.pd=navParams.get('pd');
