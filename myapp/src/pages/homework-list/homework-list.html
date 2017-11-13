@@ -1,5 +1,5 @@
 <!--
-  Generated template for the PublishHomeworkPage page.
+  Generated template for the HomeworkListPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,10 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>发布作业({{homeName.name}})</ion-title>
+    <ion-title>作业列表</ion-title>
   </ion-navbar>
 
 </ion-header>
+
 
 <ion-content padding>
   <div>
@@ -21,20 +22,21 @@
     </ion-searchbar>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list>
-        <ion-item *ngFor="let item of items" (click)="itemSelectedchild($event,item.id)">
-          {{ item.cname }}
+        <ion-item *ngFor="let item of items" (click)="selectQuestion($event,item)" >
+          {{ item.name }}
         </ion-item>
       </ion-list>
+      <button (click)="addHomeworklist()">下一步</button>
     </div>
 
   </div>
   <!--<ion-searchbar  [formControl]="titleFilter"></ion-searchbar>-->
 
   <ion-list inset>
-    <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item,homeName)">
+    <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
       <img src="assets/icon/yuan.png"/>
-      <span style="margin-left: 20px;">{{item.cname}}</span>
+      <span style="margin-left: 20px;">{{item.name}}</span>
       <img  src="assets/icon/you.png" style="width: 25px;float: right;"/>
 
 
@@ -42,5 +44,4 @@
     <!--<div>{{list[0].item.cname}}</div>-->
 
   </ion-list>
-
 </ion-content>

@@ -16,7 +16,7 @@ import 'rxjs/Rx'
 })
 export class PublishHomeworkPage
 {
-  //selectedItem: any;
+  homeName: any;
   listData:any;
   items: any[];
   copeyitems:any[];
@@ -27,8 +27,8 @@ export class PublishHomeworkPage
   private  titleFilter:FormControl = new  FormControl();
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http)
   {
-    //this.selectedItem = navParams.get('item');
-    this.urlListKnowledge="http://localhost:8090/public/admin/index/getAllKnowledge";
+    this.homeName = navParams.get('item');
+    this.urlListKnowledge="http://101.201.238.157/demo/index/getAllKnowledge";
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges
@@ -92,11 +92,12 @@ export class PublishHomeworkPage
   }
 
   //发布作业页面中，用户点了下一步后的跳转函数
-  selectQuestion(event, item)
+  selectQuestion(event, item,item2)
   {
     this.navCtrl.push(SelectQuestionPage,
       {
-        item:item
+        item:item,
+        item2:item2
       });
   }
 }

@@ -30,6 +30,8 @@ import {SubItemPage} from "../pages/sub-item/sub-item";
 import {AddXuanZePage} from "../pages/add-xuan-ze/add-xuan-ze";
 import {AddTianKongPage} from "../pages/add-tian-kong/add-tian-kong";
 import {AddPanDuanPage} from "../pages/add-pan-duan/add-pan-duan";
+import {HomeworkListPage} from "../pages/homework-list/homework-list";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -55,7 +57,8 @@ import {AddPanDuanPage} from "../pages/add-pan-duan/add-pan-duan";
     SubItemPage,
     AddXuanZePage,
     AddTianKongPage,
-    AddPanDuanPage
+    AddPanDuanPage,
+    HomeworkListPage
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import {AddPanDuanPage} from "../pages/add-pan-duan/add-pan-duan";
     SubItemPage,
     AddXuanZePage,
     AddTianKongPage,
-    AddPanDuanPage
+    AddPanDuanPage,
+    HomeworkListPage
   ],
   providers: [
     StatusBar,

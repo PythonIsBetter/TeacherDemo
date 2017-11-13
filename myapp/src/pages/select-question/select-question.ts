@@ -20,6 +20,7 @@ import {AddJieDaPage} from "../add-jie-da/add-jie-da";
 export class SelectQuestionPage
 {
   selectedItem: any;
+  homeName: any;
   url:string;
   examID:number;
   homeworkName:string;
@@ -33,6 +34,7 @@ export class SelectQuestionPage
   {
 
     this.selectedItem = navParams.get('item');
+    this.homeName = navParams.get('item2');
     this.examID=this.selectedItem.id;
     this.xz=navParams.get('xz');
     this.tk=navParams.get('tk');

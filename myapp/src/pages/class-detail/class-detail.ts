@@ -4,6 +4,8 @@ import {StuManagePage} from "../stu-manage/stu-manage";
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {PublishNoticePage} from "../publish-notice/publish-notice";
 import {ShareFilePage} from "../share-file/share-file";
+import {HomeworkListPage} from "../homework-list/homework-list";
+
 
 /**
  * Generated class for the ClassDetailPage page.
@@ -42,7 +44,7 @@ export class ClassDetailPage
   //发布作业
   publishHomework(event, item)
   {
-    this.navCtrl.push(PublishHomeworkPage,
+    this.navCtrl.push(HomeworkListPage,
       {
         item:item
       });
