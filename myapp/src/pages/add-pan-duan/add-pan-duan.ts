@@ -23,10 +23,12 @@ export class AddPanDuanPage {
   pd: Array<{ id: number, question: string, answer: string }>;//选择题（题号+题目+答案）
   pdChoose: Array<number> = [];
   checkBox: any;
+  homeworkName:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
     this.type = navParams.get('item');//题目类型
     this.examID = navParams.get('examID');//知识点
+    this.homeworkName=navParams.get('homeworkName');
     this.pd = [];
     this.count = 0;
     this.loadPD();
@@ -67,6 +69,35 @@ export class AddPanDuanPage {
       {
         this.pdChoose.push(i + 1);
       }
+    }
+
+    for(let k=0;k<=this.pdChoose.length;k++)
+    {
+      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.pdChoose.pop()).subscribe(res=>
+      {
+        if (res.json().data == "1")
+        {
+          // alert("创建成功");
+          let toast = this.toastCtrl.create
+          ({
+            message: '通过成功',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
+        else
+        {
+          // alert("创建失败");
+          let toast = this.toastCtrl.create
+          ({
+            message: '通过失败',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
+      });
     }
 
     this.navCtrl.push(SelectQuestionPage,

@@ -1,7 +1,5 @@
-
 import { AfterViewChecked, Component, Input, OnChanges, OnInit} from '@angular/core';
 import {IonicPage, NavController, NavParams, App} from 'ionic-angular';
-
 import {SelectQuestionPage} from "../select-question/select-question";
 import {Response, Http} from "@angular/http";
 import {FormControl} from "@angular/forms";
@@ -22,6 +20,7 @@ export class PublishHomeworkPage
   copeyitems:any[];
   urlListKnowledge:string;
   inpustring:any='';
+
   // 关键字
   private  keyword:string;
   private  titleFilter:FormControl = new  FormControl();
@@ -92,12 +91,14 @@ export class PublishHomeworkPage
   }
 
   //发布作业页面中，用户点了下一步后的跳转函数
-  selectQuestion(event, item,item2)
+  selectQuestion(event, item,item2,examID)
   {
     this.navCtrl.push(SelectQuestionPage,
       {
         item:item,
-        item2:item2
+        item2:item2,
+        homeworkName:this.homeName.name,
+        examID:examID
       });
   }
 }
