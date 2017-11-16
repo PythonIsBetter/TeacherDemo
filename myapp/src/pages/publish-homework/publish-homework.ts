@@ -91,14 +91,13 @@ export class PublishHomeworkPage
   }
 
   //发布作业页面中，用户点了下一步后的跳转函数
-  selectQuestion(event, item,item2,examID)
+  selectQuestion(event, item,item2)
   {
     this.navCtrl.push(SelectQuestionPage,
       {
         item:item,
         item2:item2,
-        homeworkName:this.homeName.name,
-        examID:examID
+        homeworkName:this.homeName.name
       });
   }
 }

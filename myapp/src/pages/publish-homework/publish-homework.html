@@ -31,7 +31,7 @@
   <!--<ion-searchbar  [formControl]="titleFilter"></ion-searchbar>-->
 
   <ion-list inset>
-    <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item,homeName,1)">
+    <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item,homeName)">
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
       <img src="assets/icon/yuan.png"/>
       <span style="margin-left: 20px;">{{item.cname}}</span>

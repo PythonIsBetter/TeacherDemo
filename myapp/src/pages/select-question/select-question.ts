@@ -36,7 +36,7 @@ export class SelectQuestionPage
   {
     this.selectedItem = navParams.get('item');
     this.homeName = navParams.get('item2');
-    this.examID=navParams.get('examID');
+    this.examID=this.selectedItem.id;
     // this.xz=navParams.get('xz');
     // this.tk=navParams.get('tk');
     // this.pd=navParams.get('pd');
