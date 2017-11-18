@@ -26,11 +26,13 @@ export class HomeworkListPage {
   urlListKnowledge:string;
   urlAddHomework:string;
   inpustring:any='';
+  class:any;
   // 关键字
   private  keyword:string;
   private  titleFilter:FormControl = new  FormControl();
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public toastCtrl: ToastController) {
     //this.selectedItem = navParams.get('item');
+    this.class=navParams.get('item');
     this.urlListKnowledge="http://101.201.238.157/demo/index/getHomeworkList";
     this.urlAddHomework="http://101.201.238.157/demo/index/addHomeworkList";
     this.listData=[];
@@ -103,7 +105,7 @@ export class HomeworkListPage {
   }
 
   addHomeworklist(){
-     this.urlAddHomework+="?name="+this.inpustring;
+     this.urlAddHomework+="?name="+this.inpustring+"&classid="+this.class.id;
     this.http.request(this.urlAddHomework)
       .subscribe((res: Response) => {
         if(res.json().data=="1")

@@ -2,6 +2,7 @@ import {Component, ViewChild, ElementRef} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StuPrePage} from "../stu-pre/stu-pre";
 import {SubItemPage} from "../sub-item/sub-item";
+import {Http, Response} from "@angular/http";
 declare var echarts;
 /**
  * Generated class for the StuConPage page.
@@ -21,22 +22,48 @@ export class StuConPage {
   @ViewChild('container3') container2:ElementRef;//与html中div #container1对应
   @ViewChild('container4') container3:ElementRef;//与html中div #container1对应
   @ViewChild('container5') container4:ElementRef;//与html中div #container1对应
+  classes:Array<{id:String,name:String,subject:String,head:String}>;
+  classid:string;
   chart :any;
   chart1:any;
   chart2:any;
   chart3:any;
   chart4:any;
   student:any;
+  num:number;
   // test1:string;
   // test2:string;
   // exam1:string;
   // exam2:string;
   // exam3:string;
   tests:Array<{id:string,name:string,num:string}>;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  urlGetHomeworkList;string;
+  homework:Array<{id:string,name:string}>;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
     this.tests=[];
+    this.homework=[];
     this.student = navParams.get('item');
-
+    this.classes=[];
+    this.classid="12345";
+    this.urlGetHomeworkList="http://101.201.238.157/demo/index/getHomeworkList";
+    this.urlGetHomeworkList+="?classid="+this.classid;
+    //this.url="http://localhost:8090/public/admin/index/insert";
+    //this.url="http://101.201.238.157/demo/index/cla_insert";
+    // this.homework.push({
+    //   id:"123",
+    //   name:"lalala"
+    // });
+    this.http.request(this.urlGetHomeworkList)
+      .subscribe((res:Response)=>{
+        for(let i=0;i<res.json().data.length;i++)
+        {
+          this.homework.push({
+            id:res.json().data[i].id,
+            name:res.json().data[i].name
+          });
+        }
+        this.num=res.json().data.length;
+      });
     // this.test1="75";
     // this.test2="50";
     // this.exam1="100";
@@ -67,7 +94,8 @@ export class StuConPage {
         name:"模拟试卷二",
         num:"50"
       }
-    )
+    );
+
   }
 
   itemTapped(event, item,item2) {
@@ -89,6 +117,61 @@ export class StuConPage {
 
   ionViewDidEnter(){
     console.log('ionViewDidLoad StuConPage');
+    // alert(this.num);
+    for(let i=0;i<this.num;i++){
+      var t="chart"+i;
+      this.chart = echarts.init(document.getElementById(t));
+      this.chart.setOption(
+        {
+          clockWise:false,
+          tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+          },
+
+          title: {
+            floating:true,
+            text: parseInt(this.tests[1].num)+"%",
+            left:'center',
+            top:'center',
+            fontSize:6
+          },
+          series: [
+            {
+              name: '访问来源',
+              type: 'pie',
+              radius: ['50%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                normal: {
+                  show: false,
+                  position: 'center'
+                },
+                emphasis: {
+                  show: true,
+                  textStyle: {
+                    fontSize: '30',
+                    fontWeight: 'bold'
+                  }
+                }
+              },
+              labelLine: {
+                normal: {
+                  show: false
+                }
+              },
+              data: [
+                {value: parseInt(this.tests[1].num), name: ''},
+                {value: 100-parseInt(this.tests[1].num), name: ''}
+              ],
+              color:['#7EC0EE', '#D0D0D0','yellow','blueviolet']
+
+            }
+          ]
+        }
+      );
+    }
+
     let ctx = this.container.nativeElement;
     this.chart = echarts.init(ctx);
     this.chart.setOption(

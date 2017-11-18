@@ -68,6 +68,8 @@
       <div>{{tests[4].name}}：<b>{{tests[4].num}}</b></div>
       <div #container5 class="div-charts2" (click)="itemTapped($event, tests[4],student)"></div>
     </ion-col>
+
+
   </ion-row>
     <!--<div class="right">-->
       <!--<div>专项练习</div>-->
@@ -75,7 +77,20 @@
     <!--</div>-->
   <!--<div #container1 class="div-charts"></div>-->
 
+  <div class="ltitle">
+    <b class="dian">·</b>
+    作业
+  </div>
+  <ion-row class="card" padding-left="100px">
 
+    <ion-col *ngFor="let home of homework;let i = index;">
+      <div >{{home.name}}</div>
+      <div id="chart{{i}}" class="div-charts2" (click)="itemTapped($event, tests[2],student)"></div>
+    </ion-col>
+
+
+
+  </ion-row>
 
 
 </ion-content>
