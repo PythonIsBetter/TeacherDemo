@@ -31,6 +31,8 @@ import {AddXuanZePage} from "../pages/add-xuan-ze/add-xuan-ze";
 import {AddTianKongPage} from "../pages/add-tian-kong/add-tian-kong";
 import {AddPanDuanPage} from "../pages/add-pan-duan/add-pan-duan";
 import {HomeworkListPage} from "../pages/homework-list/homework-list";
+import {DetailedQuestionPage} from "../pages/detailed-question/detailed-question";
+import {HomeworkForStudentPage} from "../pages/homework-for-student/homework-for-student";
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import {HomeworkListPage} from "../pages/homework-list/homework-list";
     AddXuanZePage,
     AddTianKongPage,
     AddPanDuanPage,
-    HomeworkListPage
+    HomeworkListPage,
+    DetailedQuestionPage,
+    HomeworkForStudentPage
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,9 @@ import {HomeworkListPage} from "../pages/homework-list/homework-list";
     AddXuanZePage,
     AddTianKongPage,
     AddPanDuanPage,
-    HomeworkListPage
+    HomeworkListPage,
+    DetailedQuestionPage,
+    HomeworkForStudentPage
   ],
   providers: [
     StatusBar,

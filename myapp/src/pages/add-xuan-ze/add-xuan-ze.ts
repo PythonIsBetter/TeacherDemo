@@ -5,13 +5,6 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import {SelectQuestionPage} from "../select-question/select-question";
 
-/**
- * Generated class for the AddXuanZePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-add-xuan-ze',
@@ -27,11 +20,13 @@ export class AddXuanZePage
   xzChoose:Array<number>=[];
   checkBox:any;
   homeworkName:string;
+  everyQuestion: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
+    this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.type = navParams.get('item');//题目类型
-    this.examID = navParams.get('examID');//知识点
+    this.examID = this.everyQuestion.id;//知识点ID
     this.homeworkName=navParams.get('homeworkName');
     this.xz=[];
     this.count=0;
@@ -75,7 +70,6 @@ export class AddXuanZePage
       if(this.checkBox[i].checked)
       {
         this.xzChoose.push(i+1);
-
       }
     }
 
@@ -110,7 +104,8 @@ export class AddXuanZePage
 
     this.navCtrl.push(SelectQuestionPage,
       {
-        xz:this.xzChoose
+        everyQuestion:this.everyQuestion,
+        homeworkName:this.homeworkName,
       });
 
   }

@@ -7,13 +7,7 @@ import {AddXuanZePage} from "../add-xuan-ze/add-xuan-ze";
 import {AddTianKongPage} from "../add-tian-kong/add-tian-kong";
 import {AddPanDuanPage} from "../add-pan-duan/add-pan-duan";
 import {AddJieDaPage} from "../add-jie-da/add-jie-da";
-
-/**
- * Generated class for the SelectQuestionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {DetailedQuestionPage} from "../detailed-question/detailed-question";
 
 @IonicPage()
 @Component({
@@ -22,50 +16,59 @@ import {AddJieDaPage} from "../add-jie-da/add-jie-da";
 })
 export class SelectQuestionPage
 {
-  selectedItem: any;
-  homeName: any;
-  url:string;
-  examID:number;
+  everyQuestion: any;
   homeworkName:string;
+  check:number;
 
-  xz:Array<number>=[];//选择题题号
-  tk:Array<number>=[];//填空题题号
-  pd:Array<number>=[]//判断题题号
-  jd:Array<number>=[]//解答题题号
+  xz:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（题号+题目+选项+选项+选项+选项+答案）
+  tk:Array<{id:number,question:string,answer:string}>;//选择题（题号+题目+答案）
+  pd: Array<{ id: number, question: string, answer: string }>;//选择题（题号+题目+答案）
+  jd: Array<{ id: number, question: string, answer: string }>;//选择题（题号+题目+答案）
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
-    this.selectedItem = navParams.get('item');
-    this.homeName = navParams.get('item2');
-    this.examID=this.selectedItem.id;
-    // this.xz=navParams.get('xz');
-    // this.tk=navParams.get('tk');
-    // this.pd=navParams.get('pd');
-    // this.jd=navParams.get('jd');
+    this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.homeworkName=navParams.get('homeworkName');
-    this.url="http://101.201.238.157/demo/index/getquesbyexamID";
+    this.xz=[];
+    this.tk=[];
+    this.pd=[];
+    this.jd=[];
     this.loadTheHomework();
+    alert("尊敬的用户您好！当您添加完成题目后，系统会自动保存这些题目，退出后下一次打开还可以继续编辑；" +
+      "若您点了“发布”按钮之后，则系统会将题目发布出去，并且不再允许修改题目。请您悉知")
+
+    this.http.request("http://101.201.238.157/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
+    {
+      for(let i=0;i<res.json().data.length;i++)
+      {
+        this.check= res.json().data[i].ispublished;
+      }
+    });
+
   }
 
-  ionViewDidLoad()
+  ionViewDidLoad( item )
   {
     console.log('ionViewDidLoad SelectQuestionPage');
+    if(this.check==0) //未发布过的，开放编辑
+      this.edit(item);
   }
 
   edit(item)
   {
+    //item是题目的类型（1234）
     switch(item)
     {
       case 1://选择题
-        this.navCtrl.push(AddXuanZePage, {item:item,examID:this.examID,homeworkName:this.homeworkName});
+        this.navCtrl.push(AddXuanZePage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
         break;
       case 2://填空题
-        this.navCtrl.push(AddTianKongPage, {item:item,examID:this.examID,homeworkName:this.homeworkName});
+        this.navCtrl.push(AddTianKongPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
         break;
       case 3://判断题
-        this.navCtrl.push(AddPanDuanPage, {item:item,examID:this.examID,homeworkName:this.homeworkName});
+        this.navCtrl.push(AddPanDuanPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
         break;
       case 4://解答题
-        this.navCtrl.push(AddJieDaPage, {item:item,examID:this.examID,homeworkName:this.homeworkName});
+        this.navCtrl.push(AddJieDaPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
         break;
     }
   }
@@ -78,17 +81,30 @@ export class SelectQuestionPage
     {
       for(let i=0;i<res.json().data.length;i++)
       {
-        this.xz.push(res.json().data[i].titleId);
+        this.xz.push
+        ({
+          id:res.json().data[i].titleId,//题号
+          question:res.json().data[i].titleBody,//题目
+          A:res.json().data[i].A,//选项们
+          B:res.json().data[i].B,
+          C:res.json().data[i].C,
+          D:res.json().data[i].D,
+          answer:res.json().data[i].answer,//答案
+        });
       }
     });
-
 
     //添加填空题
     this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=2").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
-        this.tk.push(res.json().data[i].titleId);
+        this.tk.push
+        ({
+          id:res.json().data[i].titleId,//题号
+          question:res.json().data[i].titleBody,//题目
+          answer:res.json().data[i].answer,//答案
+        });
       }
     });
 
@@ -97,7 +113,17 @@ export class SelectQuestionPage
     {
       for(let i=0;i<res.json().data.length;i++)
       {
-        this.pd.push(res.json().data[i].titleId);
+        let st= res.json().data[i].answer;
+        if(res.json().data[i].answer=="1")
+          st="正确";
+        else
+          st="错误";
+        this.pd.push
+        ({
+          id: res.json().data[i].titleId,//题号
+          question: res.json().data[i].titleBody,//题目
+          answer: st,//答案
+        });
       }
     });
 
@@ -106,7 +132,50 @@ export class SelectQuestionPage
     {
       for(let i=0;i<res.json().data.length;i++)
       {
-        this.jd.push(res.json().data[i].titleId);
+        this.jd.push
+        ({
+          id: res.json().data[i].titleId,//题号
+          question: res.json().data[i].titleBody,//题目
+          answer: res.json().data[i].answer,//答案
+        });
+      }
+    });
+  }
+
+  //点击题目序号之后显示题目详情
+  showDetailedQuestion(id)
+  {
+    this.navCtrl.push(
+      DetailedQuestionPage,
+      {
+       id:id,
+      });
+  }
+
+  //发布作业
+  publishHomeWork()
+  {
+    this.http.get("http://101.201.238.157/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
+    {
+      if (res.json().data == "1")
+      {
+        let toast = this.toastCtrl.create
+        ({
+          message: '发布成功',
+          duration: 2000,
+          position: 'middle'
+        });
+        toast.present();
+      }
+      else
+      {
+        let toast = this.toastCtrl.create
+        ({
+          message: '发布失败',
+          duration: 2000,
+          position: 'middle'
+        });
+        toast.present();
       }
     });
   }

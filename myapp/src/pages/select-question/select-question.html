@@ -16,41 +16,41 @@
 
   <div class="list" align="left">
     选择题
-    <button class="add" (click)="edit(1)">
+    <button class="add" (click)="ionViewDidLoad(1)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center" *ngFor="let X of xz">{{X}}</button>
+    <button class="num"  align="center"  *ngFor="let X of xz" (click)="showDetailedQuestion(X.id)" >{{X.id}}</button>
   </div>
 
   <div class="list" align="left" style="margin-top: 60px;">
     填空题
-    <button class="add" (click)="edit(2)">
+    <button class="add" (click)="ionViewDidLoad(2)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center" *ngFor="let T of tk">{{T}}</button>
+    <button class="num"  align="center" *ngFor="let T of tk" (click)="showDetailedQuestion(T.id)">{{T.id}}</button>
   </div>
 
   <div class="list" align="left"  style="margin-top: 60px;">
     判断题
-    <button class="add" (click)="edit(3)">
+    <button class="add" (click)="ionViewDidLoad(3)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center" *ngFor="let P of pd">{{P}}</button>
+    <button class="num"  align="center" *ngFor="let P of pd" (click)="showDetailedQuestion(P.id)">{{P.id}}</button>
   </div>
 
   <div class="list" align="left"  style="margin-top: 60px;">
     解答题
-    <button class="add" (click)="edit(4)">
+    <button class="add" (click)="ionViewDidLoad(4)">
       +
     </button>
     <hr class="line"/>
-    <button class="num"  align="center" *ngFor="let J of jd">{{J}}</button>
+    <button class="num"  align="center" *ngFor="let J of jd" (click)="showDetailedQuestion(J.id)">{{J.id}}</button>
   </div>
 
-    <button class="padding"  align="center"><b>发布</b></button>
+  <button class="padding"  align="center" (click)="publishHomeWork()"><b>发布</b></button>
 
   <br>
   <br>

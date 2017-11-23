@@ -3,13 +3,6 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {Http,Response}from "@angular/http";
 import {SelectQuestionPage} from "../select-question/select-question";
 
-/**
- * Generated class for the AddTianKongPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-add-tian-kong',
@@ -21,16 +14,18 @@ export class AddTianKongPage
   examID:number;//知识点
   url:string;//链接
   count:number;//计数
-  tk:Array<{id:number,question:string,answer:string}>;//选择题（题号+题目+答案）
+  tk:Array<{id:number,question:string,answer:string}>;//填空题（题号+题目+答案）
   tkChoose:Array<number>=[];
   checkBox:any;
   homeworkName:string;
+  everyQuestion: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
+    this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.type = navParams.get('item');//题目类型
-    this.examID = navParams.get('examID');//知识点
-    this.homeworkName=navParams.get('homeworkName');
+    this.examID = this.everyQuestion.id;//知识点ID
+    this.homeworkName=navParams.get('homeworkName');//作业名称
     this.tk = [];
     this.count = 0;
     this.loadTK();
@@ -102,7 +97,8 @@ export class AddTianKongPage
 
     this.navCtrl.push(SelectQuestionPage,
       {
-        tk:this.tkChoose
+        everyQuestion:this.everyQuestion,
+        homeworkName:this.homeworkName,
       });
   }
 }

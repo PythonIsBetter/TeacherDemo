@@ -1,9 +1,3 @@
-<!--
-  Generated template for the StuConPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -19,10 +13,6 @@
     <b class="dian">·</b>
     专项练习
   </div>
-
-
-
-
   <div class="card">
     <!--<div  #container1 class="div-charts"></div>-->
     <div class="left">
@@ -39,21 +29,6 @@
     <b class="dian">·</b>
     试卷
   </div>
-  <!--<div class="card">-->
-    <!--&lt;!&ndash;<div  #container1 class="div-charts"></div>&ndash;&gt;-->
-    <!--<div class="leftex">-->
-      <!--<div>{{tests[2].name}}：<b>{{tests[2].num}}</b></div>-->
-      <!--<div #container3 class="div-charts2" (click)="itemTapped($event, tests[2],student)"></div>-->
-    <!--</div>-->
-    <!--<div class="centerex">-->
-      <!--<div>{{tests[3].name}}：<b>{{tests[3].num}}</b></div>-->
-      <!--<div #container4 class="div-charts2" (click)="itemTapped($event, tests[3],student)"></div>-->
-    <!--</div>-->
-    <!--<div class="rightex">-->
-      <!--<div>{{tests[4].name}}：<b>{{tests[4].num}}</b></div>-->
-      <!--<div #container5 class="div-charts2" (click)="itemTapped($event, tests[4],student)"></div>-->
-    <!--</div>-->
-  <!--</div>-->
   <ion-row class="card" padding-left="100px">
     <!--<div  #container1 class="div-charts"></div>-->
     <ion-col >
@@ -71,11 +46,6 @@
 
 
   </ion-row>
-    <!--<div class="right">-->
-      <!--<div>专项练习</div>-->
-      <!--<div #container1 class="div-charts"></div>-->
-    <!--</div>-->
-  <!--<div #container1 class="div-charts"></div>-->
 
   <div class="ltitle">
     <b class="dian">·</b>
@@ -85,7 +55,7 @@
 
     <ion-col *ngFor="let home of homework;let i = index;">
       <div >{{home.name}}</div>
-      <div id="chart{{i}}" class="div-charts2" (click)="itemTapped($event, tests[2],student)"></div>
+      <div id="chart{{i}}" class="div-charts2" (click)="itemTapped2($event, tests[2],student,home)"></div>
     </ion-col>
 
 

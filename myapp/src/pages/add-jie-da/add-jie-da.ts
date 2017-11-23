@@ -21,15 +21,18 @@ export class AddJieDaPage
   examID: number;//知识点
   url: string;//链接
   count: number;//计数
-  jd: Array<{ id: number, question: string, answer: string }>;//选择题（题号+题目+答案）
+  jd: Array<{ id: number, question: string, answer: string }>;//解答题（题号+题目+答案）
   jdChoose: Array<number> = [];
   checkBox: any;
   homeworkName:string;
+  everyQuestion: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController)
+  {
+    this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.type = navParams.get('item');//题目类型
-    this.examID = navParams.get('examID');//知识点
-    this.homeworkName=navParams.get('homeworkName');
+    this.examID = this.everyQuestion.id;//知识点ID
+    this.homeworkName=navParams.get('homeworkName');//作业名称
     this.jd = [];
     this.count = 0;
     this.loadJD();
@@ -98,7 +101,8 @@ export class AddJieDaPage
 
     this.navCtrl.push(SelectQuestionPage,
       {
-        jd: this.jdChoose
+        everyQuestion:this.everyQuestion,
+        homeworkName:this.homeworkName,
       });
   }
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StuPrePage} from "../stu-pre/stu-pre";
 import {SubItemPage} from "../sub-item/sub-item";
 import {Http, Response} from "@angular/http";
+import {HomeworkForStudentPage} from "../homework-for-student/homework-for-student";
 declare var echarts;
 /**
  * Generated class for the StuConPage page.
@@ -71,12 +72,12 @@ export class StuConPage {
     // this.exam3="50";
     this.tests.push({
       id:"1",
-      name:"专项练习一",
+      name:"语文专项练习",
       num:"75"
     },
       {
         id:"2",
-        name:"专项练习二",
+        name:"数学专项练习",
         num:"50"
       },
       {
@@ -105,12 +106,21 @@ export class StuConPage {
     });
   }
 
+  itemTapped2(event, item,item2,homework) {
+    this.navCtrl.push(HomeworkForStudentPage, {
+      item: item,
+      item2:item2,
+      homework:homework
+    });
+  }
+
   itemTapped1(event, item,item2) {
     this.navCtrl.push(SubItemPage, {
       item: item,
       item2:item2
     });
   }
+
   ionViewDidLoad() {
 
   }
