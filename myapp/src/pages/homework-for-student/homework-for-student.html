@@ -44,8 +44,8 @@
     <!--<div  *ngIf="!IsInArray(i,numRight)&&!IsInArray(i,numWrong)" class="numNull"><span class="num1">{{i}}</span></div>-->
     <!--</div>-->
     <div *ngFor="let qus of ques ;let i = index;"class="num">
-      <div  *ngIf="IsInArray(qus.titleid,quesRight)" class="numRight"  (click)="itemTapped(qus.titleid)" ><span class="num1">{{qus.titleid}}</span></div>
-      <div  *ngIf="IsInArray(qus.titleid,quesWrong)" class="numNotRight" (click)="itemTapped(qus.titleid)"><span class="num1">{{qus.titleid}}</span></div>
+      <div  *ngIf="IsInArray(qus.titleid,quesRight)" class="numRight"  (click)="itemTapped(r.id)" ><span class="num1">{{qus.titleid}}</span></div>
+      <div  *ngIf="IsInArray(qus.titleid,quesWrong)" class="numNotRight" (click)="itemTapped(w.id)"><span class="num1">{{qus.titleid}}</span></div>
       <div  *ngIf="!IsInArray(qus.titleid,quesRight)&&!IsInArray(qus.titleid,quesWrong)" class="numNull" (click)="itemTapped(qus.titleid)"><span class="num1">{{qus.titleid}}</span></div>
     </div>
 
