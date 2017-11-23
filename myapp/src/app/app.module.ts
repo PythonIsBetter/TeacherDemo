@@ -33,6 +33,7 @@ import {AddPanDuanPage} from "../pages/add-pan-duan/add-pan-duan";
 import {HomeworkListPage} from "../pages/homework-list/homework-list";
 import {DetailedQuestionPage} from "../pages/detailed-question/detailed-question";
 import {HomeworkForStudentPage} from "../pages/homework-for-student/homework-for-student";
+import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-done-homework";
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import {HomeworkForStudentPage} from "../pages/homework-for-student/homework-for
     AddPanDuanPage,
     HomeworkListPage,
     DetailedQuestionPage,
-    HomeworkForStudentPage
+    HomeworkForStudentPage,
+    StudentDoneHomeworkPage
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,8 @@ import {HomeworkForStudentPage} from "../pages/homework-for-student/homework-for
     AddPanDuanPage,
     HomeworkListPage,
     DetailedQuestionPage,
-    HomeworkForStudentPage
+    HomeworkForStudentPage,
+    StudentDoneHomeworkPage
   ],
   providers: [
     StatusBar,

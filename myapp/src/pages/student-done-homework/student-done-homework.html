@@ -1,0 +1,59 @@
+<!--
+  Generated template for the EditQuestionPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>第 {{id}} 题</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="list" align="left" *ngFor="let que of question">
+    <br>
+
+    <div class="blank" align="left">
+      {{que.question}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      {{que.A}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      {{que.B}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      {{que.C}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      {{que.D}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      &nbsp;正确答案： {{que.answer}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      &nbsp;学生答案： {{que.stu_ans}}
+    </div>
+    <br>
+
+    <div class="blank" align="left">
+      &nbsp;解析： {{que.analysis}}
+    </div>
+    <br>
+
+  </div>
+</ion-content>

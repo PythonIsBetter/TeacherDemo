@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {QuaDetailPage} from "../qua-detail/qua-detail";
 import {Http, Response} from "@angular/http";
+import {StudentDoneHomeworkPage} from "../student-done-homework/student-done-homework";
 
 @IonicPage()
 @Component({
@@ -13,7 +14,6 @@ export class HomeworkForStudentPage
   subItem: any;
   student:any;
   homework:any;
-  homeworkID:any;
   num:any;
   numRight:any;
   numWrong:any;
@@ -32,24 +32,23 @@ export class HomeworkForStudentPage
     this.subItem = navParams.get('item');
     this.student = navParams.get('item2');
     this.homework=this.navParams.get('homework');
-
-    this.getID();//获取ID
-
     this.ques=[];
     this.quesRight=[];
     this.quesWrong=[];
-    this.urlQuesAll+="?homeName="+this.homework.name;
-    this.urlQuesRight+="?stuid="+this.student.id+"&hid="+this.homeworkID;
-    this.urlQuesWrong+="?stuid="+this.student.id+"&hid="+this.homeworkID;
+
   }
 
   ionViewDidLoad()
   {
-    console.log('ionViewDidLoad StuPrePage');
+    this.urlQuesAll+="?name="+this.homework.name;
+    this.urlQuesRight+="?stuid="+this.student.id+"&hid="+this.homework.id;
+    this.urlQuesWrong+="?stuid="+this.student.id+"&hid="+this.homework.id;
+
     this.http.request(this.urlQuesAll)
       .subscribe((res:Response)=>
       {
         this.num=res.json().data.length;
+
         for(let i=0;i<res.json().data.length;i++)
         {
           this.ques.push({
@@ -104,24 +103,12 @@ export class HomeworkForStudentPage
     });
   }
 
-  itemTapped(event, item,item2)
+  itemTapped(id)
   {
-    this.navCtrl.push(QuaDetailPage,
+    this.navCtrl.push(StudentDoneHomeworkPage,
       {
-      item: item,
-      item2:item2
-    });
-  }
-
-  //根据作业名称的到ID
-  getID()
-  {
-    this.http.request("http://101.201.238.157/demo/index/getHomeworkState?name="+this.homework.name).subscribe((res:Response)=>
-    {
-      for(let i=0;i<res.json().data.length;i++)
-      {
-        this.homeworkID= res.json().data[i].id;
-      }
+        stuid: this.student.id,
+        id:id
     });
   }
 }
