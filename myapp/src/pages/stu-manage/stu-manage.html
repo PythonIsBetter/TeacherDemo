@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title text-center>班级管理</ion-title>
     <div class="rightbutton">
-      <img src="../../assets/icon/Plus.png"  (click)="itemTapped($event, selectedItem)" height="40" width="40">
+      <img src="../assets/icon/Plus.png"  (click)="itemTapped($event, selectedItem)" height="40" width="40">
     </div>
   </ion-navbar>
 
@@ -32,7 +32,7 @@
       <td>{{student.age}}</td>
       <td>{{student.sex}}</td>
       <td>{{student.school}}</td>
-      <td><button (click)="itemTapped1($event, student)">详情</button></td>
+      <td><button (click)="itemTapped1($event, student,selectedItem)">详情</button></td>
     </tr>
 
   </table>

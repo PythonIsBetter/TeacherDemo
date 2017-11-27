@@ -105,22 +105,38 @@ page-stu-pre {
 
   }
   .numRight{
+    //width: 70px;
+    //height: 70px;
+    //border-radius: 50%;
+    //-moz-border-radius: 50%;;
+    //-webkit-border-radius: 50%;
+    //border:3px solid #51a7e8;
+    //padding-top:25px;
+    //padding-left: 30px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    background: #00FFFF;
     -moz-border-radius: 50%;;
     -webkit-border-radius: 50%;
-    border:3px solid #51a7e8;
     padding-top:25px;
     padding-left: 30px;
   }
   .numNull{
+    //width: 70px;
+    //height: 70px;
+    //border-radius: 50%;
+    //-moz-border-radius: 50%;;
+    //-webkit-border-radius: 50%;
+    //border:3px solid #8f8f8f;
+    //padding-top:25px;
+    //padding-left: 30px;
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    background: #8f8f8f;
     -moz-border-radius: 50%;;
     -webkit-border-radius: 50%;
-    border:3px solid #8f8f8f;
     padding-top:25px;
     padding-left: 30px;
   }

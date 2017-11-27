@@ -65,7 +65,7 @@ export class AddClassPage {
     //****************
     this.id= (<HTMLInputElement>document.getElementById("idx")).value;
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
-    this.subject= this.subjects[selectIndex];
+    this.subject= (selectIndex).toString();
     this.head= (<HTMLInputElement>document.getElementById("headx")).value;
     this.url=this.url+"?"+"id="+this.id+"&"
       +"name="+this.name+"&"+"subject="+this.subject

@@ -71,9 +71,10 @@ export class StuManagePage {
     });
   }
 
-  itemTapped1(event, item) {
+  itemTapped1(event, item,item2) {
     this.navCtrl.push(StuConPage, {
-      item: item
+      item: item,
+      item2:item2
     });
   }
 

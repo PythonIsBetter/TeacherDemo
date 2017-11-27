@@ -13,17 +13,29 @@
     <b class="dian">·</b>
     专项练习
   </div>
-  <div class="card">
+  <ion-row class="card" padding-left="100px">
     <!--<div  #container1 class="div-charts"></div>-->
-    <div class="left">
+    <ion-col >
       <div>{{tests[0].name}}：<b>{{tests[0].num}}</b></div>
       <div #container2 class="div-charts" (click)="itemTapped1($event, tests[0],student)"></div>
-    </div>
-    <div class="right">
-       <div>{{tests[1].name}}：<b>{{tests[1].num}}</b></div>
-       <div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>
-    </div>
-  </div>
+    </ion-col>
+    <ion-col >
+      <div>{{tests[1].name}}：<b>{{tests[1].num}}</b></div>
+      <div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>
+    </ion-col>
+
+  </ion-row>
+  <!--<div class="card">-->
+    <!--&lt;!&ndash;<div  #container1 class="div-charts"></div>&ndash;&gt;-->
+    <!--<div class="left">-->
+      <!--<div>{{tests[0].name}}：<b>{{tests[0].num}}</b></div>-->
+      <!--<div #container2 class="div-charts" (click)="itemTapped1($event, tests[0],student)"></div>-->
+    <!--</div>-->
+    <!--<div class="right">-->
+       <!--<div>{{tests[1].name}}：<b>{{tests[1].num}}</b></div>-->
+       <!--<div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>-->
+    <!--</div>-->
+  <!--</div>-->
 
   <div class="ltitle">
     <b class="dian">·</b>

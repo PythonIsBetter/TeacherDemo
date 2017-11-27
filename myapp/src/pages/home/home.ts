@@ -19,16 +19,21 @@ export class HomePage {
   name:string;
   subject:string;
   head:string;
-  classes:Array<{id:String,name:String,subject:String,head:String}>;
+  subjects:Array<String>;
+  classes:Array<{id:String,name:String,subject:String,head:String,cid:String}>;
 
   constructor(public navCtrl: NavController,public http :Http) {
     this.classes=[];
-
+    this.subjects=["测试","语文","数学","英语","高等数学","计算机","化学","化学","计算机网络","化学","思想品德"];
+    // this.subjects.push("语文");
+    // this.subjects.push("数学");
+    // this.subjects.push("英语");
     this.classes.push({
       id:"12345",
       name:"一班",
       subject:"XX",
-      head:"teach"
+      head:"teach",
+      cid:"测试id"
     });
     //this.url="http://localhost:8090/public/admin/index/insert";
     //this.url="http://101.201.238.157/demo/index/cla_insert";
@@ -39,8 +44,9 @@ export class HomePage {
         this.classes.push({
           id:res.json().data[i].id,
           name:res.json().data[i].name,
-          subject:res.json().data[i].subject,
+          subject:this.subjects[res.json().data[i].subject],
           head:res.json().data[i].head,
+          cid:res.json().data[i].cid
         });
       }
     });

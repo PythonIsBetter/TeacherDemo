@@ -40,20 +40,33 @@ export class StuConPage {
   tests:Array<{id:string,name:string,num:string}>;
   urlGetHomeworkList;string;
   homework:Array<{id:string,name:string}>;
+  urlGetStuPracticeMark:string;
+  urlGetStuMathPracticeMark:string;
+ // test:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
     this.tests=[];
+
     this.homework=[];
     this.student = navParams.get('item');
     this.classes=[];
-    this.classid="12345";
+    this.classid=navParams.get('item2').id;
+    this.urlGetStuPracticeMark="http://101.201.238.157/demo/index/getStuPracticeMark";
     this.urlGetHomeworkList="http://101.201.238.157/demo/index/getHomeworkList";
     this.urlGetHomeworkList+="?classid="+this.classid;
+    this.urlGetStuMathPracticeMark=this.urlGetStuPracticeMark+"?stuid="+this.student.id+"&subid="+"2";
+
     //this.url="http://localhost:8090/public/admin/index/insert";
     //this.url="http://101.201.238.157/demo/index/cla_insert";
     // this.homework.push({
     //   id:"123",
     //   name:"lalala"
     // });
+    this.http.request(this.urlGetStuMathPracticeMark)
+      .subscribe((res:Response)=>{
+       //this.test=res.json().data.right;
+
+      });
+
     this.http.request(this.urlGetHomeworkList)
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().data.length;i++)

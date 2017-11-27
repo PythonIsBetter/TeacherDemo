@@ -25,6 +25,7 @@ export class ClassDetailPage
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
     this.selectedItem = navParams.get('item');
+
   }
 
   ionViewDidLoad()

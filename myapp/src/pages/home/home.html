@@ -5,7 +5,8 @@
       班级
     </ion-title>
     <div class="rightbutton">
-      <img src="../../assets/icon/Plus.png"  (click)="itemTapped($event, item)" height="40" width="40">
+      <!--<img src="../assets/icon/Plus.png"  (click)="itemTapped($event, item)" height="40" width="40">-->
+      <ion-icon name="add" margin-top="0.3px"  (click)="itemTapped($event, item)"></ion-icon>
     </div>
 
   </ion-navbar>
@@ -24,7 +25,7 @@
       <div class="item-note dian" item-left>
         <b>·</b>
       </div>
-      {{class.subject}}{{class.name}}({{class.id}})
+      {{class.subject}}{{class.name}}({{class.cid}})
       <div class="item-note" item-right>
         >
       </div>
