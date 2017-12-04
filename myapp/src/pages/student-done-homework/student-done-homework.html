@@ -6,7 +6,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>第 {{id}} 题</ion-title>
+    <ion-title>第 {{id}} 题1</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,28 +15,28 @@
   <div class="list" align="left" *ngFor="let que of question">
     <br>
 
-    <div class="blank" align="left">
-      {{que.question}}
+    <div class="blank" align="left" [innerHTML]="que.question">
+
     </div>
     <br>
 
-    <div class="blank" align="left">
-      {{que.A}}
+    <div class="blank" align="left" [innerHTML]="que.A">
+
     </div>
     <br>
 
-    <div class="blank" align="left">
-      {{que.B}}
+    <div class="blank" align="left" [innerHTML]="que.B">
+
     </div>
     <br>
 
-    <div class="blank" align="left">
-      {{que.C}}
+    <div class="blank" align="left" [innerHTML]="que.C">
+
     </div>
     <br>
 
-    <div class="blank" align="left">
-      {{que.D}}
+    <div class="blank" align="left" [innerHTML]="que.D">
+
     </div>
     <br>
 
