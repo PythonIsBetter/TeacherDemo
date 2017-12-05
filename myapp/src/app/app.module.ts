@@ -34,6 +34,8 @@ import {HomeworkListPage} from "../pages/homework-list/homework-list";
 import {DetailedQuestionPage} from "../pages/detailed-question/detailed-question";
 import {HomeworkForStudentPage} from "../pages/homework-for-student/homework-for-student";
 import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-done-homework";
+import {ReportHomeworkPage} from "../pages/report-homework/report-homework";
+import {ReportHomeworkDetailPage} from "../pages/report-homework-detail/report-homework-detail";
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
     HomeworkListPage,
     DetailedQuestionPage,
     HomeworkForStudentPage,
-    StudentDoneHomeworkPage
+    StudentDoneHomeworkPage,
+    ReportHomeworkPage,
+    ReportHomeworkDetailPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +104,9 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
     HomeworkListPage,
     DetailedQuestionPage,
     HomeworkForStudentPage,
-    StudentDoneHomeworkPage
+    StudentDoneHomeworkPage,
+    ReportHomeworkPage,
+    ReportHomeworkDetailPage
   ],
   providers: [
     StatusBar,

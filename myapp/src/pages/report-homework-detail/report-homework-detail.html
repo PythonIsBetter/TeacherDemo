@@ -1,0 +1,36 @@
+<!--
+  Generated template for the ReportHomeworkDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>{{homework.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <table class="stu_table">
+    <thead>
+    <tr>
+      <th>学生姓名</th>
+      <th>得分</th>
+      <th>错误个数</th>
+      <th>学习状况</th>
+      <th>详情</th>
+    </tr>
+    </thead>
+    <tr *ngFor="let class of homeworkDetail">
+      <td>{{class.stuName}}</td>
+      <td>{{class.mark}}</td>
+      <td>{{class.wrongAnswer}}</td>
+      <td>{{class.submitLastTime}}</td>
+      <td><button (click)="itemTapped1($event, student,selectedItem)">详情</button></td>
+    </tr>
+
+  </table>
+</ion-content>

@@ -1,0 +1,88 @@
+page-add-tian-kong
+{
+  .list
+  {
+    //list的宽度和高度
+    width: 100%;
+    height: 80%;
+    font-size: 20px;//字体大小
+    margin:0 auto; //框框居中
+    //框框的阴影
+    -webkit-box-shadow: #666 10px 10px 20px;
+    -moz-box-shadow: #666 10px 10px 20px;
+    box-shadow: #666 0px 0px 20px;
+    margin-top: 5%;
+  }
+
+  .blank
+  {
+    width: 100%;
+    height: 8%;
+    font-size: 30px;//字体大小
+    margin:0 auto; //框框居中
+  }
+
+  .line
+  {
+    //横线长度、颜色
+    margin-top:20px;
+    height:1%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.63);
+  }
+
+  .b1
+  {
+    //选项按钮位置和大小
+    width: 13%;
+    height: 130%;
+    border-radius: 100%;
+    margin-left: 3%;
+    line-height: 20%;
+    border: 2px solid rgba(0, 21, 255, 0.91);//边框的粗细和颜色
+    background-color: transparent;//数字是按钮，因此把背景变透明
+    float: left;//让多个div在一行内显示
+    font-size: 20px;//字体大小
+  }
+
+  .b2
+  {
+    //答案按钮位置和大小
+    width: 77%;
+    height: 130%;
+    border-radius: 20% 20% 20% 20%;
+    margin-left: 4%;
+    line-height: 20%;
+    border: 2px solid rgba(0, 21, 255, 0.91);//边框的粗细和颜色
+    background-color: transparent;//数字是按钮，因此把背景变透明
+    float: left;//让多个div在一行内显示
+    font-size: 15px;//字体大小
+  }
+
+  .true
+  {
+    background-color: rgba(0, 255, 87, 0.67);//数字是按钮，因此把背景变透明
+  }
+
+  .padding
+  {
+    height: 6%;
+    width: 80%;
+    position: fixed;
+    top: 82%;
+    left: 10%;
+    background: #51a7e8;
+    color: #FFFFFF;
+    font-family: 黑体;
+    -moz-border-radius:25px;
+  }
+
+  .choose
+  {
+    margin-left: 80%;
+    height: 10%;
+    width: 30%;
+    zoom: 200%;
+    font-size: 10px;
+  }
+}
