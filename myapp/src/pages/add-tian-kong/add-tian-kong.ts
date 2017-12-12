@@ -16,7 +16,6 @@ export class AddTianKongPage
   count:number;//计数
   tk:Array<{id:number,question:string,answer:string}>;//填空题（题号+题目+答案）
   tkChoose:Array<number>=[];
-  checkBox:any;
   homeworkName:string;
   everyQuestion: any;
 
@@ -53,45 +52,21 @@ export class AddTianKongPage
     });
   }
 
+  //动态获取多选框的值
+  changeTheValue(id)
+  {
+    this.tkChoose.push(id);
+  }
+
   //添加题目
   add()
   {
-    this.checkBox= document.getElementsByName("add");
-    for(let i=0;i<=this.count;i++)
+    for(let k=0;k<this.tkChoose.length;k++)
     {
-      if(this.checkBox[i].checked)
+      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.tkChoose[k]).subscribe(res=>
       {
-        this.tkChoose.push(i+1);
-
-      }
-    }
-
-    for(let k=0;k<=this.tkChoose.length;k++)
-    {
-      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.tkChoose.pop()).subscribe(res=>
-      {
-        if (res.json().data == "1")
-        {
-          // alert("创建成功");
-          let toast = this.toastCtrl.create
-          ({
-            message: '通过成功',
-            duration: 2000,
-            position: 'middle'
-          });
-          toast.present();
-        }
-        else
-        {
-          // alert("创建失败");
-          let toast = this.toastCtrl.create
-          ({
-            message: '通过失败',
-            duration: 2000,
-            position: 'middle'
-          });
-          toast.present();
-        }
+        if (res.json().code != "200")
+          alert("第 "+k+" 题添加失败");
       });
     }
 

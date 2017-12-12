@@ -11,27 +11,30 @@ import 'rxjs/add/operator/map';
 })
 export class DetailedQuestionPage
 {
-  id:number;//题号
+  id:number;//序号
+  titleID:number;//题号
   question:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer:string}>;//题目（题号+题目+选项+选项+选项+选项+答案）
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
     this.id = navParams.get('id');//题号
+    this.titleID=navParams.get('titleID');
+    alert(this.titleID);
     this.question=[];
     this.loadQuestion();
   }
 
   ionViewDidLoad() {console.log('ionViewDidLoad DetailedQuestionPage');}
 
-  //加载选择题
+  //加载题目详情
   loadQuestion()
   {
-    this.http.request("http://101.201.238.157/demo/index/getQuesDetail?titleid="+this.id).subscribe((res:Response)=>
+    this.http.request("http://101.201.238.157/demo/index/getQuesDetail?titleid="+this.titleID).subscribe((res:Response)=>
     {
-      if(this.id==1)
+      for(let i=0;i<res.json().data.length;i++)
       {
-        for(let i=0;i<res.json().data.length;i++)
-        {
+        //选择题
+        if(res.json().data[i].type==1)
           this.question.push
           ({
             id:res.json().data[i].titleId,//题号
@@ -42,12 +45,9 @@ export class DetailedQuestionPage
             D:"D、 "+res.json().data[i].D,
             answer:res.json().data[i].answer,//答案
           });
-        }
-      }
-      else
-      {
-        for(let i=0;i<res.json().data.length;i++)
-        {
+
+        //非选择题
+        else
           this.question.push
           ({
             id:res.json().data[i].titleId,//题号
@@ -58,10 +58,7 @@ export class DetailedQuestionPage
             D:"",
             answer:res.json().data[i].answer,//答案
           });
-        }
       }
-
     });
   }
-
 }

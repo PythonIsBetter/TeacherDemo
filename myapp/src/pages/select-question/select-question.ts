@@ -20,10 +20,10 @@ export class SelectQuestionPage
   homeworkName:string;
   check:number;
 
-  xz:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（题号+题目+选项+选项+选项+选项+答案）
-  tk:Array<{id:number,question:string,answer:string}>;//选择题（题号+题目+答案）
-  pd: Array<{ id: number, question: string, answer: string }>;//选择题（题号+题目+答案）
-  jd: Array<{ id: number, question: string, answer: string }>;//选择题（题号+题目+答案）
+  xz:Array<{id:number,titleID:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（序号+题号+题目+选项+选项+选项+选项+答案）
+  tk:Array<{id:number,titleID:number,question:string,answer:string}>;//选择题（序号+题号+题目+答案）
+  pd: Array<{id:number,titleID:number, question: string, answer: string }>;//选择题（序号+题号+题目+答案）
+  jd: Array<{id:number,titleID:number, question: string, answer: string }>;//选择题（序号+题号+题目+答案）
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
     this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
@@ -83,7 +83,8 @@ export class SelectQuestionPage
       {
         this.xz.push
         ({
-          id:res.json().data[i].titleId,//题号
+          id:i+1,
+          titleID:res.json().data[i].titleId,//题号
           question:res.json().data[i].titleBody,//题目
           A:res.json().data[i].A,//选项们
           B:res.json().data[i].B,
@@ -101,7 +102,8 @@ export class SelectQuestionPage
       {
         this.tk.push
         ({
-          id:res.json().data[i].titleId,//题号
+          id:i+1,
+          titleID:res.json().data[i].titleId,//题号
           question:res.json().data[i].titleBody,//题目
           answer:res.json().data[i].answer,//答案
         });
@@ -120,7 +122,8 @@ export class SelectQuestionPage
           st="错误";
         this.pd.push
         ({
-          id: res.json().data[i].titleId,//题号
+          id:i+1,
+          titleID:res.json().data[i].titleId,//题号
           question: res.json().data[i].titleBody,//题目
           answer: st,//答案
         });
@@ -134,7 +137,8 @@ export class SelectQuestionPage
       {
         this.jd.push
         ({
-          id: res.json().data[i].titleId,//题号
+          id:i+1,
+          titleID:res.json().data[i].titleId,//题号
           question: res.json().data[i].titleBody,//题目
           answer: res.json().data[i].answer,//答案
         });
@@ -143,12 +147,13 @@ export class SelectQuestionPage
   }
 
   //点击题目序号之后显示题目详情
-  showDetailedQuestion(id)
+  showDetailedQuestion(titleID,id)
   {
     this.navCtrl.push(
       DetailedQuestionPage,
       {
-       id:id,
+        titleID:titleID,
+        id:id
       });
   }
 
