@@ -12,7 +12,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {ClassPage} from "../pages/class/class";
 import {AddClassPage} from "../pages/add-class/add-class";
-import {Http}from '@angular/http';
 import {HttpModule}from '@angular/http';
 import {StoragePage} from "../pages/storage/storage";
 import {PersonalInfoPage} from "../pages/personal-info/personal-info";
@@ -34,10 +33,17 @@ import {HomeworkListPage} from "../pages/homework-list/homework-list";
 import {DetailedQuestionPage} from "../pages/detailed-question/detailed-question";
 import {HomeworkForStudentPage} from "../pages/homework-for-student/homework-for-student";
 import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-done-homework";
+import {ReportHomeworkPage} from "../pages/report-homework/report-homework";
+import {ReportHomeworkDetailPage} from "../pages/report-homework-detail/report-homework-detail";
+import {ExerciseDetailPage} from "../pages/exercise-detail/exercise-detail";
+import {ExercisePage} from "../pages/exercise/exercise";
+import {ExerciseRightDetailPage} from "../pages/exercise-right-detail/exercise-right-detail";
 
 @NgModule({
   declarations: [
     MyApp,
+    ExerciseRightDetailPage,
+    ExerciseDetailPage,
     AboutPage,
     ContactPage,
     HomePage,
@@ -56,6 +62,7 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
     SelectQuestionPage,
     QuaDetailPage,
     PublishNoticePage,
+    ExercisePage,
     ShareFilePage,
     SubItemPage,
     AddXuanZePage,
@@ -64,7 +71,9 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
     HomeworkListPage,
     DetailedQuestionPage,
     HomeworkForStudentPage,
-    StudentDoneHomeworkPage
+    StudentDoneHomeworkPage,
+    ReportHomeworkPage,
+    ReportHomeworkDetailPage
   ],
   imports: [
     BrowserModule,
@@ -75,7 +84,9 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
   entryComponents: [
     MyApp,
     AboutPage,
+    ExerciseRightDetailPage,
     ContactPage,
+    ExerciseDetailPage,
     HomePage,
     TabsPage,
     ClassPage,
@@ -91,6 +102,7 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
     StuPrePage,
     SelectQuestionPage,
     PublishNoticePage,
+    ExercisePage,
     ShareFilePage,
     QuaDetailPage,
     SubItemPage,
@@ -100,7 +112,9 @@ import {StudentDoneHomeworkPage} from "../pages/student-done-homework/student-do
     HomeworkListPage,
     DetailedQuestionPage,
     HomeworkForStudentPage,
-    StudentDoneHomeworkPage
+    StudentDoneHomeworkPage,
+    ReportHomeworkPage,
+    ReportHomeworkDetailPage
   ],
   providers: [
     StatusBar,

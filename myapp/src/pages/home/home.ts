@@ -51,7 +51,7 @@ export class HomePage {
       }
     });
 
-
+console.log(this.classes);
   }
   itemTapped(event, item) {
     this.navCtrl.push(AddClassPage, {

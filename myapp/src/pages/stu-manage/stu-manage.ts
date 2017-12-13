@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import {AddStuPage} from "../add-stu/add-stu";
 import {StuConPage} from "../stu-con/stu-con";
+import {ExercisePage} from "../exercise/exercise";
 
 /**
  * Generated class for the StuManagePage page.
@@ -25,44 +26,38 @@ export class StuManagePage {
   sex:string;
   school:string;
   condition :string;
-  selectedItem: any;
+  selectedItem: any;//主要传过来班级id
   url:string;
-  students:Array<{id:String,name:String,age:String,sex:String,school:String}>;
+  students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
-    this.selectedItem = navParams.get('item');
+    this.selectedItem = navParams.get('item');//主要用班级id
 
   //  this.url="http://localhost:8090/public/admin/index/getStuPassed";
-      this.url="http://101.201.238.157/demo/index/getStuPassed";
-    this.url=this.url+"?"+"id="+this.selectedItem.id;
+    this.url="http://101.201.238.157/demo/index/getStuPassed1?id=";
+    this.url=this.url+this.selectedItem.id;
     this.students=[];
-    this.students.push({
-      id:"测试id",
-      name:"XXX",
-      age:"X岁",
-      sex:"男",
-      school:"XXX学校"
-     }
-    );
     this.http.request(this.url)
       .subscribe((res:Response)=>{
-
         for(let i=0;i<res.json().data.length;i++)
         {
           this.students.push({
             id:res.json().data[i].login_id,
             name:res.json().data[i].name,
-            age:res.json().data[i].age,
-            sex:res.json().data[i].sex,
-            school:res.json().data[i].school
+            nickname:res.json().data[i].nickname,
+            email:res.json().data[i].email,
+            gender:(res.json().data[i].gender == "1") ? '男' : '女',
+            birthday:res.json().data[i].birthday,
+            avatar:res.json().data[i].avatar,
+            uid:res.json().data[i].uid,
+            school:res.json().data[i].school,
           });
         }
       });
-
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StuManagePage');
+    console.log(this.students);
   }
 
   itemTapped(event, item) {
@@ -71,10 +66,9 @@ export class StuManagePage {
     });
   }
 
-  itemTapped1(event, item,item2) {
-    this.navCtrl.push(StuConPage, {
-      item: item,
-      item2:item2
+  itemTapped1(event, item) {
+    this.navCtrl.push(ExercisePage, {
+      item: item,//student
     });
   }
 

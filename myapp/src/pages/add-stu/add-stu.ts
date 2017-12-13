@@ -21,49 +21,82 @@ export class AddStuPage {
   name:string;
   age:string;
   sex:string;
+
   urlGetStuNotPassed:string;
+  urlGetStuPassed: string;
   urlLetStuPassed:string;
   urlLetStuAllPassed:string;
-  students:Array<{id:string,name:String,age:String,sex:String}>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
-    this.selectedItem = navParams.get('item');
-    // this.urlGetStuNotPassed="http://localhost:8090/public/admin/index/getStuNotPassed";
-    // this.urlLetStuPassed="http://localhost:8090/public/admin/index/letStuPassed";
-    // this.urlLetStuAllPassed="http://localhost:8090/public/admin/index/letStuAllPassed";
+  /*thisYear:number;*/
 
-    this.urlGetStuNotPassed="http://101.201.238.157/demo/index/getStuNotPassed";
+  students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
+  studentsNotPassed:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
+  studentsPassed:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
+
+    /*let today = new Date();
+    this.thisYear = today.getFullYear();
+    console.log(this.thisYear)*/
+
+    this.selectedItem = navParams.get('item');
+    this.studentsNotPassed = [];
+    this.studentsPassed = [];
+    this.students = [];
+
+
+    this.urlGetStuPassed = "http://101.201.238.157/demo/index/getStuPassed1?id="
+    this.urlGetStuNotPassed="http://101.201.238.157/demo/index/getStuNotPassed1?id=";
+
     this.urlLetStuPassed="http://101.201.238.157/demo/index/letStuPassed";
     this.urlLetStuAllPassed="http://101.201.238.157/demo/index/letStuAllPassed";
 
-    this.urlGetStuNotPassed=this.urlGetStuNotPassed+"?"+"id="+this.selectedItem.id;
-    this.students=[];
-    this.students.push({
-         id:"测试id",
-        name:"测试名字",
-        age:"测试年龄",
-        sex:"测试性别",
-      },
-    );
+    this.urlGetStuNotPassed += this.selectedItem.id;
+    this.urlGetStuPassed += this.selectedItem.id;
+
     this.http.request(this.urlGetStuNotPassed)
       .subscribe((res:Response)=>{
-
         for(let i=0;i<res.json().data.length;i++)
         {
-          this.students.push({
+          this.studentsNotPassed.push({
             id:res.json().data[i].login_id,
             name:res.json().data[i].name,
-            age:res.json().data[i].age,
-            sex:res.json().data[i].sex,
+            nickname:res.json().data[i].nickname,
+            email:res.json().data[i].email,
+            birthday:res.json().data[i].birthday,
+            gender: (res.json().data[i].gender == "1") ? '男' : '女',
+            avatar:res.json().data[i].avatar,
+            uid:res.json().data[i].uid,
+            school:res.json().data[i].school,
+          });
+        }
+      });
+    console.log(this.studentsNotPassed);
+
+
+    this.http.request(this.urlGetStuPassed)
+      .subscribe((res:Response)=>{
+        for(let i=0;i<res.json().data.length;i++)
+        {
+          this.studentsPassed.push({
+            id:res.json().data[i].login_id,
+            name:res.json().data[i].name,
+            nickname:res.json().data[i].nickname,
+            email:res.json().data[i].email,
+            birthday:res.json().data[i].birthday,
+            gender:res.json().data[i].gender,
+            avatar:res.json().data[i].avatar,
+            uid:res.json().data[i].uid,
+            school:res.json().data[i].school,
           });
         }
       });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddStuPage');
-  }
-  letStuPassed(id){
-    this.urlLetStuPassed=this.urlLetStuPassed+"?"+"id="+id;
+}
+
+
+
+  /*letStuPassed(id){
+    this.urlLetStuPassed = this.urlLetStuPassed+"?"+"id="+this.id;
     this.http.get(this.urlLetStuPassed)
       .subscribe(res=>{
         //alert(res.json());
@@ -114,5 +147,5 @@ export class AddStuPage {
         }
 
       });
-  }
-}
+  }*/
+

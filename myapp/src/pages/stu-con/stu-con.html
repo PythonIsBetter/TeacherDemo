@@ -13,15 +13,12 @@
     <b class="dian">·</b>
     专项练习
   </div>
+
   <ion-row class="card" padding-left="100px">
     <!--<div  #container1 class="div-charts"></div>-->
-    <ion-col >
-      <div>{{tests[0].name}}：<b>{{tests[0].num}}</b></div>
-      <div #container2 class="div-charts" (click)="itemTapped1($event, tests[0],student)"></div>
-    </ion-col>
-    <ion-col >
-      <div>{{tests[1].name}}：<b>{{tests[1].num}}</b></div>
-      <div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>
+    <ion-col *ngFor="let prac of practice;let i = index;">
+      <div><b>{{prac.name}}</b></div>
+      <div id="pie{{i}}" class="div-charts" (click)="itemTapped($event, tests[2],student)"></div>
     </ion-col>
 
   </ion-row>
@@ -33,7 +30,7 @@
     <!--</div>-->
     <!--<div class="right">-->
        <!--<div>{{tests[1].name}}：<b>{{tests[1].num}}</b></div>-->
-       <!--<div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>-->
+  <!--<div #container1 class="div-charts" (click)="itemTapped1($event, tests[1],student)"></div>-->
     <!--</div>-->
   <!--</div>-->
 
@@ -42,19 +39,8 @@
     试卷
   </div>
   <ion-row class="card" padding-left="100px">
-    <!--<div  #container1 class="div-charts"></div>-->
-    <ion-col >
-      <div>{{tests[2].name}}：<b>{{tests[2].num}}</b></div>
-      <div #container3 class="div-charts2" (click)="itemTapped($event, tests[2],student)"></div>
-    </ion-col>
-    <ion-col >
-      <div>{{tests[3].name}}：<b>{{tests[3].num}}</b></div>
-      <div #container4 class="div-charts2" (click)="itemTapped($event, tests[3],student)"></div>
-    </ion-col>
-    <ion-col >
-      <div>{{tests[4].name}}：<b>{{tests[4].num}}</b></div>
-      <div #container5 class="div-charts2" (click)="itemTapped($event, tests[4],student)"></div>
-    </ion-col>
+
+
 
 
   </ion-row>

@@ -62,21 +62,44 @@ export class AddPanDuanPage {
     });
   }
 
-  //动态获取多选框的值
-  changeTheValue(id)
-  {
-    this.pdChoose.push(id);
-  }
-
   //添加题目
   add()
   {
-    for(let k=0;k<this.pdChoose.length;k++)
+    this.checkBox = document.getElementsByName("add");
+    for (let i = 0; i <= this.count; i++)
     {
-      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.pdChoose[k]).subscribe(res=>
+      if (this.checkBox[i].checked)
       {
-        if (res.json().code != "200")
-          alert("第 "+k+" 题添加失败");
+        this.pdChoose.push(i + 1);
+      }
+    }
+
+    for(let k=0;k<=this.pdChoose.length;k++)
+    {
+      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.pdChoose.pop()).subscribe(res=>
+      {
+        if (res.json().data == "1")
+        {
+          // alert("创建成功");
+          let toast = this.toastCtrl.create
+          ({
+            message: '通过成功',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
+        else
+        {
+          // alert("创建失败");
+          let toast = this.toastCtrl.create
+          ({
+            message: '通过失败',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
       });
     }
 

@@ -18,6 +18,7 @@ export class AddXuanZePage
   count:number;//计数
   xz:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（题号+题目+选项+选项+选项+选项+答案）
   xzChoose:Array<number>=[];
+  checkBox:any;
   homeworkName:string;
   everyQuestion: any;
 
@@ -60,21 +61,44 @@ export class AddXuanZePage
       });
   }
 
-  //动态获取多选框的值
-  changeTheValue(id)
-  {
-    this.xzChoose.push(id);
-  }
-
   //添加题目
   add()
   {
-    for(let k=0;k<this.xzChoose.length;k++)
+    this.checkBox= document.getElementsByName("add");
+    for(let i=0;i<=this.count;i++)
     {
-      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.xzChoose[k]).subscribe(res=>
+      if(this.checkBox[i].checked)
       {
-        if (res.json().code != "200")
-          alert("第 "+k+" 题添加失败");
+        this.xzChoose.push(i+1);
+      }
+    }
+
+    for(let k=0;k<=this.xzChoose.length;k++)
+    {
+      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.xzChoose.pop()).subscribe(res=>
+      {
+        if (res.json().data == "1")
+        {
+          // alert("创建成功");
+          let toast = this.toastCtrl.create
+          ({
+            message: '通过成功',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
+        else
+          {
+          // alert("创建失败");
+          let toast = this.toastCtrl.create
+          ({
+            message: '通过失败',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
       });
     }
 
@@ -83,6 +107,7 @@ export class AddXuanZePage
         everyQuestion:this.everyQuestion,
         homeworkName:this.homeworkName,
       });
+
   }
 
 }
