@@ -84,5 +84,4 @@ export class AddXuanZePage
         homeworkName:this.homeworkName,
       });
   }
-
 }
