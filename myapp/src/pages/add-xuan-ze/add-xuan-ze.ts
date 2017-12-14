@@ -42,22 +42,22 @@ export class AddXuanZePage
   {
     this.url="http://101.201.238.157/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type;//用get方式获得数据
     this.http.request(this.url).subscribe((res:Response)=>
+    {
+      for(let i=0;i<res.json().data.length;i++)
       {
-        for(let i=0;i<res.json().data.length;i++)
-        {
-          this.xz.push
-          ({
-              id:res.json().data[i].titleId,//题号
-              question:res.json().data[i].titleBody,//题目
-              A:res.json().data[i].A,//选项们
-              B:res.json().data[i].B,
-              C:res.json().data[i].C,
-              D:res.json().data[i].D,
-              answer:res.json().data[i].answer,//答案
-          });
-          this.count=i;
-        }
-      });
+        this.xz.push
+        ({
+          id:res.json().data[i].titleId,//题号
+          question:res.json().data[i].titleBody,//题目
+          A:res.json().data[i].A,//选项们
+          B:res.json().data[i].B,
+          C:res.json().data[i].C,
+          D:res.json().data[i].D,
+          answer:res.json().data[i].answer,//答案
+        });
+        this.count=i;
+      }
+    });
   }
 
   //动态获取多选框的值

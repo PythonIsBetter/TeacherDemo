@@ -5,6 +5,7 @@ import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {PublishNoticePage} from "../publish-notice/publish-notice";
 import {ShareFilePage} from "../share-file/share-file";
 import {HomeworkListPage} from "../homework-list/homework-list";
+import {ReportHomeworkPage} from "../report-homework/report-homework";
 
 
 /**
@@ -25,12 +26,14 @@ export class ClassDetailPage
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
     this.selectedItem = navParams.get('item');
+    console.log(this.selectedItem);
 
   }
 
   ionViewDidLoad()
   {
     console.log('ionViewDidLoad ClassDetailPage');
+
   }
 
   //学生管理
@@ -55,6 +58,15 @@ export class ClassDetailPage
   publishNotice(event, item)
   {
     this.navCtrl.push(PublishNoticePage,
+      {
+        item:item
+      });
+  }
+
+  //发布作业报告
+  publishreport(event, item)
+  {
+    this.navCtrl.push(ReportHomeworkPage,
       {
         item:item
       });
