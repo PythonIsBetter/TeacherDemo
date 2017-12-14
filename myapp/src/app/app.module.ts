@@ -38,6 +38,7 @@ import {ReportHomeworkDetailPage} from "../pages/report-homework-detail/report-h
 import {ExerciseDetailPage} from "../pages/exercise-detail/exercise-detail";
 import {ExercisePage} from "../pages/exercise/exercise";
 import {ExerciseRightDetailPage} from "../pages/exercise-right-detail/exercise-right-detail";
+import {AddJieDaPage} from "../pages/add-jie-da/add-jie-da";
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {ExerciseRightDetailPage} from "../pages/exercise-right-detail/exercise-r
     AddXuanZePage,
     AddTianKongPage,
     AddPanDuanPage,
+    AddJieDaPage,
     HomeworkListPage,
     DetailedQuestionPage,
     HomeworkForStudentPage,
@@ -109,6 +111,7 @@ import {ExerciseRightDetailPage} from "../pages/exercise-right-detail/exercise-r
     AddXuanZePage,
     AddTianKongPage,
     AddPanDuanPage,
+    AddJieDaPage,
     HomeworkListPage,
     DetailedQuestionPage,
     HomeworkForStudentPage,

@@ -46,16 +46,11 @@ export class AddPanDuanPage {
     this.http.request(this.url).subscribe((res: Response) => {
       for (let i = 0; i < res.json().data.length; i++)
       {
-        let st= res.json().data[i].answer;
-        if(res.json().data[i].answer=="1")
-          st="正确";
-        else
-          st="错误";
         this.pd.push
         ({
           id: res.json().data[i].titleId,//题号
           question: res.json().data[i].titleBody,//题目
-          answer: st,//答案
+          answer: res.json().data[i].answer,//答案
         });
         this.count = i;
       }
