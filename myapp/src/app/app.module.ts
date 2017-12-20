@@ -22,6 +22,7 @@ import {StuConPage} from "../pages/stu-con/stu-con";
 import {PublishHomeworkPage} from "../pages/publish-homework/publish-homework";
 import {SelectQuestionPage} from "../pages/select-question/select-question";
 import {StuPrePage} from "../pages/stu-pre/stu-pre";
+import {AppService} from "../theme/AppService";
 import {QuaDetailPage} from "../pages/qua-detail/qua-detail";
 import {PublishNoticePage} from "../pages/publish-notice/publish-notice";
 import {ShareFilePage} from "../pages/share-file/share-file";
@@ -39,10 +40,14 @@ import {ExerciseDetailPage} from "../pages/exercise-detail/exercise-detail";
 import {ExercisePage} from "../pages/exercise/exercise";
 import {ExerciseRightDetailPage} from "../pages/exercise-right-detail/exercise-right-detail";
 import {AddJieDaPage} from "../pages/add-jie-da/add-jie-da";
+import {TaskPage} from "../pages/task/task";
+import {TaskDetailPage} from "../pages/task-detail/task-detail";
 
 @NgModule({
   declarations: [
     MyApp,
+    TaskPage,
+    TaskDetailPage,
     ExerciseRightDetailPage,
     ExerciseDetailPage,
     AboutPage,
@@ -85,6 +90,8 @@ import {AddJieDaPage} from "../pages/add-jie-da/add-jie-da";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    TaskPage,
+    TaskDetailPage,
     AboutPage,
     ExerciseRightDetailPage,
     ContactPage,
@@ -122,6 +129,7 @@ import {AddJieDaPage} from "../pages/add-jie-da/add-jie-da";
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: 'appService',  useClass: AppService},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     //Http
   ]

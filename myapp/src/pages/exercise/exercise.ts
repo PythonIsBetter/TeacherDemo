@@ -27,7 +27,6 @@ export class ExercisePage {
   students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http, public app: App) {
-    console.log(this.navParams.get('item'));
     this.user = this.navParams.get('item').uid;
   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http, Response} from "@angular/http";
-import {ExercisePage} from "../exercise/exercise";
+import {TaskPage} from "../task/task";
 
 /**
  * Generated class for the ReportHomeworkDetailPage page.
@@ -50,9 +50,10 @@ export class ReportHomeworkDetailPage {
   }
 
   itemTapped(event,student){
-    this.navCtrl.push(ExercisePage,{
+    this.navCtrl.push(TaskPage,{
       item:student,//主要用他的stuid
     });
+
   }
 
 }

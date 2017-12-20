@@ -24,8 +24,8 @@
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
       <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
       <span style="margin-left: 20px;">{{item.cname}}</span>
-      <img *ngIf="!item.open" src="assets/icon/you.png" style="width: 25px;float: right;"/>
-      <img *ngIf="item.open" src="assets/icon/xia.png" style="width: 25px;float: right;"/>
+      <img *ngIf="!item.open" src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
+      <img *ngIf="item.open" src="../../assets/icon/xia.png" style="width: 25px;float: right;"/>
       <div *ngIf="item.open">
         <div ion-item *ngFor="let itemch of item.sub_knowledege;let j=index;" (click)="itemSelectedchild($event,j,itemch)">{{itemch.cname}}</div>
       </div>
