@@ -1,0 +1,35 @@
+<!--
+  Generated template for the TaskPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的作业</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-segment [(ngModel)]="subject" color="primary" (ionChange)="segmentChanged()">
+    <ion-segment-button value="1">
+      语文
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      数学
+    </ion-segment-button>
+    <ion-segment-button value="3">
+      英语
+    </ion-segment-button>
+  </ion-segment>
+  <ion-card>
+    <ion-item *ngFor="let item of listData" (click)="totaskDetail(item.id,item.name,user)">
+      <img src="../../assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
+      <span style="margin-left: 20px;">{{item.name}}</span>
+      <img *ngIf="!item.open" src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
+    </ion-item>
+  </ion-card>
+</ion-content>
