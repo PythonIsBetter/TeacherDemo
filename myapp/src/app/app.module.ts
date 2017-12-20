@@ -42,6 +42,10 @@ import {ExerciseRightDetailPage} from "../pages/exercise-right-detail/exercise-r
 import {AddJieDaPage} from "../pages/add-jie-da/add-jie-da";
 import {TaskPage} from "../pages/task/task";
 import {TaskDetailPage} from "../pages/task-detail/task-detail";
+import {HomeworkResultPage} from "../pages/homework-result/homework-result";
+import {HomeworkKindDetailPage} from "../pages/homework-kind-detail/homework-kind-detail";
+import {HomeworkDetailListPage} from "../pages/homework-detail-list/homework-detail-list";
+import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
 
 @NgModule({
   declarations: [
@@ -80,7 +84,11 @@ import {TaskDetailPage} from "../pages/task-detail/task-detail";
     HomeworkForStudentPage,
     StudentDoneHomeworkPage,
     ReportHomeworkPage,
-    ReportHomeworkDetailPage
+    ReportHomeworkDetailPage,
+    HomeworkResultPage,
+    HomeworkKindDetailPage,
+    HomeworkDetailListPage,
+    HomeworkDetailPage
   ],
   imports: [
     BrowserModule,
@@ -124,7 +132,11 @@ import {TaskDetailPage} from "../pages/task-detail/task-detail";
     HomeworkForStudentPage,
     StudentDoneHomeworkPage,
     ReportHomeworkPage,
-    ReportHomeworkDetailPage
+    ReportHomeworkDetailPage,
+    HomeworkResultPage,
+    HomeworkKindDetailPage,
+    HomeworkDetailListPage,
+    HomeworkDetailPage
   ],
   providers: [
     StatusBar,
