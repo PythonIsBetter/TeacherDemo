@@ -6,6 +6,7 @@ import {PublishNoticePage} from "../publish-notice/publish-notice";
 import {ShareFilePage} from "../share-file/share-file";
 import {HomeworkListPage} from "../homework-list/homework-list";
 import {ReportHomeworkPage} from "../report-homework/report-homework";
+import {HomeworkDetailPage} from "../homework-detail/homework-detail";
 
 
 /**
@@ -64,7 +65,7 @@ export class ClassDetailPage
   }
 
   //发布作业报告
-  publishreport(event, item)
+  publishReport(event, item)
   {
     this.navCtrl.push(ReportHomeworkPage,
       {
@@ -76,6 +77,15 @@ export class ClassDetailPage
   shareFile(event, item)
   {
     this.navCtrl.push(ShareFilePage,
+      {
+        item:item
+      });
+  }
+
+  //作业详情
+  homeworkDetail(event, item)
+  {
+    this.navCtrl.push(HomeworkDetailPage,
       {
         item:item
       });

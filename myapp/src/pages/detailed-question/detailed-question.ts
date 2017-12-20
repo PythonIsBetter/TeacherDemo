@@ -19,7 +19,6 @@ export class DetailedQuestionPage
   {
     this.id = navParams.get('id');//题号
     this.titleID=navParams.get('titleID');
-    alert(this.titleID);
     this.question=[];
     this.loadQuestion();
   }
