@@ -21,9 +21,9 @@ export class SelectQuestionPage
   check:number;
 
   xz:Array<{id:number,titleID:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（序号+题号+题目+选项+选项+选项+选项+答案）
-  tk:Array<{id:number,titleID:number,question:string,answer:string}>;//选择题（序号+题号+题目+答案）
-  pd: Array<{id:number,titleID:number, question: string, answer: string }>;//选择题（序号+题号+题目+答案）
-  jd: Array<{id:number,titleID:number, question: string, answer: string }>;//选择题（序号+题号+题目+答案）
+  tk:Array<{id:number,titleID:number,question:string,answer:string}>;//填空题（序号+题号+题目+答案）
+  pd: Array<{id:number,titleID:number, question: string, answer: string }>;//判断题（序号+题号+题目+答案）
+  jd: Array<{id:number,titleID:number, question: string, answer: string }>;//解答题（序号+题号+题目+答案）
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
     this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
