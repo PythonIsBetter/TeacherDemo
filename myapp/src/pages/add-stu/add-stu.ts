@@ -57,7 +57,7 @@ export class AddStuPage {
         for(let i=0;i<res.json().data.length;i++)
         {
           this.studentsNotPassed.push({
-            id:res.json().data[i].login_id,
+            id:res.json().data[i].id,
             name:res.json().data[i].name,
             nickname:res.json().data[i].nickname,
             email:res.json().data[i].email,
@@ -91,12 +91,8 @@ export class AddStuPage {
       });
   }
 
-}
-
-
-
-  /*letStuPassed(id){
-    this.urlLetStuPassed = this.urlLetStuPassed+"?"+"id="+this.id;
+  letStuPassed(id){
+    this.urlLetStuPassed = this.urlLetStuPassed+"?"+"id="+id;
     this.http.get(this.urlLetStuPassed)
       .subscribe(res=>{
         //alert(res.json());
@@ -147,5 +143,11 @@ export class AddStuPage {
         }
 
       });
-  }*/
+  }
+
+}
+
+
+
+
 
