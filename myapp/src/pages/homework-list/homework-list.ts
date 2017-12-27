@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, App, ToastController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, App, ToastController,ModalController,ViewController} from 'ionic-angular';
 import {FormControl} from "@angular/forms";
 import {Http, Response} from "@angular/http";
 import 'rxjs/Rx'
 import {SelectQuestionPage} from "../select-question/select-question";
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
+import {HomeworkModifyPage} from "./homework-modify";
+
 /**
  * Generated class for the HomeworkListPage page.
  *
@@ -30,7 +32,7 @@ export class HomeworkListPage {
   // 关键字
   private  keyword:string;
   private  titleFilter:FormControl = new  FormControl();
-  constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public toastCtrl: ToastController) {
+  constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public toastCtrl: ToastController,public modalCtrl: ModalController) {
     //this.selectedItem = navParams.get('item');
     this.class=navParams.get('item');
     this.urlListKnowledge="http://101.201.238.157/demo/index/getHomeworkList";
@@ -42,7 +44,19 @@ export class HomeworkListPage {
       .subscribe(value=>this.keyword=value);
     this.items = this.copeyitems;
   }
+  presentContactModal() {
+    //this.app.getRootNav().push(HomeworkModifyPage);
+    let toHomeworkModify = this.modalCtrl.create(HomeworkModifyPage);
+    toHomeworkModify.present();
+    toHomeworkModify.onDidDismiss(data => {
+      if(data != "cancel"){
+        console.log(data);
+        console.log("em");
+        this.addHomeworklist(data);
+      }
+    });
 
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeworkListPage');
     this.http.request(this.urlListKnowledge)
@@ -53,25 +67,28 @@ export class HomeworkListPage {
         //   );
         this.listData = res.json().data;
         // alert(this.listData[0].id);
-        for (var i = 0; i < this.listData.length; i++) {
-          this.items.push({name:this.listData[i].name,id:this.listData[i].id});
+        for (let i = 0; i < this.listData.length; i++) {
+          this.items.push({
+            name:this.listData[i].name,
+            id:this.listData[i].id});
           // for (var j = 0; j < this.listData[i].children.length; j++) {
           //   this.items.push({cname:this.listData[i].children[j].cname,id:this.listData[i].children[j].id})
           // }
         }
-        this.copeyitems=this.deepCoyp(this.items)
+        this.copeyitems=HomeworkListPage.deepCoyp(this.items)
         // this.listData.push(
         //       res.json().data[0]
         //     );
         // alert(this.listData[0].cname);
       });
   }
+
   close(){
     this.inpustring=''
   }
 
-  deepCoyp(source) {
-    var result:any[]=[]
+  static deepCoyp(source) {
+    var result:any[]=[];
     var result:any[];
     for (var key in source) {
       result[key]=source[key]
@@ -104,8 +121,8 @@ export class HomeworkListPage {
       });
   }
 
-  addHomeworklist(){
-     this.urlAddHomework+="?name="+this.inpustring+"&classid="+this.class.id;
+  addHomeworklist(inputString){
+    this.urlAddHomework+="?name="+inputString+"&classid="+this.class.id;
     this.http.request(this.urlAddHomework)
       .subscribe((res: Response) => {
         if(res.json().data=="1")
@@ -129,3 +146,4 @@ export class HomeworkListPage {
       });
   }
 }
+

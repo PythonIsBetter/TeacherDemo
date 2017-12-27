@@ -45,11 +45,17 @@ import {HomeworkResultPage} from "../pages/homework-result/homework-result";
 import {HomeworkKindDetailPage} from "../pages/homework-kind-detail/homework-kind-detail";
 import {HomeworkDetailListPage} from "../pages/homework-detail-list/homework-detail-list";
 import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
+import {ChoosePage} from "../pages/choose/choose";
+import {RecordingvideoPage} from "../pages/recordingvideo/recordingvideo";
+import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
 
 @NgModule({
   declarations: [
     MyApp,
     TaskPage,
+    RecordingvideoPage,
+    HomeworkModifyPage,
+    ChoosePage,
     TaskDetailPage,
     ExerciseRightDetailPage,
     ExerciseDetailPage,
@@ -98,6 +104,9 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
   entryComponents: [
     MyApp,
     TaskPage,
+    ChoosePage,
+    HomeworkModifyPage,
+    RecordingvideoPage,
     TaskDetailPage,
     AboutPage,
     ExerciseRightDetailPage,

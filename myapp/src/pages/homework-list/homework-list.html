@@ -8,6 +8,9 @@
 
   <ion-navbar>
     <ion-title>作业列表</ion-title>
+    <div class="rightbutton">
+      <img src="../../assets/icon/Plus.png"  (click)="presentContactModal()" height="40" width="40">
+    </div>
   </ion-navbar>
 
 </ion-header>
@@ -17,8 +20,7 @@
   <div>
     <ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 45px;top: 25px;"></ion-icon>
 
-    <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]='inpustring'>
-
+    <ion-searchbar  id="temp" (ionInput)="getItems($event)" [ngModel]='inpustring'>
     </ion-searchbar>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list>
@@ -26,7 +28,7 @@
           {{ item.name }}
         </ion-item>
       </ion-list>
-      <button (click)="addHomeworklist()">下一步</button>
+      <!--<button (click)="addHomeworklist()">下一步</button>-->
     </div>
 
   </div>
@@ -35,9 +37,9 @@
   <ion-list inset>
     <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
-      <img src="assets/icon/yuan.png"/>
+      <img src="../../assets/icon/yuan.png"/>
       <span style="margin-left: 20px;">{{item.name}}</span>
-      <img  src="assets/icon/you.png" style="width: 25px;float: right;"/>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
 
 
     </div>
