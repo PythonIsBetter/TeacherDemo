@@ -19,33 +19,16 @@
     <div class="choose"><input name="add" type="checkbox" value="{{que.id}}" (change)="changeTheValue(que.id)"/></div>
     <hr class="line"/>
 
-    <div class="blank" align="left">
-      <button class="b1"  align="center">A</button>
-      <button class="b2"  align="center">{{que.A}}</button>
-    </div>
+    <div class="selekuang"><button>A</button><div class="selecdiv">{{que.A}}</div></div>
     <br>
-
-    <div class="blank" align="left">
-      <button class="b1"  align="center" >B</button>
-      <button class="b2"  align="center" >{{que.B}}</button>
-    </div>
+    <div class="selekuang"><button>B</button><div class="selecdiv">{{que.B}}</div></div>
     <br>
-
-    <div class="blank" align="left">
-      <button class="b1"  align="center" >C</button>
-      <button class="b2"  align="center">{{que.C}}</button>
-    </div>
+    <div class="selekuang"><button>C</button><div class="selecdiv">{{que.C}}</div></div>
     <br>
-
-    <div class="blank" align="left">
-      <button class="b1"  align="center" >D</button>
-      <button class="b2"  align="center" >{{que.D}}</button>
-    </div>
+    <div class="selekuang"><button>D</button><div class="selecdiv">{{que.D}}</div></div>
     <br>
-
-    <div class="blank" align="left">
-      &nbsp;&nbsp;答案： {{que.answer}}
-    </div>
+    <div class="selekuang"><button>答</button><div class="selecdiv">{{que.answer}}</div></div>
+    <br>
   </div>
 
   <button class="padding" align="center" (click)="add()"><b>确定添加</b></button>

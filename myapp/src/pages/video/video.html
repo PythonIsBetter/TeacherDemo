@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)" style="margin-top: 25px;">
+
+  <div [ngSwitch]="segmentModel" *ngIf="vidoaarrData.lessions">
+    <ion-list *ngSwitchCase="'1'">
+      <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData.lessions;let i=index;">
+        <ion-thumbnail item-left>
+          <img src="{{item.icon}}">
+        </ion-thumbnail>
+        <span>{{item.cname}}</span><br>
+        <span>{{item.description}}</span>
+        <br>
+        热度：<span>{{item.view}}</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'2'">
+      <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData.lessions;let i=index;">
+        <ion-thumbnail item-left>
+          <img src="{{item.icon}}">
+        </ion-thumbnail>
+        <span>{{item.cname}}</span><br>
+        <span>{{item.description}}</span>
+        <br>
+        热度：<span>{{item.view}}</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'3'">
+      <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData.lessions;let i=index;">
+        <ion-thumbnail item-left>
+          <img src="{{item.icon}}">
+        </ion-thumbnail>
+        <span>{{item.cname}}</span><br>
+        <span>{{item.description}}</span>
+        <br>
+        热度：<strong>{{item.view}}</strong>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

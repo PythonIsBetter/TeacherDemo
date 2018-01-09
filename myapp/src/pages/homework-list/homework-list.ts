@@ -59,7 +59,7 @@ export class HomeworkListPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeworkListPage');
-    this.http.request(this.urlListKnowledge)
+    this.http.request(this.urlListKnowledge+"?classid="+this.class.id)
       .subscribe((res: Response) => {
         // for(let i=0;i<res.json().data.length;i++)
         //   this.listData.push(
@@ -100,7 +100,6 @@ export class HomeworkListPage {
   getItems(ev: any) {
     // Reset items back to all of the items
     // this.initializeItems();
-
     // set val to the value of the searchbar
     let val = ev.target.value;
     this.inpustring=val;
@@ -146,4 +145,3 @@ export class HomeworkListPage {
       });
   }
 }
-

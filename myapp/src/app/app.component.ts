@@ -9,7 +9,8 @@ import { TabsPage } from '../pages/tabs/tabs';
   selector:'ion-app',
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp
+{
   rootPage:any = TabsPage;
   userinfo:any;
   pagenextarr:any;

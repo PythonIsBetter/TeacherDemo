@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>视频详情</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <hr/>
+
+  <br>
+  <br>
+  <h1 *ngIf='shipingxiangqing'>{{shipingxiangqing.lession.cname}}</h1>
+
+  <video #myVideo width="100%" controls>
+    <source *ngIf='shipingshuju' src="{{shipingshuju.PlayInfoList.PlayInfo[0].PlayURL}}" type="video/mp4">
+  </video>
+  <h2 *ngIf='shipingxiangqing'>{{shipingxiangqing.lession.description}}</h2>
+
+</ion-content>

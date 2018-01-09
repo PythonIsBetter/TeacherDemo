@@ -33,8 +33,6 @@ export class SelectQuestionPage
     this.pd=[];
     this.jd=[];
     this.loadTheHomework();
-    alert("尊敬的用户您好！当您添加完成题目后，系统会自动保存这些题目，退出后下一次打开还可以继续编辑；" +
-      "若您点了“发布”按钮之后，则系统会将题目发布出去，并且不再允许修改题目。请您悉知")
 
     this.http.request("http://101.201.238.157/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
     {
@@ -160,6 +158,9 @@ export class SelectQuestionPage
   //发布作业
   publishHomeWork()
   {
+    alert("尊敬的用户您好！当您添加完成题目后，系统会自动保存这些题目，退出后下一次打开还可以继续编辑；" +
+      "若您点了“发布”按钮之后，则系统会将题目发布出去，并且不再允许修改题目。请您悉知")
+
     this.http.get("http://101.201.238.157/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
     {
       if (res.json().data == "1")

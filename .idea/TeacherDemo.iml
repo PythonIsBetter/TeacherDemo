@@ -14,6 +14,5 @@
     <orderEntry type="library" name="angularlocalstorage-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="angular2.js" level="project" />
     <orderEntry type="library" name="js" level="project" />
-    <orderEntry type="library" name="ionic-angular.js" level="project" />
   </component>
 </module>

@@ -9,7 +9,6 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {ClassPage} from "../pages/class/class";
 import {AddClassPage} from "../pages/add-class/add-class";
 import {HttpModule}from '@angular/http';
 import {StoragePage} from "../pages/storage/storage";
@@ -48,6 +47,9 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
 import {ChoosePage} from "../pages/choose/choose";
 import {RecordingvideoPage} from "../pages/recordingvideo/recordingvideo";
 import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
+import {VideoPage} from "../pages/video/video";
+import {OperationPage} from "../pages/operation/operation";
+import {BlankPage} from "../pages/blank/blank";
 
 @NgModule({
   declarations: [
@@ -63,7 +65,6 @@ import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
     ContactPage,
     HomePage,
     TabsPage,
-    ClassPage,
     AddClassPage,
     StoragePage,
     PersonalInfoPage,
@@ -93,7 +94,10 @@ import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
     HomeworkResultPage,
     HomeworkKindDetailPage,
     HomeworkDetailListPage,
-    HomeworkDetailPage
+    HomeworkDetailPage,
+    VideoPage,
+    OperationPage,
+    BlankPage
   ],
   imports: [
     BrowserModule,
@@ -114,7 +118,6 @@ import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
     ExerciseDetailPage,
     HomePage,
     TabsPage,
-    ClassPage,
     AddClassPage,
     StoragePage,
     PersonalInfoPage,
@@ -144,7 +147,10 @@ import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
     HomeworkResultPage,
     HomeworkKindDetailPage,
     HomeworkDetailListPage,
-    HomeworkDetailPage
+    HomeworkDetailPage,
+    VideoPage,
+    OperationPage,
+    BlankPage
   ],
   providers: [
     StatusBar,
