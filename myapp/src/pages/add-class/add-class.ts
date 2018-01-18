@@ -4,6 +4,7 @@ import {Http,Response}from "@angular/http";
 import { ToastController } from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import {HomePage} from "../home/home";
 /**
  * Generated class for the AddClassPage page.
  *
@@ -75,8 +76,10 @@ export class AddClassPage {
     this.http.get(this.url)
       .subscribe(res=>{
         //alert(res.json());
-        if(res.json().data=="1")
+          console.log(this.url);
+        if(res.json().code=="200")
         {
+
          // alert("创建成功");
           let toast = this.toastCtrl.create({
             message: '创建成功',
@@ -84,6 +87,7 @@ export class AddClassPage {
             position:'middle'
           });
          toast.present();
+         this.navCtrl.pop();
         }else{
           // alert("创建失败");
           let toast = this.toastCtrl.create({

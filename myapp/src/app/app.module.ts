@@ -50,6 +50,7 @@ import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
 import {VideoPage} from "../pages/video/video";
 import {OperationPage} from "../pages/operation/operation";
 import {BlankPage} from "../pages/blank/blank";
+import {OperateClassPage} from "../pages/operate-class/operate-class";
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import {BlankPage} from "../pages/blank/blank";
     HomeworkDetailPage,
     VideoPage,
     OperationPage,
-    BlankPage
+    BlankPage,
+    OperateClassPage
   ],
   imports: [
     BrowserModule,
@@ -150,7 +152,8 @@ import {BlankPage} from "../pages/blank/blank";
     HomeworkDetailPage,
     VideoPage,
     OperationPage,
-    BlankPage
+    BlankPage,
+    OperateClassPage
   ],
   providers: [
     StatusBar,

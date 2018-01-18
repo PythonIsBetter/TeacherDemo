@@ -16,18 +16,18 @@
 </ion-header>
 
 <ion-content padding class="back">
-  <div >
+  <div card list>
     <button ion-item *ngFor="let class of classes" (click)="itemTapped1($event, class)">
       <!--<div>{{class.id}}</div>-->
       <!--<div>{{class.name}}</div>-->
       <!--<div>{{class.subject}}</div>-->
       <!--<div>{{class.head}}</div>-->
-      <div class="item-note dian" item-left>
+      <!--<div class="item-note dian" item-left>
         <b>·</b>
-      </div>
+      </div>-->
+      <img src="../../assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 6px;padding-right: 4px;p"/>
       {{class.subject}}{{class.name}}({{class.cid}})
       <div class="item-note" item-right>
-        >
       </div>
     </button>
   </div>
