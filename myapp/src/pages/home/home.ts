@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ContactPage} from "../contact/contact";
 import {AddClassPage} from "../add-class/add-class";
-import {ClassPage} from "../class/class";
 import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';

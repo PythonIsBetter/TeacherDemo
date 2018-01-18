@@ -1,3 +1,11 @@
 page-homework-list {
+  .rightbutton{
+    position:absolute;
+    right:20px;
+    top:10px;
 
+  }
+  .searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
+    display: none;
+  }
 }

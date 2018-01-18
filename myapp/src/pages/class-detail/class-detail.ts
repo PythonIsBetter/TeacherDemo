@@ -7,6 +7,7 @@ import {ShareFilePage} from "../share-file/share-file";
 import {HomeworkListPage} from "../homework-list/homework-list";
 import {ReportHomeworkPage} from "../report-homework/report-homework";
 import {HomeworkDetailPage} from "../homework-detail/homework-detail";
+import {OperateClassPage} from "../operate-class/operate-class";
 
 
 /**
@@ -86,6 +87,14 @@ export class ClassDetailPage
   homeworkDetail(event, item)
   {
     this.navCtrl.push(HomeworkDetailPage,
+      {
+        item:item
+      });
+  }
+
+  operateClass(event, item)
+  {
+    this.navCtrl.push(OperateClassPage,
       {
         item:item
       });

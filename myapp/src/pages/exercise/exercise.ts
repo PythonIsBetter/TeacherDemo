@@ -23,11 +23,13 @@ export class ExercisePage {
   subject: string ="1";//初始化为1，根据前台的ngmodel绑定subject的值
   // 用户
   user: string;
+  username: String;
 
   students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http, public app: App) {
     this.user = this.navParams.get('item').uid;
+    this.username = this.navParams.get("item").name;
   }
 
   ionViewDidLoad() {

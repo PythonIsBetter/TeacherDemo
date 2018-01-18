@@ -11,7 +11,7 @@ let headers = new Headers({ 'Content-Type': 'application/json' }); //其实不�
 let options = new RequestOptions({ headers: headers });
 @Injectable()
 export class AppService {
-      setNetworkTag: EventEmitter<number>;
+  setNetworkTag: EventEmitter<number>;
     constructor(private http: Http) {
       this.setNetworkTag = new EventEmitter();
     }
@@ -58,6 +58,13 @@ export class AppService {
        .then(this.extractData)
      .catch(this.handleError);
  }
+    deleteclass(data):Promise<any>{
+      return this.http
+        .post('http://101.201.238.157/demo/index/deleteClass', JSON.stringify(data),options)
+        .toPromise()
+        .then(this.extractData)
+        .catch(this.handleError);
+    }
     indexguide(data): Promise<any> {//考试指南
     // sid	否	string	非必填，录播课id
     // name	是	string	录播课名称关键字
@@ -83,7 +90,14 @@ export class AppService {
      .then(this.extractData)
    .catch(this.handleError);
 }
+　　loginTeacher(data):Promise<any>{
+    return this.http
+      .post('ttp://101.132.70.102/api/index.php/teacher/login', JSON.stringify(data),options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
 
+  }
    //reset-pwd
       userresetpwd(data): Promise<any> {//用户注册
     // mobile	是	string	手机号码

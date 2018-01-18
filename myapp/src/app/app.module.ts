@@ -9,7 +9,6 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {ClassPage} from "../pages/class/class";
 import {AddClassPage} from "../pages/add-class/add-class";
 import {HttpModule}from '@angular/http';
 import {StoragePage} from "../pages/storage/storage";
@@ -45,11 +44,21 @@ import {HomeworkResultPage} from "../pages/homework-result/homework-result";
 import {HomeworkKindDetailPage} from "../pages/homework-kind-detail/homework-kind-detail";
 import {HomeworkDetailListPage} from "../pages/homework-detail-list/homework-detail-list";
 import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
+import {ChoosePage} from "../pages/choose/choose";
+import {RecordingvideoPage} from "../pages/recordingvideo/recordingvideo";
+import {HomeworkModifyPage} from "../pages/homework-list/homework-modify";
+import {VideoPage} from "../pages/video/video";
+import {OperationPage} from "../pages/operation/operation";
+import {BlankPage} from "../pages/blank/blank";
+import {OperateClassPage} from "../pages/operate-class/operate-class";
 
 @NgModule({
   declarations: [
     MyApp,
     TaskPage,
+    RecordingvideoPage,
+    HomeworkModifyPage,
+    ChoosePage,
     TaskDetailPage,
     ExerciseRightDetailPage,
     ExerciseDetailPage,
@@ -57,7 +66,6 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
     ContactPage,
     HomePage,
     TabsPage,
-    ClassPage,
     AddClassPage,
     StoragePage,
     PersonalInfoPage,
@@ -87,7 +95,11 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
     HomeworkResultPage,
     HomeworkKindDetailPage,
     HomeworkDetailListPage,
-    HomeworkDetailPage
+    HomeworkDetailPage,
+    VideoPage,
+    OperationPage,
+    BlankPage,
+    OperateClassPage
   ],
   imports: [
     BrowserModule,
@@ -98,6 +110,9 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
   entryComponents: [
     MyApp,
     TaskPage,
+    ChoosePage,
+    HomeworkModifyPage,
+    RecordingvideoPage,
     TaskDetailPage,
     AboutPage,
     ExerciseRightDetailPage,
@@ -105,7 +120,6 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
     ExerciseDetailPage,
     HomePage,
     TabsPage,
-    ClassPage,
     AddClassPage,
     StoragePage,
     PersonalInfoPage,
@@ -135,7 +149,11 @@ import {HomeworkDetailPage} from "../pages/homework-detail/homework-detail";
     HomeworkResultPage,
     HomeworkKindDetailPage,
     HomeworkDetailListPage,
-    HomeworkDetailPage
+    HomeworkDetailPage,
+    VideoPage,
+    OperationPage,
+    BlankPage,
+    OperateClassPage
   ],
   providers: [
     StatusBar,

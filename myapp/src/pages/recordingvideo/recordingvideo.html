@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      录播课
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="segmentModel" *ngIf="topData">
+      <ion-segment-button value="{{item.id}}" *ngFor="let item of topData;let i=index;" (click)="selecttab(i)">
+        {{item.subject_name}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <ion-row >
+    <ion-col col-6>
+      <img src="assets/icon/gouxiang.png">
+      <progress value="0.5"></progress>
+    </ion-col>
+    <ion-col col-6 class="col-right">
+      设置
+      <li ng-repeat="icon in item.icons" class="ion-md-settings"></li>
+    </ion-col>
+  </ion-row>
+  <ion-select *ngIf="topData&&topData[selectnum].children.length!=0" item-right [(ngModel)]="gender" interface="popover" (click)="onSelectChange($event)">
+    <ion-option value="f">一元二次方程</ion-option>
+    <ion-option value="m">三元五次方程</ion-option>
+  </ion-select>
+</ion-header>
+
+<ion-content (swipe)="swipeEvent($event)">
+
+  <div [ngSwitch]="segmentModel">
+    <ion-list *ngSwitchCase="'1'">
+      <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData;let i=index;">
+        <!--<h2>语文</h2>-->
+        <ion-thumbnail item-left>
+          <img src="{{item.icon}}">
+        </ion-thumbnail>
+        <span>{{item.cname}}</span><br>
+        <span>{{item.description}}</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'2'">
+      <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData;let i=index;">
+        <!--<h2>数学</h2>-->
+        <ion-thumbnail item-left>
+          <img src="{{item.icon}}">
+        </ion-thumbnail>
+        <span>{{item.cname}}</span><br>
+        <span>{{item.description}}</span>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'3'">
+      <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData;let i=index;">
+        <!--<h2>英语数学</h2>-->
+        <ion-thumbnail item-left>
+          <img src="{{item.icon}}">
+        </ion-thumbnail>
+        <span>{{item.cname}}</span><br>
+        <span>{{item.description}}</span>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

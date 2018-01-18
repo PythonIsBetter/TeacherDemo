@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title text-center>班级管理</ion-title>
     <div class="rightbutton">
-      <img src="../assets/icon/Plus.png"  (click)="itemTapped($event, selectedItem)" height="40" width="40">
+      <img src="../../assets/icon/Plus.png"  (click)="itemTapped($event, selectedItem)" height="40" width="40">
     </div>
   </ion-navbar>
 
@@ -30,7 +30,18 @@
       <td>{{student.name}}</td>
       <td>{{student.gender}}</td>
       <td>{{student.school}}</td>
-      <td><button (click)="itemTapped1($event,student)">详情</button></td>
+      <td>
+        <!--style="position: absolute;right: 10px;top: 0;"-->
+          <!--<ion-item class="no-padding">
+            <ion-select [(ngModel)]="choose"  interface="popover" (ionChange)="segmentChanged(choose,student)" >
+              <ion-option value="1"  >点击查看更多</ion-option>
+              <ion-option value="2"  >专项练习</ion-option>
+              <ion-option value="3"  >录播课</ion-option>
+            </ion-select>
+          </ion-item>-->
+        <button (click)="itemTapped1($event,student)">了解详情</button>
+      </td>
+
     </tr>
 
   </table>
