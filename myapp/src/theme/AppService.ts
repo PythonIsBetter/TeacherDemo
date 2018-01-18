@@ -92,7 +92,7 @@ export class AppService {
 }
 　　loginTeacher(data):Promise<any>{
     return this.http
-      .post('ttp://101.132.70.102/api/index.php/teacher/login', JSON.stringify(data),options)
+      .post('http://101.132.70.102/api/index.php/teacher/login', JSON.stringify(data),options)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
