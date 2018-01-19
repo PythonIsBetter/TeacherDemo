@@ -1,3 +1,115 @@
-page-operate-class {
+page-operate-class{
+  .input1{
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    background: #ffffff;;
+    border:1px solid #a1a1a1;
+    width: 50%;
+    height:35px;
+  }
+  .input-label{
+    font-size: 20px;
+    color:#2d2d2d;
+    font-family:YouYuan ;
+  }
+  .createbutton{
 
+  }
+  .padding button{
+    width: 70%;
+    height: 40px;
+    background: #51a7e8;
+    color: #FFFFFF;
+    font-family: YouYuan;
+    border-radius:25px;
+    -moz-border-radius:25px;
+
+  }
+  .item-input ul{
+    display: none;
+  }
+  .select {
+    display: inline-block;
+    /* 1 */
+    position: relative;
+    /* 2 */
+    vertical-align: middle;
+    /* 3 */
+    padding: 0;
+    /* 4 */
+    overflow: hidden;
+    /* 5 */
+    border-radius: 10px;
+    -moz-border-radius:10px;
+    background: #ffffff;;
+    border:1px solid #a1a1a1;
+    height: 35px;
+    width: 50%;
+    /* 6 */
+    /* 6 */
+  }
+  .select:hover {
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  }
+  .select:before {
+    position: absolute;
+    /* 7 */
+    top: 0.5em;
+    /* 7 */
+    right: 0.5em;
+    /* 7 */
+    pointer-events: none;
+    /* 8 */
+  }
+  .select select {
+    cursor: pointer;
+    /* 9 */
+    padding: 0.5em;
+    /* 10 */
+    padding-right: 2em;
+    /* 11 */
+    width: 130%;
+    /* 12 */
+    border: none;
+    /* 13 */
+    background: transparent;
+    /* 13 */
+    background-image: none;
+    /* 13 */
+    -webkit-appearance: none;
+    /* 13 */
+    -moz-appearance: none;
+    /* 13 */
+    appearance: none;
+    /* 13 */
+    text-indent: 0.01px;
+    /* 14 */
+    text-overflow: '';
+    /* 14 */
+    width: 160% \9;
+    /* 15 */
+  }
+  .select select:focus {
+    outline: none;
+    /* 16 */
+  }
+
+  /****************************
+   ****************************
+   ****************************
+   * Helpers
+   */
+  .select:before {
+    font-family: "icons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }

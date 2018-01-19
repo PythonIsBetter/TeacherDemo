@@ -18,20 +18,28 @@
     <ion-list>
       <ion-item>
         <ion-label  text-left>班级编码</ion-label>
-        <ion-input placeholder=""></ion-input>
+        <ion-input placeholder="{{claid}}" disabled></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-label  text-left>班级名称</ion-label>
-        <ion-input placeholder="Text Input"></ion-input>
+        <ion-input [(ngModel)]="name" type="text">{{name}}</ion-input>
       </ion-item>
+      
       <ion-item>
-        <ion-label  text-left>科目</ion-label>
-        <ion-input placeholder="Text Input"></ion-input>
+        <ion-label item-left text-left>科目</ion-label>
+        <ion-select  [(ngModel)]="subjectid" item-left>
+          <ion-option *ngFor="let sub of subjects" [ngValue]="sub">
+            {{sub}}
+          </ion-option>
+        </ion-select>
       </ion-item>
+
       <ion-item>
-        <ion-label  text-left>班主任</ion-label>
-        <ion-input placeholder="Text Input"></ion-input>
+        <ion-label  text-left ng-bind="head">班主任</ion-label>
+        <ion-input [(ngModel)]="head" type="text" placeholder="请输入新的班主任"></ion-input>
       </ion-item>
+
     </ion-list>
   </ion-card>
   <ion-card>

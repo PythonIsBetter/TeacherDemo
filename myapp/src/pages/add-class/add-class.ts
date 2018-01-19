@@ -87,7 +87,7 @@ export class AddClassPage {
             position:'middle'
           });
          toast.present();
-         this.navCtrl.pop();
+         this.navCtrl.push(HomePage);
         }else{
           // alert("创建失败");
           let toast = this.toastCtrl.create({
