@@ -1,7 +1,6 @@
 import { Component,ViewChild,Inject} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MyApp} from '../../app/app.component';
-import { BASEURLIMG} from '../../theme/theme.config';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { VideoPlayer ,VideoOptions} from '@ionic-native/video-player';
 /**

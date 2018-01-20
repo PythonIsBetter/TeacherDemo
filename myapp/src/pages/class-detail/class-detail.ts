@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StuManagePage} from "../stu-manage/stu-manage";
-import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {PublishNoticePage} from "../publish-notice/publish-notice";
 import {ShareFilePage} from "../share-file/share-file";
 import {HomeworkListPage} from "../homework-list/homework-list";
