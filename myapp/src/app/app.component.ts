@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
+import {LoginPage} from "../pages/login/login";
 @Injectable()
 @Component({
   selector:'ion-app',
@@ -11,7 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 export class MyApp
 {
-  rootPage:any = TabsPage;
+  //rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
   userinfo:any;
   pagenextarr:any;
 

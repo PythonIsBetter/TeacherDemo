@@ -51,6 +51,7 @@ import {VideoPage} from "../pages/video/video";
 import {OperationPage} from "../pages/operation/operation";
 import {BlankPage} from "../pages/blank/blank";
 import {OperateClassPage} from "../pages/operate-class/operate-class";
+import {LoginPage} from "../pages/login/login";
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import {OperateClassPage} from "../pages/operate-class/operate-class";
     VideoPage,
     OperationPage,
     BlankPage,
-    OperateClassPage
+    OperateClassPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -153,7 +155,8 @@ import {OperateClassPage} from "../pages/operate-class/operate-class";
     VideoPage,
     OperationPage,
     BlankPage,
-    OperateClassPage
+    OperateClassPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
