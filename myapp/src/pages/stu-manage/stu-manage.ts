@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import {AddStuPage} from "../add-stu/add-stu";
 import {ChoosePage} from "../choose/choose";
+import {StuInfoPage} from "../stu-info/stu-info";
 
 /**
  * Generated class for the StuManagePage page.
@@ -75,17 +76,25 @@ export class StuManagePage {
     }
   }*/
 
-  itemTapped(event, item) {
+  itemTapped(item) {
     this.navCtrl.push(AddStuPage, {
       item: item
     });
   }
 
-  itemTapped1(event, item) {
+  itemTapped1(item) {
     this.navCtrl.push(ChoosePage, {
       item: item,//student
     });
   }
+
+  stuInfo(item) {
+    this.navCtrl.push(StuInfoPage, {
+      item: item,
+    });
+  }
+
+
 
 
 }

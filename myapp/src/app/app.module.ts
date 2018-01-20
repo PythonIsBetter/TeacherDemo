@@ -52,6 +52,7 @@ import {OperationPage} from "../pages/operation/operation";
 import {BlankPage} from "../pages/blank/blank";
 import {OperateClassPage} from "../pages/operate-class/operate-class";
 import {LoginPage} from "../pages/login/login";
+import {StuInfoPage} from "../pages/stu-info/stu-info";
 
 @NgModule({
   declarations: [
@@ -101,7 +102,8 @@ import {LoginPage} from "../pages/login/login";
     OperationPage,
     BlankPage,
     OperateClassPage,
-    LoginPage
+    LoginPage,
+    StuInfoPage
   ],
   imports: [
     BrowserModule,
@@ -156,13 +158,15 @@ import {LoginPage} from "../pages/login/login";
     OperationPage,
     BlankPage,
     OperateClassPage,
-    LoginPage
+    LoginPage,
+    StuInfoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: 'appService',  useClass: AppService},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    {provide: 'myapp', useClass:MyApp},
   ]
 })
 export class AppModule {}

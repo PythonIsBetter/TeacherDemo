@@ -24,7 +24,7 @@
     </tr>
     </thead>
     <tr *ngFor="let student of studentsNotPassed">
-      <td>{{student.name}}</td>
+      <td (click)="stuInfo($event,student)">{{student.name}}</td>
       <td>{{student.gender}}</td>
       <td>{{selectedItem.subject}}{{selectedItem.name}}</td>
       <td><button  (click)="letStuPassed(student.uid)">通过</button></td>

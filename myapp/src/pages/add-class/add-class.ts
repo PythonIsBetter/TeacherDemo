@@ -28,8 +28,6 @@ export class AddClassPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
 
     this.url="http://101.201.238.157/demo/index/cla_insert";
-   // this.name=(<HTMLSelectElement>document.getElementsByClassName("mySelect")[0]).name;
-    //this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.subjects=[];
     this.subjects.push("选择科目");
     this.http.request('http://101.201.238.157/demo/index/selectSubject')
@@ -48,26 +46,12 @@ export class AddClassPage {
 
   }
   addclass():void{
-    // this.id="111";
-    // this.name="name";
-    // this.subject="subject";
-    // this.head="head";
-    // this.url=this.url+"?"+"id="+this.id+"&"
-    //   +"name="+this.name+"&"+"subject="+this.subject
-    //   +"&"+"head="+this.head;
-    // // alert(this.url);
-    // this.http.get(this.url)
-    //   .subscribe(res=>{
-    //     //alert(res.json());
-    //
-    //   });
-    let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex;
-
-    //****************
+    /*let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex;
     this.id= (<HTMLInputElement>document.getElementById("idx")).value;
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.subject= (selectIndex).toString();
-    this.head= (<HTMLInputElement>document.getElementById("headx")).value;
+    this.head= (<HTMLInputElement>document.getElementById("headx")).value;*/
+
     this.url=this.url+"?"+"id="+this.id+"&"
       +"name="+this.name+"&"+"subject="+this.subject
       +"&"+"head="+this.head;

@@ -17,41 +17,32 @@
   <ion-card>
     <ion-list>
       <ion-item>
-        <ion-label  text-left>班级编码</ion-label>
+        <ion-label  text-center="" style="width: 154px">班级编码:</ion-label>
         <ion-input placeholder="{{claid}}" disabled text-center></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label  text-left>班级名称</ion-label>
-        <ion-input [(ngModel)]="name" type="text" text-center>{{name}}</ion-input>
+        <ion-label  text-center="" style="width: 154px">班级名称:</ion-label>
+        <ion-input [(ngModel)]="name" type="text" text-center placeholder="新的班级名称">{{name}}</ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label item-left text-left>科目</ion-label>
-        <ion-select  [(ngModel)]="subjectid" item-left text-center>
-          <option *ngFor="let sub of subjects" [ngValue]="sub">
-            {{sub}}
-          </option>
+        <ion-label text-center="" >科目:</ion-label>
+        <ion-select [(ngModel)]="subjectid" cancelText="取消" placeholder="选择科目">
+          <ion-option *ngFor="let sub of subjects" text-center>{{sub}}</ion-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
-        <ion-label item-left>科目</ion-label>
-        <ion-select [(ngModel)]="subjectid" item-left>
-          <option *ngFor="let sub of subjects" placeholder="选择科目" text-center>{{sub}}</option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label  text-left ng-bind="head">班主任</ion-label>
-        <ion-input [(ngModel)]="head" type="text" placeholder="请输入新的班主任"></ion-input>
+        <ion-label  text-center="" style="width: 154px">班主任:</ion-label>
+        <ion-input [(ngModel)]="head" type="text" text-center placeholder="新的班主任"></ion-input>
       </ion-item>
 
     </ion-list>
   </ion-card>
   <ion-card>
-  <button ion-item item-left (click)="update()">确认修改</button>
-  <button ion-item item-right (click)="delete()">删除班级</button>
+  <button ion-item text-center color="primary" (click)="updatee()">确认修改</button>
+  <button ion-item text-center color="danger" (click)="delete()">删除班级</button>
   </ion-card>
 
 </ion-content>

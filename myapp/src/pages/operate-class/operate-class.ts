@@ -46,7 +46,7 @@ export class OperateClassPage {
     console.log(this.claid);
   }
 
-  delete() {
+  deletee() {
           let headers = new Headers({
             'Content-Type': 'application/x-www-form-urlencoded'
           });
@@ -65,7 +65,7 @@ export class OperateClassPage {
               position:'middle'
             });
             toast.present();
-            this.navCtrl.push(HomePage);
+            this.navCtrl.push(HomePage);//如何使的不能返回到上一页
           }
 
         }, err => {console.log(err)})

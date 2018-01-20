@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http,Response}from "@angular/http";
+import {StuInfoPage} from "../stu-info/stu-info";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 /**
@@ -20,7 +21,6 @@ export class AddStuPage {
   id:string;
   name:string;
   age:string;
-  sex:string;
 
   urlGetStuNotPassed:string;
   urlGetStuPassed: string;
@@ -43,7 +43,7 @@ export class AddStuPage {
     this.students = [];
 
 
-    this.urlGetStuPassed = "http://101.201.238.157/demo/index/getStuPassed1?id="
+    this.urlGetStuPassed = "http://101.201.238.157/demo/index/getStuPassed1?id=";
     this.urlGetStuNotPassed="http://101.201.238.157/demo/index/getStuNotPassed1?id=";
 
     this.urlLetStuPassed="http://101.201.238.157/demo/index/letStuPassed";
@@ -143,6 +143,12 @@ export class AddStuPage {
         }
 
       });
+  }
+
+  stuInfo(event,item) {
+    this.navCtrl.push(StuInfoPage, {
+      id: item,//id
+    });
   }
 
 }

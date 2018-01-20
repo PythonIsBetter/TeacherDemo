@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title text-center>班级管理</ion-title>
     <div class="rightbutton">
-      <img src="../../assets/icon/Plus.png"  (click)="itemTapped($event, selectedItem)" height="40" width="40">
+      <img src="../../assets/icon/Plus.png"  (click)="itemTapped( selectedItem)" height="40px" width="40px">
     </div>
   </ion-navbar>
 
@@ -27,7 +27,7 @@
     </tr>
     </thead>
     <tr *ngFor="let student of students">
-      <td>{{student.name}}</td>
+      <td (click)="stuInfo(student)">{{student.name}}</td>
       <td>{{student.gender}}</td>
       <td>{{student.school}}</td>
       <td>
@@ -39,7 +39,7 @@
               <ion-option value="3"  >录播课</ion-option>
             </ion-select>
           </ion-item>-->
-        <button (click)="itemTapped1($event,student)">了解详情</button>
+        <button (click)="itemTapped1(student)">了解详情</button>
       </td>
 
     </tr>

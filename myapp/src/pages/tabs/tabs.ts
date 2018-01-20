@@ -10,12 +10,12 @@ import {BlankPage} from "../blank/blank";
 export class TabsPage {
 
   tab1Root = HomePage;
-  //tab2Root = VideoPage;
   tab2Root =BlankPage;
   tab3Root = ContactPage;
   tab4Root=AboutPage;
 
   constructor() {
+
 
   }
 }
