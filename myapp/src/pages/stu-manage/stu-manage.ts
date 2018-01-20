@@ -4,7 +4,6 @@ import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import {AddStuPage} from "../add-stu/add-stu";
-import {ExercisePage} from "../exercise/exercise";
 import {ChoosePage} from "../choose/choose";
 
 /**

@@ -3,11 +3,8 @@
   <ion-navbar>
     <ion-title text-center>
       班级
+      <ion-icon name="add" style="position:absolute;padding-left: 36%;padding-top: 0.4%"  (click)="itemTapped($event, item)"></ion-icon>
     </ion-title>
-    <div class="rightbutton">
-      <!--<img src="../assets/icon/Plus.png"  (click)="itemTapped($event, item)" height="40" width="40">-->
-      <ion-icon name="add" margin-top="0.3px"  (click)="itemTapped($event, item)"></ion-icon>
-    </div>
 
   </ion-navbar>
   <div class="buttons">
@@ -16,19 +13,13 @@
 </ion-header>
 
 <ion-content padding class="back">
-  <div card list>
+  <div>
     <button ion-item *ngFor="let class of classes" (click)="itemTapped1($event, class)">
-      <!--<div>{{class.id}}</div>-->
-      <!--<div>{{class.name}}</div>-->
-      <!--<div>{{class.subject}}</div>-->
-      <!--<div>{{class.head}}</div>-->
-      <!--<div class="item-note dian" item-left>
-        <b>·</b>
-      </div>-->
-      <img src="../../assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 6px;padding-right: 4px;p"/>
+      <!--<img src="../../assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 6px;padding-right: 4px;p"/>-->
+
       {{class.subject}}{{class.name}}({{class.cid}})
-      <div class="item-note" item-right>
-      </div>
+      <ion-icon md="ios-arrow-forward" item-right></ion-icon>
+
     </button>
   </div>
   <!--<h2>Welcome to Ionic!</h2>-->

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http, Response} from "@angular/http";
-import {ReportHomeworkDetailPage} from "../report-homework-detail/report-homework-detail";
 import {HomeworkKindDetailPage} from "../homework-kind-detail/homework-kind-detail";
 
 

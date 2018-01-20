@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {Response, Http, RequestOptions} from "@angular/http";
+import {Response, Http} from "@angular/http";
 /**
  * Generated class for the TaskDetailPage page.
  *

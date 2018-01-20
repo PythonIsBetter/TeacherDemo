@@ -1,6 +1,8 @@
 import { Component,} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http,Response,Headers,RequestOptions}from "@angular/http";
+import { ToastController } from 'ionic-angular';
+import {HomePage} from "../home/home";
 
 /**
  * Generated class for the OperateClassPage page.
@@ -22,12 +24,12 @@ export class OperateClassPage {
   subjectid:String;
   head:string;
   subjects:Array<string>;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
     this.claid = this.navParams.get('item');
     this.deleteUrl = "http://101.201.238.157/demo/index/deleteClass";
     this.updateUrl = "http://101.201.238.157/demo/index/updateClass";
     this.subjects=[];
-    this.subjects.push("测试科目");
+    this.subjects.push("选择科目");
     this.http.request('http://101.201.238.157/demo/index/selectSubject')
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().data.length;i++)
@@ -56,9 +58,18 @@ export class OperateClassPage {
       this.http.post(this.deleteUrl, body, options )
         .map(res => res.json())
         .subscribe(data =>{
-          console.log(data);
+          if(data.code==200){
+            let toast = this.toast.create({
+              message: '删除此班级成功！',
+              duration: 2000,
+              position:'middle'
+            });
+            toast.present();
+            this.navCtrl.push(HomePage);
+          }
+
         }, err => {console.log(err)})
-    })
+    });
   }
 
   update(){
@@ -73,8 +84,22 @@ export class OperateClassPage {
       this.http.post(this.updateUrl, body, options )
         .map(res => res.json())
         .subscribe(data =>{
-          console.log(data);
-        }, err => {console.log(err)})
+          if(data.code==200) {
+            let toast = this.toast.create({
+              message: '修改班级信息成功！',
+              duration: 2000,
+              position: 'middle'
+            });
+            toast.present();
+          }
+        }, err => {
+          let toast = this.toast.create({
+            message: '修改班级信息失败！！！',
+            duration: 3000,
+            position: 'middle'
+          });
+          toast.present();
+        })
     })
   }
 }

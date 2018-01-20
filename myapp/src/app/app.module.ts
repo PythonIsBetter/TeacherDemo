@@ -160,7 +160,6 @@ import {OperateClassPage} from "../pages/operate-class/operate-class";
     SplashScreen,
     {provide: 'appService',  useClass: AppService},
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    //Http
   ]
 })
 export class AppModule {}

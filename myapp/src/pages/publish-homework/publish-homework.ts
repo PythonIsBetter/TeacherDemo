@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, App} from 'ionic-angular';
 import {SelectQuestionPage} from "../select-question/select-question";
 import {Response, Http} from "@angular/http";
@@ -44,7 +44,7 @@ export class PublishHomeworkPage
       .subscribe((res: Response) => {
         this.listData = res.json().data;
         // alert(this.listData[0].id);
-        for (var i = 0; i < this.listData.length; i++) {
+        for (let i = 0; i < this.listData.length; i++) {
           this.items.push({cname:this.listData[i].cname,id:this.listData[i].id});
         }
         this.copeyitems=this.deepCoyp(this.items)
@@ -56,9 +56,8 @@ export class PublishHomeworkPage
   }
 
   deepCoyp(source) {
-    var result:any[]=[]
-    var result:any[];
-    for (var key in source)
+    let result: any[] = [];
+    for (let key in source)
       result[key]=source[key];
     return result;
   }

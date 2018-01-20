@@ -1,7 +1,6 @@
 import {Component, Inject} from '@angular/core';
-import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {BASEURLIMG} from "../../theme/theme.config";
-import {MyApp} from "../../app/app.component";
 
 /**
  * Generated class for the RecordingvideoPage page.

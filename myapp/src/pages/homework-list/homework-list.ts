@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, App, ToastController,ModalController,ViewController} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, App, ToastController,ModalController} from 'ionic-angular';
 import {FormControl} from "@angular/forms";
 import {Http, Response} from "@angular/http";
 import 'rxjs/Rx'
-import {SelectQuestionPage} from "../select-question/select-question";
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {HomeworkModifyPage} from "./homework-modify";
 
@@ -88,8 +87,7 @@ export class HomeworkListPage {
   }
 
   static deepCoyp(source) {
-    var result:any[]=[];
-    var result:any[];
+    let result:any[];
     for (var key in source) {
       result[key]=source[key]
       // result[key] = typeof source[key]==='object'? this.deepCoyp(source[key]): source[key];

@@ -31,7 +31,7 @@ export class AddClassPage {
    // this.name=(<HTMLSelectElement>document.getElementsByClassName("mySelect")[0]).name;
     //this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.subjects=[];
-    this.subjects.push("测试科目");
+    this.subjects.push("选择科目");
     this.http.request('http://101.201.238.157/demo/index/selectSubject')
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().data.length;i++)
