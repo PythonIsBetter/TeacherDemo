@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http,Response}from "@angular/http";
-import { HttpModule } from '@angular/http';
 import {StuPrePage} from "../stu-pre/stu-pre";
 /**
  * Generated class for the SubItemPage page.

@@ -1,7 +1,7 @@
 import { Injectable,EventEmitter}    from '@angular/core';
 import { Headers,Http,RequestOptions,Response} from '@angular/http';
 // import { Observable } from 'rxjs/Observable';
-import { BASEURL,TOREBASEURL} from './theme.config';
+import { BASEURL} from './theme.config';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';

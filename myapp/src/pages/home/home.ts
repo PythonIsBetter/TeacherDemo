@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {ContactPage} from "../contact/contact";
 import {AddClassPage} from "../add-class/add-class";
 import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import { HttpModule } from '@angular/http';
-import {importExpr} from "@angular/compiler/src/output/output_ast";
 import {ClassDetailPage} from "../class-detail/class-detail";
 @Component({
   selector: 'page-home',
