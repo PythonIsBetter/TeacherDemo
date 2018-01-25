@@ -16,19 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PersonalInfoPage {
 
   id:string;
-  name:string;
+  username:string;
   mobile:string;
   age:string;
   address:string;
   email:string;
   avatar:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    /*this.username = localStorage.getItem('username');
+    this.username = localStorage.getItem('username');
     this.mobile = localStorage.getItem('mobile');
     this.age = localStorage.getItem('age');
     this.address = localStorage.getItem('address');
     this.email = localStorage.getItem('email');
-    this.avatar =  localStorage.getItem('avatar');*/
+    this.avatar =  localStorage.getItem('avatar');
 
   }
 

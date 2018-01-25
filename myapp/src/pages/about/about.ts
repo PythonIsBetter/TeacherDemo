@@ -10,8 +10,12 @@ import {PersonalInfoPage} from "../personal-info/personal-info";
   })
 export class AboutPage
 {
+  avatarUrl:string;
+
   constructor(public navCtrl: NavController)
-  {}
+  {
+    this.avatarUrl = "http://101.132.70.102" + localStorage.getItem('avatar');
+  }
 
   itemTapped(event, item)
   {

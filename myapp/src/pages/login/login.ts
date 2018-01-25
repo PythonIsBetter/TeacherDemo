@@ -59,10 +59,11 @@ export class LoginPage {
           localStorage.setItem('address',res.content.userinfo.address);
           localStorage.setItem('email',res.content.userinfo.email);
           localStorage.setItem('avatar',res.content.userinfo.avatar);
+          console.log(res.content.userinfo.avatar);
           this.app.getRootNav().push(TabsPage);
 
         }else{
-         // this.appComponent.presentToast(res.message);
+         // this.appComponent.presentToast(res.message); http://101.132.70.102
         }
       },
       error=>{
