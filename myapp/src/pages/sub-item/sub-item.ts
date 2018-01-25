@@ -24,7 +24,7 @@ export class SubItemPage {
     this.test = navParams.get('item');
     this.student = navParams.get('item2');
     this.subItems=[];
-    this.url="http://101.201.238.157/demo/index/getSubjectItem";
+    this.url="http://222.73.69.146:8088/index.php/demo/index/getSubjectItem";
     this.subItems.push({
       id:"0",
       name:"测试item"

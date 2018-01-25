@@ -36,7 +36,7 @@ export class StuManagePage {
     this.choose = "1";
 
   //  this.url="http://localhost:8090/public/admin/index/getStuPassed";
-    this.url="http://101.201.238.157/demo/index/getStuPassed1?id=";
+    this.url="http://222.73.69.146:8088/index.php/demo/index/getStuPassed1?id=";
     this.url=this.url+this.selectedItem.id;
     this.students=[];
     this.http.request(this.url)

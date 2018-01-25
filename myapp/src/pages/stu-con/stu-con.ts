@@ -53,14 +53,14 @@ export class StuConPage {
     this.student = navParams.get('item');
     this.classes=[];
     this.classid=navParams.get('item2').id;
-    this.urlGetStuPracticeMark="http://101.201.238.157/demo/index/getStuPracticeMark";
-    this.urlGetHomeworkList="http://101.201.238.157/demo/index/getHomeworkList";
-    this.urlGetStuHomeworkMark="http://101.201.238.157/demo/index/getStuHomeworkMark"
+    this.urlGetStuPracticeMark="http://222.73.69.146:8088/index.php/demo/index/getStuPracticeMark";
+    this.urlGetHomeworkList="http://222.73.69.146:8088/index.php/demo/index/getHomeworkList";
+    this.urlGetStuHomeworkMark="http://222.73.69.146:8088/index.php/demo/index/getStuHomeworkMark"
     this.urlGetHomeworkList+="?classid="+this.classid;
     this.urlGetStuMathPracticeMark=this.urlGetStuPracticeMark+"?stuid="+this.student.id+"&subid="+"2";
     this.urlGetStuHomeworkMark=this.urlGetStuHomeworkMark+"?stuid="+this.student.id;
     //this.url="http://localhost:8090/public/admin/index/insert";
-    //this.url="http://101.201.238.157/demo/index/cla_insert";
+    //this.url="http://222.73.69.146:8088/index.php/demo/index/cla_insert";
     // this.homework.push({
     //   id:"123",
     //   name:"lalala"

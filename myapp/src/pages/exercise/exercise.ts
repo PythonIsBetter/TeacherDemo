@@ -38,7 +38,7 @@ export class ExercisePage {
     console.log(localStorage);*/
 
     //进入页面请求知识点
-    this.http.request("http://101.201.238.157/index/request_record_list/"+this.user+"/" + this.subject)
+    this.http.request("http://222.73.69.146:8088/index.php/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });
@@ -48,7 +48,7 @@ export class ExercisePage {
 
   //请求不同科目的知识点
   segmentChanged() {
-    this.http.request("http://101.201.238.157/index/request_record_list/"+this.user+"/" + this.subject)
+    this.http.request("http://222.73.69.146:8088/index.php/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });

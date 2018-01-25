@@ -71,7 +71,7 @@
       <ion-item>
         <ion-label text-center="">科目：</ion-label>
         <ion-select [(ngModel)]="subject" cancelText="取消" placeholder="选择科目">
-          <ion-option *ngFor="let sub of subjects" text-center>{{sub}}</ion-option>
+          <ion-option *ngFor="let sub of subjects" text-center [value]="sub">{{sub}}</ion-option>
         </ion-select>
       </ion-item>
 

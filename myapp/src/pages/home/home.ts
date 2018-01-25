@@ -32,8 +32,8 @@ export class HomePage {
       cid:"测试id"
     });
     //this.url="http://localhost:8090/public/admin/index/insert";
-    //this.url="http://101.201.238.157/demo/index/cla_insert";
-    this.http.request('http://101.201.238.157/demo/index/cla_select')
+    //this.url="http://222.73.69.146:8088/index.php/demo/index/cla_insert";
+    this.http.request('http://222.73.69.146:8088/index.php/demo/index/cla_select')
       .subscribe((res:Response)=>{
       for(let i=0;i<res.json().data.length;i++)
       {

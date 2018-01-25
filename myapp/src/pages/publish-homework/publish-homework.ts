@@ -28,7 +28,7 @@ export class PublishHomeworkPage
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http)
   {
     this.homeName = navParams.get('item');
-    this.urlListKnowledge="http://101.201.238.157/demo/index/getAllKnowledge";
+    this.urlListKnowledge="http://222.73.69.146:8088/index.php/demo/index/getAllKnowledge";
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges

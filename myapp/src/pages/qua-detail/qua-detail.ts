@@ -30,9 +30,9 @@ export class QuaDetailPage {
     this.subtitle="";
     this.ques=navParams.get('item');
     this.student = navParams.get('item2');
-    this.urlQuesDetail="http://101.201.238.157/demo/index/getQuesDetail";
-    this.urlGetSubtitle="http://101.201.238.157/demo/index/getKnowledgeByTitleId";
-    this.urlQuesMessage="http://101.201.238.157/demo/index/getQuesMessage";
+    this.urlQuesDetail="http://222.73.69.146:8088/index.php/demo/index/getQuesDetail";
+    this.urlGetSubtitle="http://222.73.69.146:8088/index.php/demo/index/getKnowledgeByTitleId";
+    this.urlQuesMessage="http://222.73.69.146:8088/index.php/demo/index/getQuesMessage";
     this.urlQuesDetail+="?titleid="+this.ques.titleid;
     this.urlGetSubtitle+="?examid="+this.ques.examid;
     this.urlQuesMessage+="?stuid="+this.student.id+"&textid="+this.ques.titleid;
@@ -41,7 +41,7 @@ export class QuaDetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuaDetailPage');
     // alert(this.urlQuesMessage);
-    // this.http.request('httP://101.201.238.157/index/requestMess')
+    // this.http.request('http://222.73.69.146:8088/index.php/index/requestMess')
     //   .subscribe((res: Response) => {
     //     this.listDetailData = res.json();
     //   });

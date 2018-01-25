@@ -34,7 +34,7 @@ export class SelectQuestionPage
     this.jd=[];
     this.loadTheHomework();
 
-    this.http.request("http://101.201.238.157/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -75,7 +75,7 @@ export class SelectQuestionPage
   loadTheHomework()
   {
     //添加选择题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=1").subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=1").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -94,7 +94,7 @@ export class SelectQuestionPage
     });
 
     //添加填空题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=2").subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=2").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -109,7 +109,7 @@ export class SelectQuestionPage
     });
 
     //添加判断题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=3").subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=3").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -129,7 +129,7 @@ export class SelectQuestionPage
     });
 
     //添加解答题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=4").subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=4").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -161,7 +161,7 @@ export class SelectQuestionPage
     alert("尊敬的用户您好！当您添加完成题目后，系统会自动保存这些题目，退出后下一次打开还可以继续编辑；" +
       "若您点了“发布”按钮之后，则系统会将题目发布出去，并且不再允许修改题目。请您悉知")
 
-    this.http.get("http://101.201.238.157/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
+    this.http.get("http://222.73.69.146:8088/index.php/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
     {
       if (res.json().data == "1")
       {

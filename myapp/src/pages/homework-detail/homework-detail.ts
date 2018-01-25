@@ -28,7 +28,7 @@ export class HomeworkDetailPage
     this.classes = navParams.get('item');
     this.homeworkID=this.classes.id;
 
-    this.http.request("http://101.201.238.157/demo/index/getHomeworkList?classid="+this.homeworkID).subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getHomeworkList?classid="+this.homeworkID).subscribe((res:Response)=>
       {
         for(let i=0;i<res.json().data.length;i++)
         {

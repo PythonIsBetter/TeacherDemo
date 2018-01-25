@@ -34,8 +34,8 @@ export class HomeworkListPage {
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public toastCtrl: ToastController,public modalCtrl: ModalController) {
     //this.selectedItem = navParams.get('item');
     this.class=navParams.get('item');
-    this.urlListKnowledge="http://101.201.238.157/demo/index/getHomeworkList";
-    this.urlAddHomework="http://101.201.238.157/demo/index/addHomeworkList";
+    this.urlListKnowledge="http://222.73.69.146:8088/index.php/demo/index/getHomeworkList";
+    this.urlAddHomework="http://222.73.69.146:8088/index.php/demo/index/addHomeworkList";
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges
