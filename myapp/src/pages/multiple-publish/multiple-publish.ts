@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http, Response} from "@angular/http";
+import {HomePage} from "../home/home";
 
 /**
  *多重发布，允许一个作业或者是一个通知发布到多个班级里
@@ -57,37 +58,6 @@ export class MultiplePublishPage
 
   publishHomeWork()//上载作业
   {
-    if(this.otherClass[0]!=null)
-    {
-      for(let i=0;i<this.otherClass.length;i++)
-      {
-        this.http.request("http://222.73.69.146:8088/index.php/demo/index/addHomeworkList?name="+this.homeworkName+"&classid="+this.otherClass[i])
-          .subscribe((res: Response) =>
-          {
-            if(res.json().data=="1")
-            {
-              let toast = this.toastCtrl.create
-              ({
-                message: '添加成功',
-                duration: 2000,
-                position:'middle'
-              });
-              toast.present();
-            }
-            else
-              {
-              let toast = this.toastCtrl.create
-              ({
-                message: '添加失败',
-                duration: 2000,
-                position:'middle'
-              });
-              toast.present();
-            }
-          });
-      }
-    }
-
     this.http.get("http://222.73.69.146:8088/index.php/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
     {
       if (res.json().data == "1")
@@ -99,6 +69,36 @@ export class MultiplePublishPage
           position: 'middle'
         });
         toast.present();
+        if(this.otherClass[0]!=null)
+        {
+          for(let i=0;i<this.otherClass.length;i++)
+          {
+            this.http.request("http://222.73.69.146:8088/index.php/demo/index/addHomeworkList?name="+this.homeworkName+"&classid="+this.otherClass[i])
+              .subscribe((res: Response) =>
+              {
+                if(res.json().data=="1")
+                {
+                  let toast = this.toastCtrl.create
+                  ({
+                    message: '添加成功',
+                    duration: 2000,
+                    position:'middle'
+                  });
+                  toast.present();
+                }
+                else
+                {
+                  let toast = this.toastCtrl.create
+                  ({
+                    message: '添加失败',
+                    duration: 2000,
+                    position:'middle'
+                  });
+                  toast.present();
+                }
+              });
+          }
+        }
       }
       else
       {
@@ -111,6 +111,8 @@ export class MultiplePublishPage
         toast.present();
       }
     });
-  }
 
+    this.navCtrl.push(HomePage,
+      {});
+  }
 }
