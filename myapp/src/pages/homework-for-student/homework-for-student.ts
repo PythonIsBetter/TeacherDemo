@@ -26,9 +26,9 @@ export class HomeworkForStudentPage
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http)
   {
-    this.urlQuesAll="http://101.201.238.157/demo/index/getQuesByHomeworkName";
-    this.urlQuesRight="http://101.201.238.157/demo/index/getHomeworkRight";
-    this.urlQuesWrong="http://101.201.238.157/demo/index/getHomeworkWrong";
+    this.urlQuesAll="http://222.73.69.146:8088/index.php/demo/index/getQuesByHomeworkName";
+    this.urlQuesRight="http://222.73.69.146:8088/index.php/demo/index/getHomeworkRight";
+    this.urlQuesWrong="http://222.73.69.146:8088/index.php/demo/index/getHomeworkWrong";
     this.subItem = navParams.get('item');
     this.student = navParams.get('item2');
     this.homework=this.navParams.get('homework');

@@ -22,9 +22,9 @@ export class StuPrePage {
   urlQuesRight:string;
   urlQuesWrong:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
-    this.urlQuesAll="http://101.201.238.157/demo/index/getquesbyexamid";
-    this.urlQuesRight="http://101.201.238.157/demo/index/getQuesRight";
-    this.urlQuesWrong="http://101.201.238.157/demo/index/getQuesWrong";
+    this.urlQuesAll="http://222.73.69.146:8088/index.php/demo/index/getquesbyexamid";
+    this.urlQuesRight="http://222.73.69.146:8088/index.php/demo/index/getQuesRight";
+    this.urlQuesWrong="http://222.73.69.146:8088/index.php/demo/index/getQuesWrong";
     this.subItem = navParams.get('item');
     this.student = navParams.get('item2');
     this.ques=[];

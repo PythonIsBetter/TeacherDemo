@@ -12,11 +12,11 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background: #f4f4f4;">
 
   <div class="list" align="left">
     选择题
-    <button class="add" (click)="ionViewDidLoad(1)">
+    <button *ngIf="check==0" class="add" (click)="ionViewDidLoad(1)">
       +
     </button>
     <hr class="line"/>
@@ -25,7 +25,7 @@
 
   <div class="list" align="left" style="margin-top: 60px;">
     填空题
-    <button class="add" (click)="ionViewDidLoad(2)">
+    <button *ngIf="check==0" class="add" (click)="ionViewDidLoad(2)">
       +
     </button>
     <hr class="line"/>
@@ -34,7 +34,7 @@
 
   <div class="list" align="left"  style="margin-top: 60px;">
     判断题
-    <button class="add" (click)="ionViewDidLoad(3)">
+    <button *ngIf="check==0" class="add" (click)="ionViewDidLoad(3)">
       +
     </button>
     <hr class="line"/>
@@ -43,14 +43,14 @@
 
   <div class="list" align="left"  style="margin-top: 60px;">
     解答题
-    <button class="add" (click)="ionViewDidLoad(4)">
+    <button *ngIf="check==0" class="add" (click)="ionViewDidLoad(4)">
       +
     </button>
     <hr class="line"/>
     <button class="num"  align="center" *ngFor="let J of jd" (click)="showDetailedQuestion(J.titleID,J.id)">{{J.id}}</button>
   </div>
 
-  <button class="padding"  align="center" (click)="publishHomeWork()"><b>发布</b></button>
+  <button *ngIf="check==0" class="padding"  align="center" (click)="publishHomeWork()"><b>下一步</b></button>
 
   <br>
   <br>

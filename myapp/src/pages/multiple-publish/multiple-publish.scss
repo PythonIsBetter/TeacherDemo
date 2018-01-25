@@ -1,0 +1,34 @@
+page-multiple-publish
+{
+  //发布按钮
+  .padding
+  {
+    height: 6%;
+    width: 80%;
+    background: #51a7e8;
+    color: #FFFFFF;
+    font-family: 黑体;
+    -moz-border-radius:25px;
+    margin-top: 10%;
+    margin-left: 10%;
+    border-radius: 25px;
+  }
+
+  //多选框
+  .box
+  {
+    text-align: right;
+  }
+
+  //标题
+  .title
+  {
+    font-size: 20px;;
+  }
+
+  //背景
+  .back
+  {
+    background: #f4f4f4;
+  }
+}
