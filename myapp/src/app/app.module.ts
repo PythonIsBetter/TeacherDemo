@@ -53,6 +53,7 @@ import {BlankPage} from "../pages/blank/blank";
 import {OperateClassPage} from "../pages/operate-class/operate-class";
 import {LoginPage} from "../pages/login/login";
 import {StuInfoPage} from "../pages/stu-info/stu-info";
+import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import {StuInfoPage} from "../pages/stu-info/stu-info";
     BlankPage,
     OperateClassPage,
     LoginPage,
-    StuInfoPage
+    StuInfoPage,
+    MultiplePublishPage
   ],
   imports: [
     BrowserModule,
@@ -159,7 +161,8 @@ import {StuInfoPage} from "../pages/stu-info/stu-info";
     BlankPage,
     OperateClassPage,
     LoginPage,
-    StuInfoPage
+    StuInfoPage,
+    MultiplePublishPage
   ],
   providers: [
     StatusBar,

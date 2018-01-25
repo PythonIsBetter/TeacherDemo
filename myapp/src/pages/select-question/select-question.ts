@@ -8,6 +8,7 @@ import {AddTianKongPage} from "../add-tian-kong/add-tian-kong";
 import {AddPanDuanPage} from "../add-pan-duan/add-pan-duan";
 import {AddJieDaPage} from "../add-jie-da/add-jie-da";
 import {DetailedQuestionPage} from "../detailed-question/detailed-question";
+import {MultiplePublishPage} from "../multiple-publish/multiple-publish";
 
 @IonicPage()
 @Component({
@@ -158,8 +159,16 @@ export class SelectQuestionPage
   //发布作业
   publishHomeWork()
   {
+
+    this.navCtrl.push(MultiplePublishPage,
+      {
+        type:0,
+        homeworkName:this.homeworkName,
+      });
+
+/*
     alert("尊敬的用户您好！当您添加完成题目后，系统会自动保存这些题目，退出后下一次打开还可以继续编辑；" +
-      "若您点了“发布”按钮之后，则系统会将题目发布出去，并且不再允许修改题目。请您悉知")
+      "若您点了“发布”按钮之后，则系统会将题目发布出去，并且不再允许修改题目。请您悉知");
 
     this.http.get("http://222.73.69.146:8088/index.php/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
     {
@@ -184,5 +193,7 @@ export class SelectQuestionPage
         toast.present();
       }
     });
+
+    */
   }
 }
