@@ -7,21 +7,24 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>已发布的作业</ion-title>
+    <ion-title text-center>已发布的作业</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <div *ngFor="let home of homework" (click)="showDetail(home.id,home.name)">
-    <button ion-item>
-      <ion-icon name="" item-left></ion-icon>
+<ion-content padding style="background: #f4f4f4;">
+  <div>
+  <button ion-item *ngFor="let home of homework" (click)="showDetail(home.id,home.name)">
+      <!--<ion-icon name="" item-left></ion-icon>
       {{home.name}}
       <div class="item-note" item-right>
         >
-      </div>
-    </button>
+      </div>-->
+      <img src="../../assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;font-size: 20px" >{{home.name}}</span>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
+  </button>
   </div>
 
 </ion-content>

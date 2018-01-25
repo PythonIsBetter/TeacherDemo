@@ -1,7 +1,8 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http, Response} from "@angular/http";
-declare var echarts;
+
+declare let echarts;
 
 /**
  * 上一个页面：homeworkDetailList
@@ -38,8 +39,8 @@ export class HomeworkResultPage
   //初始化
   ionViewDidLoad()
   {
-   // 加载做题结果
-    this.http.request("http://101.201.238.157/demo/index/getQuesMessageByHomeId?homeid="+this.id+"&quesid="+this.titleID).subscribe((res:Response)=>
+   // 加载做题结果http://222.73.69.146:8088/index.php/index/request_record_list/5/1
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesMessageByHomeId?homeid="+this.id+"&quesid="+this.titleID).subscribe((res:Response)=>
     {
       this.numRight=res.json().data.countRight;
       this.numWrong=res.json().data.countWrong;
@@ -50,7 +51,7 @@ export class HomeworkResultPage
   //加载题目详情
   loadQuestion()
   {
-    this.http.request("http://101.201.238.157/demo/index/getQuesDetail?titleid="+this.titleID).subscribe((res:Response)=>
+    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesDetail?titleid="+this.titleID).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {

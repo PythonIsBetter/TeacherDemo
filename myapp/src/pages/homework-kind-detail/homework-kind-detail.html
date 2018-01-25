@@ -7,47 +7,37 @@
 <ion-header>
 
   <ion-navbar >
-    <ion-title >
-      选择一个类型
-    </ion-title>
+    <ion-title text-center>选择一个类型</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding class="back">
+<ion-content padding style="background: #f4f4f4;">
   <div>
 
     <button ion-item (click)="showTheDetail(1)">
-      <ion-icon name="list" item-left></ion-icon>
-      选择题
-      <div class="item-note" item-right>
-        >
-      </div>
+      <img src="../../assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;font-size: 20px" >选择题</span>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
     </button>
 
     <button ion-item (click)="showTheDetail(2)">
-      <ion-icon name="list" item-left></ion-icon>
-      填空题
-      <div class="item-note" item-right>
-        >
-      </div>
+      <img src="../../assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;font-size: 20px" >填空题</span>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
     </button>
 
     <button ion-item (click)="showTheDetail(3)">
-      <ion-icon name="list" item-left></ion-icon>
-      判断题
-      <div class="item-note" item-right>
-        >
-      </div>
+      <img src="../../assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;font-size: 20px" >判断题</span>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
     </button>
 
     <button ion-item (click)="showTheDetail(4)">
-      <ion-icon name="list" item-left></ion-icon>
-      解答题
-      <div class="item-note" item-right>
-        >
-      </div>
+      <img src="../../assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;font-size: 20px" >解答题</span>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
     </button>
 
   </div>

@@ -13,6 +13,13 @@
 </ion-header>
 <ion-content padding class="back">
   <div>
+
+    <button ion-item >
+      头像
+      <ion-img class="item-note" item-right src="{{stu.avtar}}">
+      </ion-img>
+    </button>
+
     <button ion-item>
       姓名
       <div class="item-note" item-right>
@@ -21,27 +28,24 @@
     </button>
 
     <button ion-item >
+      昵称
+      <div class="item-note" item-right>
+        {{stu.nickname}}
+      </div>
+    </button>
+
+    <button ion-item >
+      性别
+      <div class="item-note" item-right>
+        {{stu.gender}}
+      </div>
+    </button>
+
+
+    <button ion-item >
       年龄
       <div class="item-note" item-right>
         {{stu.age}}
-      </div>
-    </button>
-
-    <div><br></div>
-
-    <button ion-item >
-      地址
-      <div class="item-note" item-right>
-        {{stu.address}}
-      </div>
-    </button>
-
-    <div><br></div>
-
-    <button ion-item >
-      联系电话
-      <div class="item-note" item-right>
-        {{stu.mobile}}
       </div>
     </button>
 
@@ -51,6 +55,7 @@
         {{stu.email}}
       </div>
     </button>
+
 
   </div>
 </ion-content>

@@ -87,8 +87,8 @@ export class HomeworkListPage {
   }
 
   static deepCoyp(source) {
-    let result:any[];
-    for (var key in source) {
+    let result:any[] = [];
+    for (let key in source) {
       result[key]=source[key]
       // result[key] = typeof source[key]==='object'? this.deepCoyp(source[key]): source[key];
     }

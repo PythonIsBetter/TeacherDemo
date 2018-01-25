@@ -7,23 +7,19 @@
 <ion-header>
 
   <ion-navbar >
-    <ion-title >
-      选择题目
-    </ion-title>
+    <ion-title text-center>选择题目</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding >
+<ion-content padding style="background: #f4f4f4;">
   <div *ngFor="let Q of question" (click)="showTheResult(Q.titleID)">
 
     <button ion-item>
-      <ion-icon name="list" item-left></ion-icon>
-      {{Q.id}}
-      <div class="item-note" item-right>
-        >
-      </div>
+      <img src="../../assets/icon/yuan.png"/>
+      <span style="margin-left: 20px;font-size: 20px" >{{Q.id}}</span>
+      <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
     </button>
 
   </div>

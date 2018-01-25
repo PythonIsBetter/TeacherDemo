@@ -27,7 +27,7 @@
     </tr>
     </thead>
     <tr *ngFor="let student of students">
-      <td (click)="stuInfo(student)">{{student.name}}</td>
+      <td> <button (click)="stuInfo(student)">{{student.name}}</button></td>
       <td>{{student.gender}}</td>
       <td>{{student.school}}</td>
       <td>

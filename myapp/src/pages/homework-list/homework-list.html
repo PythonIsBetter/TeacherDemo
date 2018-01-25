@@ -1,9 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>
-      作业列表
-    </ion-title>
+    <ion-title text-center>作业列表</ion-title>
 
     <!--<ion-navbar>
       <ion-searchbar (ionInput)="getItems($event)"  [(ngModel)]='inpustring' style="width: 85%;">
@@ -18,7 +16,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="background: #f4f4f4;">
   <div>
 
     <div style="position: fixed;z-index: 15;width: 80%; left: 10%" >
@@ -28,7 +26,7 @@
     <br><br><br>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list>
-        <ion-item *ngFor="let item of items" (click)="selectQuestion($event,item)" >
+        <ion-item *ngFor="let item of items" (click)="selectQuestion($event,item)" style="font-size: 20px">
           {{ item.name }}
         </ion-item>
       </ion-list>
@@ -36,12 +34,12 @@
 
   </div>
 
-  <ion-list inset>
-    <div ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
+  <div>
+    <button ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
       <img src="../../assets/icon/yuan.png"/>
-      <span style="margin-left: 20px;">{{item.name}}</span>
+      <span style="margin-left: 20px;font-size: 20px" >{{item.name}}</span>
       <img  src="../../assets/icon/you.png" style="width: 25px;float: right;"/>
-    </div>
+    </button>
 
-  </ion-list>
+  </div>>
 </ion-content>
