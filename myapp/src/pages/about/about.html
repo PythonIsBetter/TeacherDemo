@@ -2,7 +2,7 @@
   <ion-navbar>
     <h1 align="center">我</h1>
     <div class="rightbutton">
-      <img src="../../assets/icon/ring.png"   height="35" width="35">
+      <img src="../../assets/icon/ring.png"   height="35px" width="35px">
     </div>
 
   </ion-navbar>
@@ -11,11 +11,11 @@
 <ion-content padding class="back">
   <div class="card" >
     <div align="center" class="card_detail">
-      <img src="{{avatarUrl}}"  height="80" width="80" class="teachImage">
+      <img src="{{avatarUrl}}"  height="80" width="80" class="teachImage" (click)="personalInfo($event, item)">
       <div>王小明老师</div>
       <div>教师编号：032</div>
     </div>
-    <div >
+    <ion-card>
       <ion-list>
         <button ion-item (click)="personalInfo($event, item)">
           <ion-icon name="person" item-left></ion-icon>
@@ -34,7 +34,7 @@
         </button>
       </ion-list>
 
-    </div>
+    </ion-card>
 
 
   </div>
