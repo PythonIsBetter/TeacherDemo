@@ -50,12 +50,15 @@ export class HomePage {
 
   itemTapped1(event, item, subject)
   {
+    //根据科目给一个对应的编号
     if(subject=="语文")
       this.type="1";
     else if(subject=="数学")
       this.type="2";
     else if(subject =="英语")
       this.type="3";
+
+    //跳转
     this.navCtrl.push(ClassDetailPage,
       {
         item: item,
