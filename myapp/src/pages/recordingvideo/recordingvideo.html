@@ -7,7 +7,7 @@
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="segmentModel" *ngIf="topData">
       <ion-segment-button value="{{item.id}}" *ngFor="let item of topData;let i=index;" (click)="selecttab(i)">
-        {{item.subject_name}}
+        {{item.subject_name}}?
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
