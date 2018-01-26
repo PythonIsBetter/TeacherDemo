@@ -21,6 +21,7 @@ export class PublishHomeworkPage
   copeyitems:any[];
   urlListKnowledge:string;
   inpustring:any='';
+  type:string;//其实就是ｓｕｂｊｅｃｔ
 
   // 关键字
   private  keyword:string;
@@ -28,7 +29,8 @@ export class PublishHomeworkPage
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http)
   {
     this.homeName = navParams.get('item');
-    this.urlListKnowledge="http://222.73.69.146:8088/index.php/demo/index/getAllKnowledge";
+    this.type = localStorage.getItem("subject");
+    this.urlListKnowledge="http://222.73.69.146:8088/index.php/demo/index/getByTypeKnowledge?type="　+ this.type;
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges

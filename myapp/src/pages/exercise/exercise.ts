@@ -18,11 +18,9 @@ import {ExerciseDetailPage} from '../exercise-detail/exercise-detail';
 export class ExercisePage {
 
   selectedItem:any;//主要传班级id过来
-  listData:any;
-  // 课程
-  subject: string ="1";//初始化为1，根据前台的ngmodel绑定subject的值
-  // 用户
-  user: string;
+  listData:any;// 课程
+  subject: string ="1";
+  user: string;// 用户
   username: String;
 
   students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
@@ -30,6 +28,8 @@ export class ExercisePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http, public app: App) {
     this.user = this.navParams.get('item').uid;
     this.username = this.navParams.get("item").name;
+    this.subject = localStorage.getItem("subject");
+    console.log(localStorage);
   }
 
   ionViewDidLoad() {
@@ -38,13 +38,12 @@ export class ExercisePage {
     console.log(localStorage);*/
 
     //进入页面请求知识点
+    this.subject = localStorage.getItem("subject");
     this.http.request("http://222.73.69.146:8088/index.php/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });
-
   }
-
 
   //请求不同科目的知识点
   segmentChanged() {
@@ -65,9 +64,9 @@ export class ExercisePage {
     if(this.listData[j].sub_knowledege.length==0){
       this.app.getRootNav().push(ExerciseDetailPage,{subject:item,cid:item.id});
     }else{
-      for (var i = 0; i < this.listData.length; i++) {
+      for (let i = 0; i < this.listData.length; i++) {
         if(i==j){
-          if(this.listData[i].open){this.listData[i].open=false}else{this.listData[i].open=true}
+          this.listData[i].open = !this.listData[i].open;
         }else{
           this.listData[i].open=false
         }

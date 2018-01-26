@@ -28,7 +28,7 @@ export class ClassDetailPage
   {
     this.selectedItem = navParams.get('item');
     console.log(this.selectedItem);
-
+    localStorage.setItem("subject",this.selectedItem.subject);
   }
 
   ionViewDidLoad()

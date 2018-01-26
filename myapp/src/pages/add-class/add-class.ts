@@ -30,12 +30,12 @@ export class AddClassPage {
     this.url="http://222.73.69.146:8088/index.php/demo/index/cla_insert";
     this.subjects=[];
     this.subjects.push("选择科目");
-    this.http.request('http://222.73.69.146:8088/index.php/demo/index/selectSubject')
+    this.http.request('http://101.132.70.102/api/index.php/subject/index')
       .subscribe((res:Response)=>{
-        for(let i=0;i<res.json().data.length;i++)
+        for(let i=0;i<res.json().content.length;i++)
         {
           this.subjects.push(
-            res.json().data[i].subject_name,
+            res.json().content[i].subject_name,
           );
         }
       });
@@ -43,6 +43,7 @@ export class AddClassPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddClassPage');
+    console.log(this.subjects);//http://101.132.70.102/api/index.php/subject/index
 
   }
   addclass():void{
