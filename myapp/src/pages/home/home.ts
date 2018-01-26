@@ -15,16 +15,29 @@ export class HomePage {
   name:string;
   subject:string;
   head:string;
-  type:string;//科目代号，1语文 2数学 3英语
   subjects:Array<String>;
   classes:Array<{id:String,name:String,subject:String,head:String,cid:String}>;
 
   constructor(public navCtrl: NavController,public http :Http) {
     this.classes=[];
-    //this.subjects=["测试","语文","数学","英语","高等数学","计算机","化学","化学","计算机网络","化学","思想品德"];
-    // this.subjects.push("语文");
-    // this.subjects.push("数学");
-    // this.subjects.push("英语");
+    console.log(localStorage);
+
+    this.http.request('http://101.132.70.102/api/index.php/subject/index')
+      .subscribe((res:Response)=>{
+        for(let i=0;i<res.json().content.length;i++)
+        {
+          this.subjects.push(
+            res.json().content[i].subject_name,
+          );
+        }
+      });
+    this.classes.push({
+      id:"12345",
+      name:"一班",
+      subject:"XX",
+      head:"teach",
+      cid:"测试id"
+    });
     //this.url="http://localhost:8090/public/admin/index/insert";
     //this.url="http://222.73.69.146:8088/index.php/demo/index/cla_insert";
     this.http.request('http://222.73.69.146:8088/index.php/demo/index/cla_select')
@@ -40,7 +53,8 @@ export class HomePage {
         });
       }
     });
-    console.log(this.classes);
+
+console.log(this.classes);
   }
   itemTapped(event, item) {
     this.navCtrl.push(AddClassPage, {
@@ -48,22 +62,11 @@ export class HomePage {
     });
   }
 
-  itemTapped1(event, item, subject)
-  {
-    //根据科目给一个对应的编号
-    if(subject=="语文")
-      this.type="1";
-    else if(subject=="数学")
-      this.type="2";
-    else if(subject =="英语")
-      this.type="3";
-
-    //跳转
-    this.navCtrl.push(ClassDetailPage,
-      {
-        item: item,
-        type:this.type,
+  itemTapped1(event, item) {
+    this.navCtrl.push(ClassDetailPage, {
+      item: item,
     });
   }
+
 
 }

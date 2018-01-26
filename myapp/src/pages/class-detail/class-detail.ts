@@ -8,7 +8,6 @@ import {ReportHomeworkPage} from "../report-homework/report-homework";
 import {HomeworkDetailPage} from "../homework-detail/homework-detail";
 import {OperateClassPage} from "../operate-class/operate-class";
 
-
 /**
  * Generated class for the ClassDetailPage page.
  *
@@ -28,8 +27,11 @@ export class ClassDetailPage
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
     this.selectedItem = navParams.get('item');
+    localStorage.setItem("id",this.selectedItem.id);
+    localStorage.setItem("cid",this.selectedItem.cid);
+    localStorage.setItem("className",this.selectedItem.name);
     this.type=navParams.get('type');
-    console.log(this.selectedItem);
+    console.log(localStorage);
   }
 
   ionViewDidLoad()

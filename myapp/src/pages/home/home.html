@@ -14,13 +14,13 @@
 
 <ion-content padding style="background: #f4f4f4;">
   <div>
-    <button ion-item *ngFor="let cla of classes" (click)="itemTapped1($event, cla, cla.subject)" style="font-size: 20px">
+    <button ion-item *ngFor="let class of classes" (click)="itemTapped1($event, class)" style="font-size: 20px">
       <!--<img src="../../assets/icon/yuan.png" style="width:11px;float: left;padding-top: 6px;padding-right: 4px"/>
       {{cla.subject}}{{cla.name}}({{cla.cid}})
       <ion-icon md="ios-arrow-forward" item-right></ion-icon>-->
       <img src="assets/icon/yuan.png"/>
-      <span style="margin-left: 20px;font-size: 20px;" >{{cla.subject}}{{cla.name}}({{cla.cid}})</span>
-      <!--<img  src="assets/icon/you.png" style="width: 25px;float: right;"/>-->
+      <span style="margin-left: 20px;font-size: 20px" >{{class.subject}}{{class.name}}({{class.cid}})</span>
+      <img  src="assets/icon/you.png" style="width: 25px;float: right;"/>
     </button>
   </div>
 </ion-content>
