@@ -14,7 +14,7 @@
 
 <ion-content padding style="background: #f4f4f4;">
   <div>
-    <ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 45px;top: 25px;"></ion-icon>
+    <!--<ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 45px;top: 25px;"></ion-icon>-->
 
     <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]='inpustring'>
 
@@ -33,8 +33,8 @@
   <div>
     <button  ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
       <img src="assets/icon/yuan.png"/>
-      <span style="margin-left: 20px;font-size: 20px" >{{item.cname}}</span>
-      <img  src="assets/icon/you.png" style="width: 25px;float: right;"/>
+      <span style="margin-left: 20px;font-size: 20px;width: 70%" >{{item.cname}}</span>
+      <!--<img  src="assets/icon/you.png" style="width: 25px;float: right;"/>-->
     </button>
   </div>
 

@@ -75,10 +75,6 @@ export class AddPanDuanPage {
       });
     }
 
-    this.navCtrl.push(SelectQuestionPage,
-      {
-        everyQuestion:this.everyQuestion,
-        homeworkName:this.homeworkName,
-      });
+    this.navCtrl.pop();
   }
 }

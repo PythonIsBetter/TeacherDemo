@@ -114,5 +114,6 @@ export class MultiplePublishPage
 
     this.navCtrl.push(HomePage,
       {});
+    //this.navCtrl.popAll();
   }
 }

@@ -9,7 +9,8 @@
     </ion-navbar>-->
 
     <div class="rightbutton">
-      <img src="assets/icon/Plus.png"  (click)="presentContactModal()" height="30px" width="30px">
+      <ion-icon name="add" style="position:absolute;padding-left: 36%;font-size: 155%"  (click)="presentContactModal()"></ion-icon>
+      <!--<img src="assets/icon/Plus.png"  (click)="presentContactModal()" height="30px" width="30px">-->
     </div>
   </ion-navbar>
 
@@ -17,6 +18,7 @@
 
 
 <ion-content padding style="background: #f4f4f4;">
+
   <div>
 
     <div style="position: fixed;z-index: 15;width: 80%; left: 10%" >
@@ -37,8 +39,8 @@
   <div>
     <button ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
       <img src="assets/icon/yuan.png"/>
-      <span style="margin-left: 20px;font-size: 20px" >{{item.name}}</span>
-      <img  src="assets/icon/you.png" style="width: 25px;float: right;"/>
+      <span style="margin-left: 20px;font-size: 20px;width: 70%" >{{item.name}}</span>
+      <!--<img  src="assets/icon/you.png" style="width: 25px;float: right;"/>-->
     </button>
 
   </div>

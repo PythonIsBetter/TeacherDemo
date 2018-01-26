@@ -78,10 +78,6 @@ export class AddXuanZePage
       });
     }
 
-    this.navCtrl.push(SelectQuestionPage,
-      {
-        everyQuestion:this.everyQuestion,
-        homeworkName:this.homeworkName,
-      });
+    this.navCtrl.pop();
   }
 }
