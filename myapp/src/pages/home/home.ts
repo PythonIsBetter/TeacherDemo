@@ -15,6 +15,7 @@ export class HomePage {
   name:string;
   subject:string;
   head:string;
+  type:string;//科目代号，1语文 2数学 3英语
   subjects:Array<String>;
   classes:Array<{id:String,name:String,subject:String,head:String,cid:String}>;
 
@@ -55,9 +56,18 @@ console.log(this.classes);
     });
   }
 
-  itemTapped1(event, item) {
-    this.navCtrl.push(ClassDetailPage, {
-      item: item
+  itemTapped1(event, item, subject)
+  {
+    if(subject=="语文")
+      this.type="1";
+    else if(subject=="数学")
+      this.type="2";
+    else if(subject =="英语")
+      this.type="3";
+    this.navCtrl.push(ClassDetailPage,
+      {
+        item: item,
+        type:this.type,
     });
   }
 

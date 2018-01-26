@@ -6,13 +6,6 @@ import 'rxjs/Rx'
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {HomeworkModifyPage} from "./homework-modify";
 
-/**
- * Generated class for the HomeworkListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-homework-list',
@@ -28,12 +21,15 @@ export class HomeworkListPage {
   urlAddHomework:string;
   inpustring:any='';
   class:any;
+  type:string;
+
   // 关键字
   private  keyword:string;
   private  titleFilter:FormControl = new  FormControl();
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public toastCtrl: ToastController,public modalCtrl: ModalController) {
     //this.selectedItem = navParams.get('item');
     this.class=navParams.get('item');
+    this.type=navParams.get('type');
     this.urlListKnowledge="http://222.73.69.146:8088/index.php/demo/index/getHomeworkList";
     this.urlAddHomework="http://222.73.69.146:8088/index.php/demo/index/addHomeworkList";
     this.listData=[];
@@ -114,7 +110,8 @@ export class HomeworkListPage {
   {
     this.navCtrl.push(PublishHomeworkPage,
       {
-        item:item
+        item:item,
+        type:this.type
       });
   }
 

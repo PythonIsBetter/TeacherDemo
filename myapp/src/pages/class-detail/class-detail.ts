@@ -24,11 +24,12 @@ import {OperateClassPage} from "../operate-class/operate-class";
 export class ClassDetailPage
 {
   selectedItem: any;
+  type:string;
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
     this.selectedItem = navParams.get('item');
+    this.type=navParams.get('type');
     console.log(this.selectedItem);
-
   }
 
   ionViewDidLoad()
@@ -51,7 +52,8 @@ export class ClassDetailPage
   {
     this.navCtrl.push(HomeworkListPage,
       {
-        item:item
+        item:item,
+        type:this.type,
       });
   }
 
