@@ -24,6 +24,11 @@ export class MyApp
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    platform.ready().then(() => {
+      (<any>window).navigator.splashscreen.hide();
+
+    });
     if(!this.userinfo){
       this.userinfo={avatar:null,email:null,id:7,integral:null,level:null,mobile:"18022366421",realname:"18022366421"}
     }
