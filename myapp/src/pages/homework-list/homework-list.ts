@@ -50,9 +50,8 @@ export class HomeworkListPage {
         this.addHomeworklist(data);
       }
     });
-
   }
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('ionViewDidLoad HomeworkListPage');
     this.http.request(this.urlListKnowledge+"?classid="+this.class.id)
       .subscribe((res: Response) => {
