@@ -72,7 +72,7 @@ export class AddClassPage {
             position:'middle'
           });
          toast.present();
-         this.navCtrl.push(HomePage);
+         this.navCtrl.popToRoot();
         }else{
           // alert("创建失败");
           let toast = this.toastCtrl.create({

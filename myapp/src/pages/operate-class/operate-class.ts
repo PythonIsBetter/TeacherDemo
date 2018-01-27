@@ -4,6 +4,7 @@ import {Http,Response,Headers,RequestOptions}from "@angular/http";
 import { ToastController } from 'ionic-angular';
 import {HomePage} from "../home/home";
 
+
 /**
  * Generated class for the OperateClassPage page.
  *
@@ -19,13 +20,13 @@ import {HomePage} from "../home/home";
 export class OperateClassPage {
   updateUrl: string;
   deleteUrl: string;
-  claid:string;
+  classInfo: any;
   name:string;
   subjectid:String;
   head:string;
   subjects:Array<string>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
-    this.claid = this.navParams.get('item');
+    this.classInfo = this.navParams.get('classInfo');
     this.deleteUrl = "http://222.73.69.146:8088/index.php/demo/index/deleteClass";
     this.updateUrl = "http://222.73.69.146:8088/index.php/demo/index/updateClass";
     this.subjects=[];
@@ -43,7 +44,7 @@ export class OperateClassPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OperateClassPage');
-    console.log(this.claid);
+    console.log(this.classInfo);
   }
 
   deletee() {
@@ -53,19 +54,19 @@ export class OperateClassPage {
           let options = new RequestOptions({
             headers: headers
           });
-        let body = "id=" + this.claid;
+        let body = "id=" + this.classInfo.cid;
     return new Promise((resolve, reject) => {
       this.http.post(this.deleteUrl, body, options )
         .map(res => res.json())
         .subscribe(data =>{
-          if(data.code==200){
+          if(data.data=="deleteSuccess"){
             let toast = this.toast.create({
               message: '删除此班级成功！',
               duration: 2000,
               position:'middle'
             });
             toast.present();
-            this.navCtrl.push(HomePage);//如何使的不能返回到上一页
+            this.navCtrl.popToRoot();//如何使的不能返回到上一页
           }
 
         }, err => {console.log(err)})
@@ -79,7 +80,7 @@ export class OperateClassPage {
     let options = new RequestOptions({
       headers: headers
     });
-    let body = "claid=" + this.claid + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
+    let body = "claid=" + this.classInfo.cid + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
     return new Promise((resolve, reject) => {
       this.http.post(this.updateUrl, body, options )
         .map(res => res.json())
@@ -91,6 +92,7 @@ export class OperateClassPage {
               position: 'middle'
             });
             toast.present();
+            this.navCtrl.popToRoot();
           }
         }, err => {
           let toast = this.toast.create({

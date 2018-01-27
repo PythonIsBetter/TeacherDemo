@@ -22,16 +22,13 @@ import {OperateClassPage} from "../operate-class/operate-class";
 })
 export class ClassDetailPage
 {
-  selectedItem: any;
+  classInfo: any;
   type:string;
   constructor(public navCtrl: NavController, public navParams: NavParams)
   {
-    this.selectedItem = navParams.get('item');
-    localStorage.setItem("id",this.selectedItem.id);
-    localStorage.setItem("cid",this.selectedItem.cid);
-    localStorage.setItem("className",this.selectedItem.name);
-    this.type=navParams.get('type');
-    console.log(localStorage);
+    this.classInfo = navParams.get('class');
+    this.type=this.classInfo.subject;
+    console.log(this.classInfo);
   }
 
   ionViewDidLoad()
@@ -41,11 +38,11 @@ export class ClassDetailPage
   }
 
   //学生管理
-  itemTapped1(event, item)
+  itemTapped1(item)
   {
     this.navCtrl.push(StuManagePage,
       {
-        item: item
+        classInfo: item,//传班级信息过去
       });
   }
 
@@ -95,11 +92,11 @@ export class ClassDetailPage
       });
   }
 
-  operateClass(event, item)
+  operateClass(item)
   {
     this.navCtrl.push(OperateClassPage,
       {
-        item:item
+        classInfo:item,//传ｃｌａｓｓInfo
       });
   }
 }

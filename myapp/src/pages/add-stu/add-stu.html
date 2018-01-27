@@ -14,6 +14,11 @@
 
 
 <ion-content padding class="back">
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <table class="stu_table">
     <thead>
     <tr>

@@ -18,12 +18,12 @@
     <ion-list>
       <ion-item>
         <ion-label  text-center="" style="width: 154px">班级编码:</ion-label>
-        <ion-input placeholder="{{claid}}" disabled text-center></ion-input>
+        <ion-input placeholder="{{classInfo.cid}}" disabled text-center></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label  text-center="" style="width: 154px">班级名称:</ion-label>
-        <ion-input [(ngModel)]="name" type="text" text-center placeholder="新的班级名称">{{name}}</ion-input>
+        <ion-input [(ngModel)]="name" type="text" text-center placeholder="{{classInfo.name}}">{{name}}</ion-input>
       </ion-item>
 
       <ion-item>
@@ -35,7 +35,7 @@
 
       <ion-item>
         <ion-label  text-center="" style="width: 154px">班主任:</ion-label>
-        <ion-input [(ngModel)]="head" type="text" text-center placeholder="新的班主任"></ion-input>
+        <ion-input [(ngModel)]="head" type="text" text-center placeholder="{{classInfo.head}}"></ion-input>
       </ion-item>
 
     </ion-list>

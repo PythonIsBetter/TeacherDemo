@@ -28,16 +28,16 @@ export class StuManagePage {
   sex:string;
   school:string;
   condition :string;
-  selectedItem: any;//主要传过来班级id
+  classId: any;
   url:string;
   students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
-    this.selectedItem = navParams.get('item');//主要用班级id
+    this.classId = navParams.get('classInfo').cid;//主要用班级cid
     this.choose = "1";
 
-  //  this.url="http://localhost:8090/public/admin/index/getStuPassed";
+  //this.url="http://localhost:8090/public/admin/index/getStuPassed";
     this.url="http://222.73.69.146:8088/index.php/demo/index/getStuPassed1?id=";
-    this.url=this.url+this.selectedItem.id;
+    this.url=this.url+this.classId;
     this.students=[];
     this.http.request(this.url)
       .subscribe((res:Response)=>{
@@ -78,7 +78,7 @@ export class StuManagePage {
 
   itemTapped(item) {
     this.navCtrl.push(AddStuPage, {
-      item: item
+      classId: item//只传了ｃｉｄ过去
     });
   }
 

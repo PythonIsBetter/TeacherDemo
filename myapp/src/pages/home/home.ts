@@ -40,21 +40,23 @@ export class HomePage {
     });
     //this.url="http://localhost:8090/public/admin/index/insert";
     //this.url="http://222.73.69.146:8088/index.php/demo/index/cla_insert";
+  }
+
+  ionViewDidEnter(){//每次进入此页面均会刷新
+    this.classes = [];//每次初始化班级
     this.http.request('http://222.73.69.146:8088/index.php/demo/index/cla_select')
       .subscribe((res:Response)=>{
-      for(let i=0;i<res.json().data.length;i++)
-      {
-        this.classes.push({
-          id:res.json().data[i].id,
-          name:res.json().data[i].name,
-          subject:res.json().data[i].subject,
-          head:res.json().data[i].head,
-          cid:res.json().data[i].cid
-        });
-      }
-    });
-
-console.log(this.classes);
+        for(let i=0;i<res.json().data.length;i++)
+        {
+          this.classes.push({
+            id:res.json().data[i].id,
+            name:res.json().data[i].name,
+            subject:res.json().data[i].subject,
+            head:res.json().data[i].head,
+            cid:res.json().data[i].cid
+          });
+        }
+      });
   }
   itemTapped(event, item) {
     this.navCtrl.push(AddClassPage, {
@@ -62,9 +64,9 @@ console.log(this.classes);
     });
   }
 
-  itemTapped1(event, item) {
+  itemTapped1(item) {
     this.navCtrl.push(ClassDetailPage, {
-      item: item,
+      class: item,//传班级信息过去
     });
   }
 
