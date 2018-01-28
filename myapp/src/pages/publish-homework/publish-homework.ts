@@ -51,6 +51,7 @@ export class PublishHomeworkPage
         }
         this.copeyitems=this.deepCoyp(this.items)
       });
+    console.log(this.type);
   }
 
   close(){

@@ -15,22 +15,14 @@ export class HomePage {
   name:string;
   subject:string;
   head:string;
-  subjects:Array<String>;
+  subjects:Array<{id:String,name:String}>;
   classes:Array<{id:String,name:String,subject:String,head:String,cid:String}>;
 
   constructor(public navCtrl: NavController,public http :Http) {
     this.classes=[];
     console.log(localStorage);
 
-    this.http.request('http://101.132.70.102/api/index.php/subject/index')
-      .subscribe((res:Response)=>{
-        for(let i=0;i<res.json().content.length;i++)
-        {
-          this.subjects.push(
-            res.json().content[i].subject_name,
-          );
-        }
-      });
+
     this.classes.push({
       id:"12345",
       name:"一班",
@@ -43,7 +35,21 @@ export class HomePage {
   }
 
   ionViewDidEnter(){//每次进入此页面均会刷新
-    this.classes = [];//每次初始化班级
+
+    this.subjects = [];
+    this.http.request('http://101.132.70.102/api/index.php/subject/index')
+      .subscribe((res:Response)=>{
+        for(let i=0;i<res.json().content.length;i++)
+        {
+          this.subjects.push({
+              id: res.json().content[i].id,
+              name: res.json().content[i].subject_name
+            }
+          );
+        }
+      });
+
+    this.classes = [];//每次初始化班级为空
     this.http.request('http://222.73.69.146:8088/index.php/demo/index/cla_select')
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().data.length;i++)
@@ -57,6 +63,9 @@ export class HomePage {
           });
         }
       });
+
+    console.log(this.classes);
+    console.log(this.subjects);
   }
   itemTapped(event, item) {
     this.navCtrl.push(AddClassPage, {
@@ -66,7 +75,7 @@ export class HomePage {
 
   itemTapped1(item) {
     this.navCtrl.push(ClassDetailPage, {
-      class: item,//传班级信息过去
+      classInfo: item,//传班级信息过去
     });
   }
 

@@ -17,7 +17,7 @@ import 'rxjs/add/operator/map';
   templateUrl: 'add-stu.html',
 })
 export class AddStuPage {
-  classId: any;
+  classInfo: any;
   id:string;
   name:string;
   age:string;
@@ -33,8 +33,8 @@ export class AddStuPage {
   studentsPassed:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
 
-    this.classId = navParams.get('classId');
-    console.log(this.classId);
+    this.classInfo = navParams.get('classInfo');
+    console.log(this.classInfo);
     this.studentsNotPassed = [];
     this.studentsPassed = [];
     this.students = [];
@@ -42,13 +42,11 @@ export class AddStuPage {
 
     this.urlGetStuPassed = "http://222.73.69.146:8088/index.php/demo/index/getStuPassed1?id=";
     this.urlGetStuNotPassed="http://222.73.69.146:8088/index.php/demo/index/getStuNotPassed1?id=";
-
-    /*this.urlLetStuPassed="http://222.73.69.146:8088/index.php/demo/index/letStuPassed";*/
     this.urlLetStuPassed="http://222.73.69.146:8088/index.php/demo/index/letStuPassed";
     this.urlLetStuAllPassed="http://222.73.69.146:8088/index.php/demo/index/letStuAllPassed";
 
-    this.urlGetStuNotPassed += this.classId;
-    this.urlGetStuPassed += this.classId;
+    this.urlGetStuNotPassed += this.classInfo.cid;
+    this.urlGetStuPassed += this.classInfo.cid;
 
     this.http.request(this.urlGetStuNotPassed)
       .subscribe((res:Response)=>{
@@ -89,9 +87,10 @@ export class AddStuPage {
       });
   }
 
+
   letStuPassed(uid){
     this.urlLetStuPassed="http://222.73.69.146:8088/index.php/demo/index/letStuPassed";
-    this.urlLetStuPassed = this.urlLetStuPassed+"?"+"id="+uid+"&&claid="+this.classId;
+    this.urlLetStuPassed = this.urlLetStuPassed+"?"+"id="+uid+"&&claid="+this.classInfo.cid;
     this.http.get(this.urlLetStuPassed)
       .subscribe(res=>{
         //alert(res.json());
@@ -104,6 +103,7 @@ export class AddStuPage {
             position:'middle'
           });
           toast.present();
+          this.navCtrl.pop();
         }else{
           // alert("创建失败");
           let toast = this.toastCtrl.create({
@@ -118,7 +118,7 @@ export class AddStuPage {
   }
 
   letAllStuPassed(){
-    this.urlLetStuAllPassed=this.urlLetStuAllPassed+"?"+"id="+this.classId.id;
+    this.urlLetStuAllPassed=this.urlLetStuAllPassed+"?"+"id="+this.classInfo.cid;
     this.http.get(this.urlLetStuAllPassed)
       .subscribe(res=>{
         //alert(res.json());
@@ -131,6 +131,7 @@ export class AddStuPage {
             position:'middle'
           });
           toast.present();
+          this.navCtrl.pop();
         }else{
           // alert("创建失败");
           let toast = this.toastCtrl.create({

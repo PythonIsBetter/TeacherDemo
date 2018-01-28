@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Http,Response}from "@angular/http";
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {StuManagePage} from "../stu-manage/stu-manage";
 import {PublishNoticePage} from "../publish-notice/publish-notice";
@@ -23,18 +24,16 @@ import {OperateClassPage} from "../operate-class/operate-class";
 export class ClassDetailPage
 {
   classInfo: any;
-  type:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams)
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http)
   {
-    this.classInfo = navParams.get('class');
-    this.type=this.classInfo.subject;
-    console.log(this.classInfo);
+    this.classInfo = navParams.get('classInfo');
+
   }
 
   ionViewDidLoad()
   {
     console.log('ionViewDidLoad ClassDetailPage');
-
   }
 
   //学生管理
@@ -47,12 +46,11 @@ export class ClassDetailPage
   }
 
   //发布作业
-  publishHomework(event, item)
+  publishHomework(item)
   {
     this.navCtrl.push(HomeworkListPage,
       {
-        item:item,
-        type:this.type,
+        classInfo:item,
       });
   }
 

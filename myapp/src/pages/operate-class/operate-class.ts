@@ -24,27 +24,31 @@ export class OperateClassPage {
   name:string;
   subjectid:String;
   head:string;
-  subjects:Array<string>;
+  subjects:Array<{id:string,name:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
     this.classInfo = this.navParams.get('classInfo');
     this.deleteUrl = "http://222.73.69.146:8088/index.php/demo/index/deleteClass";
     this.updateUrl = "http://222.73.69.146:8088/index.php/demo/index/updateClass";
-    this.subjects=[];
-    this.subjects.push("选择科目");
-    this.http.request('http://101.132.70.102/api/index.php/subject/index')
-      .subscribe((res:Response)=>{
-        for(let i=0;i<res.json().content.length;i++)
-        {
-          this.subjects.push(
-            res.json().content[i].subject_name,
-          );
-        }
-      });
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OperateClassPage');
     console.log(this.classInfo);
+  }
+  ionViewDidEnter(){
+    this.subjects = [];
+    this.http.request('http://101.132.70.102/api/index.php/subject/index')
+      .subscribe((res:Response)=>{
+        for(let i=0;i<res.json().content.length;i++)
+        {
+          this.subjects.push({
+              id: res.json().content[i].id,
+              name: res.json().content[i].subject_name
+            }
+          );
+        }
+      });
   }
 
   deletee() {

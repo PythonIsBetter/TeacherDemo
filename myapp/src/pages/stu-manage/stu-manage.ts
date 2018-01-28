@@ -28,16 +28,26 @@ export class StuManagePage {
   sex:string;
   school:string;
   condition :string;
-  classId: any;
+  classInfo: any;
   url:string;
   students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
-    this.classId = navParams.get('classInfo').cid;//主要用班级cid
+    this.classInfo = navParams.get('classInfo');//主要用班级cid
     this.choose = "1";
 
   //this.url="http://localhost:8090/public/admin/index/getStuPassed";
-    this.url="http://222.73.69.146:8088/index.php/demo/index/getStuPassed1?id=";
-    this.url=this.url+this.classId;
+    this.url="http://222.73.69.146:8088/index.php/demo/index/getStuPassed1?id=";//其实用的ｃｌａｓｓｉｄ
+    this.url=this.url+this.classInfo.cid;
+
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad StuManagePage');
+    console.log(this.students);
+  }
+
+  ionViewDidEnter(){
+
     this.students=[];
     this.http.request(this.url)
       .subscribe((res:Response)=>{
@@ -57,12 +67,6 @@ export class StuManagePage {
         }
       });
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad StuManagePage');
-    console.log(this.students);
-  }
-
   /*segmentChanged(item1,item2) {
     if(this.choose == "2"){
       this.navCtrl.push(ExercisePage, {
@@ -78,7 +82,7 @@ export class StuManagePage {
 
   itemTapped(item) {
     this.navCtrl.push(AddStuPage, {
-      classId: item//只传了ｃｉｄ过去
+      classInfo: item//传ｃｌａｓｓｉｄ
     });
   }
 
