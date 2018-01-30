@@ -55,7 +55,7 @@ export class ClassDetailPage
   }
 
   //发布通知
-  publishNotice(event, item)
+  publishNotice(item)
   {
     this.navCtrl.push(PublishNoticePage,
       {
@@ -64,7 +64,7 @@ export class ClassDetailPage
   }
 
   //发布作业报告
-  publishReport(event, item)
+  publishReport(item)
   {
     this.navCtrl.push(ReportHomeworkPage,
       {
@@ -73,7 +73,7 @@ export class ClassDetailPage
   }
 
   //资料分享
-  shareFile(event, item)
+  shareFile(item)
   {
     this.navCtrl.push(ShareFilePage,
       {
@@ -82,7 +82,7 @@ export class ClassDetailPage
   }
 
   //作业详情
-  homeworkDetail(event, item)
+  homeworkDetail(item)
   {
     this.navCtrl.push(HomeworkDetailPage,
       {

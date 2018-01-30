@@ -53,7 +53,7 @@ export class HomeworkListPage {
   }
   ionViewDidEnter() {
     console.log('ionViewDidLoad HomeworkListPage');
-    this.http.request(this.urlListKnowledge/*+"?classid="+this.classInfo.cid*/)
+    this.http.request(this.urlListKnowledge+"?classid="+this.classInfo.cid)
       .subscribe((res: Response) => {
         this.listData = res.json().data;
         for (let i = 0; i < this.listData.length; i++) {
