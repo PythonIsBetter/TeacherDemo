@@ -28,7 +28,7 @@ export class DetailedQuestionPage
   //加载题目详情
   loadQuestion()
   {
-    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesDetail?titleid="+this.titleID).subscribe((res:Response)=>
+    this.http.request("http://101.201.238.157/demo/index/getQuesDetail?titleid="+this.titleID).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {

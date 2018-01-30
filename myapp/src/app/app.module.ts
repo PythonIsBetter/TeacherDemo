@@ -2,6 +2,14 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker';
+//import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { Media, MediaObject } from '@ionic-native/media';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -54,6 +62,7 @@ import {OperateClassPage} from "../pages/operate-class/operate-class";
 import {LoginPage} from "../pages/login/login";
 import {StuInfoPage} from "../pages/stu-info/stu-info";
 import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
+import {AboutModifyPage} from "../pages/about/about-modify";
 
 @NgModule({
   declarations: [
@@ -105,7 +114,9 @@ import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
     OperateClassPage,
     LoginPage,
     StuInfoPage,
-    MultiplePublishPage
+    MultiplePublishPage,
+    AboutModifyPage,
+
   ],
   imports: [
     BrowserModule,
@@ -162,14 +173,23 @@ import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
     OperateClassPage,
     LoginPage,
     StuInfoPage,
-    MultiplePublishPage
+    MultiplePublishPage,
+    AboutModifyPage
   ],
   providers: [
+    ScreenOrientation,
+    Camera,
+    FileTransfer,
+    File,
+    Media,
+    ImagePicker,
+    FileTransferObject,
     StatusBar,
     SplashScreen,
+    HttpModule,
+    // VideoPlayer,
     {provide: 'appService',  useClass: AppService},
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    {provide: 'myapp', useClass:MyApp},
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

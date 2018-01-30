@@ -30,7 +30,7 @@ export class HomeworkDetailListPage
     this.type = navParams.get('type');
     this.question=[];
 
-    this.http.request("http://222.73.69.146:8088/index.php/demo/index/getQuesByHomeidType?homeid="+this.id+"&typeid="+this.type).subscribe((res:Response)=>
+    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeidType?homeid="+this.id+"&typeid="+this.type).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {

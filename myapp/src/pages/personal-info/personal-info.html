@@ -11,7 +11,7 @@
   </ion-navbar>
 
 </ion-header>
-<ion-content padding class="back">
+<!--<ion-content padding class="back">
   <div>
     <button ion-item>
       姓名
@@ -53,4 +53,20 @@
     </button>
 
   </div>
+</ion-content>-->
+
+<ion-content padding>
+  <ion-list>
+    <ion-item  (click)="changeAvatar()">头像<img item-right  class="item-thumbnail-left" style="width: 100px;height: 100px;" src="{{avatarUrl}}"> </ion-item>
+    <ion-item>姓名 <span item-right>{{username}}</span></ion-item>
+    <ion-item  (click)="changeNick()">昵称 <span item-right>{{nickname}}</span></ion-item>
+    <ion-item>学校 <span item-right>{{school}}</span></ion-item>
+    <ion-item>性别 <span item-right>{{gender}}</span></ion-item>
+    <ion-item>年龄 <span item-right>{{age}}</span></ion-item>
+    <ion-item>邮箱 <span item-right>{{email}}</span></ion-item>
+    <ion-item>手机 <span item-right>{{mobile}}</span></ion-item>
+  </ion-list>
+  <button ion-button block (click)="toModify()">修改信息</button>
 </ion-content>
+
+

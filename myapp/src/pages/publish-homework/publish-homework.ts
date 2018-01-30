@@ -30,7 +30,7 @@ export class PublishHomeworkPage
   {
     this.homeName = navParams.get('item');
     this.type=navParams.get('type');
-    this.urlListKnowledge="http://222.73.69.146:8088/index.php/demo/index/getByTypeKnowledge?type="+ this.type;
+    this.urlListKnowledge="http://101.201.238.157/demo/index/getByTypeKnowledge?type="+ this.type;
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges

@@ -1,3 +1,4 @@
+<!--
 <ion-header>
   <ion-navbar>
     <h1 align="center">我</h1>
@@ -38,4 +39,105 @@
 
 
   </div>
+</ion-content>
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title align="center">
+      我
+
+      <!--<ion-icon name="bell"  style="position:absolute;padding-left: 36%;font-size: 155%"></ion-icon>-->
+    </ion-title>
+    <img src="assets/icon/ring.png"  style="width: 25px;float: right;" >
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list  no-border no-lines>
+    <button ion-item  class="person" (click)="personalInfo($event, item)">
+      <ion-row>
+        <ion-col item-clear>
+          <img  class="item-thumbnail-left" style="border-radius:200px;width: 100px;height: 100px;" src="{{avatarUrl}}">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-offset-35>
+          <h4 class="item" style="font-family: Arial;font-size: 15px; align-content: center ; color: white;" align-items-center>{{name}}</h4>
+          <p class="item" style="font-family: Arial;font-size: 18px;align-self: center; color: white;" align-items-center>{{school}}</p>
+        </ion-col>
+      </ion-row>
+    </button>
+  </ion-list>
+
+  <ion-card style="margin-left: 0; width: 100%">
+    <ion-list  no-border>
+      <button ion-item >
+        <ion-img  height="25px"  width="25px" style="border-radius:200px" src="assets/icon/记录.png" item-left></ion-img>
+        练习记录
+      </button>
+      <button ion-item >
+        <ion-img  height="25px"  width="25px" style="border-radius:200px" src="assets/icon/错题.png" item-left></ion-img>
+        错题本
+      </button>
+      <button ion-item >
+        <ion-img  height="25px"  width="25px" style="border-radius:200px" src="assets/icon/错题.png" item-left></ion-img>
+        我的作业
+      </button>
+      <button ion-item>
+        <ion-img  height="25px"  width="25px" style="border-radius:200px" src="assets/icon/精讲.png" item-left></ion-img>
+        我的精讲
+      </button>
+    </ion-list>
+  </ion-card>
+  <ion-card style="margin-left: 0; width: 100%">
+    <ion-row margin-top="10px" class="bo">
+      <ion-col class="bo" col-25>
+        <img height="25px"  width="30px" src="assets/icon/纸飞机.svg">
+        <p>我的发布</p>
+      </ion-col>
+
+      <ion-col col-25 class="bo">
+        <img height="25px"  width="30px" src="assets/icon/提问.svg">
+        <p>我的提问</p>
+      </ion-col>
+
+      <ion-col col-25 class="bo">
+        <img height="25px"  width="30px" src="assets/icon/回答.svg">
+        <p>我的回答</p>
+      </ion-col>
+
+      <ion-col col-25 class="bo" >
+        <img height="25px"  width="30px" src="assets/icon/五角星.svg">
+        <p>我的收藏</p>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row padding-vertical="7px" class="bo">
+      <ion-col class="bo"  col-25 >
+        <img height="25px"  width="30px" src="assets/icon/班级.svg">
+        <p>我的班级</p>
+      </ion-col>
+
+      <ion-col class="bo" col-25>
+        <img height="25px"  width="30px" src="assets/icon/消息.svg">
+        <p>我的消息</p>
+      </ion-col>
+
+      <ion-col class="bo" col-25 >
+        <img height="25px"  width="30px" src="assets/icon/个人中心_主页_个人资料.svg">
+        <p>个人中心</p>
+      </ion-col>
+      <ion-col  class="bo" col-25 >
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card style="margin-left: 0; width: 100%">
+    <ion-list  no-border>
+      <button ion-item >
+        <ion-img height="25px"  width="25px" style="border-radius:200px" src="assets/icon/设置.svg" item-left></ion-img>
+        <p>设置</p>
+      </button>
+    </ion-list>
+  </ion-card>
 </ion-content>

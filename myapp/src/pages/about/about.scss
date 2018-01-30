@@ -1,24 +1,12 @@
 page-about {
-  .rightbutton{
-    position:absolute;
-    right:20px;
-    top:15px;
-
+  .scroll-content{
+    background-color: #F5F4F4;
   }
-  .card{
-    background: #59B8E7;
-    width: 100%;
+  .col{
+    padding: 0%;
+    text-align: center;
   }
-  .card_detail{
-    padding-top: 15px;
-    padding-bottom: 15px;
-    color: #FFFFFF;
-  }
-  .teachImage{
-    background: #FFFFFF;
-    border-radius:50%;
-  }
-  .back{
-    background: #f4f4f4;
+  .person {
+    background-color:  #59B8E7;
   }
 }

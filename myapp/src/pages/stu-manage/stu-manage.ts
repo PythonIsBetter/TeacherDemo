@@ -35,8 +35,7 @@ export class StuManagePage {
     this.classInfo = navParams.get('classInfo');//主要用班级cid
     this.choose = "1";
 
-  //this.url="http://localhost:8090/public/admin/index/getStuPassed";
-    this.url="http://222.73.69.146:8088/index.php/demo/index/getStuPassed1?id=";//其实用的ｃｌａｓｓｉｄ
+    this.url="http://101.201.238.157/demo/index/getStuPassed1?id=";//其实用的ｃｌａｓｓｉｄ
     this.url=this.url+this.classInfo.cid;
 
   }

@@ -40,7 +40,7 @@ export class AddXuanZePage
   //加载选择题
   loadXZ()
   {
-    this.url="http://222.73.69.146:8088/index.php/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type;//用get方式获得数据
+    this.url="http://101.201.238.157/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type;//用get方式获得数据
     this.http.request(this.url).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
@@ -71,7 +71,7 @@ export class AddXuanZePage
   {
     for(let k=0;k<this.xzChoose.length;k++)
     {
-      this.http.get("http://222.73.69.146:8088/index.php/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.xzChoose[k]).subscribe(res=>
+      this.http.get("http://101.201.238.157/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.xzChoose[k]).subscribe(res=>
       {
         if (res.json().code != "200")
           alert("第 "+k+" 题添加失败");

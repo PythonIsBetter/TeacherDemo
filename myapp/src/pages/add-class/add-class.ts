@@ -27,7 +27,7 @@ export class AddClassPage {
   subjects:Array<string>;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController) {
 
-    this.url="http://222.73.69.146:8088/index.php/demo/index/cla_insert";
+    this.url="http://101.201.238.157/demo/index/cla_insert";
     this.subjects=[];
     this.subjects.push("选择科目");
     this.http.request('http://101.132.70.102/api/index.php/subject/index')
