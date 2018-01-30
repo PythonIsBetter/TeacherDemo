@@ -1,0 +1,41 @@
+<ion-header>
+  <style type="text/css">
+    input{ text-align: right}
+  </style>
+  <ion-navbar>
+    <ion-title>我</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>姓名：</ion-label>
+      <ion-input [(ngModel)]="name" type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>性别：</ion-label>
+      <ion-select item-right [(ngModel)]="gender" interface="popover">
+        <ion-option value="1"  >男</ion-option>
+        <ion-option value="2"  >女</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>昵称：</ion-label>
+      <ion-input [(ngModel)]="nickname" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>学校：</ion-label>
+      <ion-input [(ngModel)]="school" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>出生日期：</ion-label>
+      <ion-input [(ngModel)]="birthday" type="date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>邮箱：</ion-label>
+      <ion-input [(ngModel)]="email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>手机：<span item-right>{{mobile}}</span></ion-item>
+  </ion-list>
+  <button ion-button block (click)="toModify()">确认修改</button>
+</ion-content>
