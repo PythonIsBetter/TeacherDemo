@@ -170,7 +170,8 @@ export class SelectQuestionPage
   //删除作业
   deleteHomework()
   {
-    // this.navCtrl.push(HomePage, {});
-    // this.navCtrl.popAll();
+
+    this.http.request("http://101.201.238.157/demo/index/deleteHomework?name="+this.homeworkName).subscribe((res:Response)=> {});
+    this.navCtrl.popAll();
   }
 }
