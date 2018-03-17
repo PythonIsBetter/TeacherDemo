@@ -17,18 +17,18 @@ import {ExerciseDetailPage} from '../exercise-detail/exercise-detail';
 })
 export class ExercisePage {
 
-  selectedItem:any;//主要传班级id过来
+  selectedItem:any;
   listData:any;// 课程
-  subject: string ="1";
+  subject: string;
   user: string;// 用户
   username: String;
 
   students:Array<{id:string,name:String,nickname:string,email:string,birthday:string,gender:string,avatar:string,uid:string,school:string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http, public app: App) {
-    this.user = this.navParams.get('item').uid;
-    this.username = this.navParams.get("item").name;
-    this.subject = localStorage.getItem("subject");
+    this.user = this.navParams.get('student').uid;
+    this.username = this.navParams.get("student").name;
+    this.subject = this.navParams.get("classInfo").subject;//传过来的文字，要改为数字？数学-》2？
     console.log(localStorage);
   }
 
@@ -38,7 +38,7 @@ export class ExercisePage {
     console.log(localStorage);*/
 
     //进入页面请求知识点
-    this.subject = localStorage.getItem("subject");
+    console.log(this.user,this.subject);
     this.http.request("http://47.100.203.126:81/index.php/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();

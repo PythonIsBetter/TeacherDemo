@@ -34,6 +34,7 @@ export class ClassDetailPage
   ionViewDidLoad()
   {
     console.log('ionViewDidLoad ClassDetailPage');
+    console.log(this.classInfo);
   }
 
   //学生管理

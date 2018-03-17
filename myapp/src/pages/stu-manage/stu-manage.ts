@@ -42,7 +42,6 @@ export class StuManagePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad StuManagePage');
-    console.log(this.students);
   }
 
   ionViewDidEnter(){
@@ -65,6 +64,7 @@ export class StuManagePage {
           });
         }
       });
+    console.log(this.students);
   }
   /*segmentChanged(item1,item2) {
     if(this.choose == "2"){
@@ -85,9 +85,10 @@ export class StuManagePage {
     });
   }
 
-  itemTapped1(item) {
+  itemTapped1(item1,item2) {
     this.navCtrl.push(ChoosePage, {
-      item: item,//student
+      student: item1,
+      classInfo: item2,//student
     });
   }
 

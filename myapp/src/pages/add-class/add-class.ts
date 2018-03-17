@@ -46,44 +46,51 @@ export class AddClassPage {
     console.log(this.subjects);//http://www.robinjy.com/api/index.php/subject/index
 
   }
-  addclass():void{
-    /*let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex;
+  addclass(){
+    let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex;
     this.id= (<HTMLInputElement>document.getElementById("idx")).value;
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.subject= (selectIndex).toString();
-    this.head= (<HTMLInputElement>document.getElementById("headx")).value;*/
+    this.head= (<HTMLInputElement>document.getElementById("headx")).value;
 
     this.url=this.url+"?"+"id="+this.id+"&"
       +"name="+this.name+"&"+"subject="+this.subject
       +"&"+"head="+this.head;
 
-   // alert(this.url);
-    this.http.get(this.url)
+    if(!(this.name&&this.subject&&this.head&&this.id)){
+      let toast  =this.toastCtrl.create({
+        message: '请完善所有的必填项',
+        duration: 2000,
+        position: 'middle'
+      });
+      toast.present();
+    }
+    else
+    {this.http.get(this.url)
       .subscribe(res=>{
-        //alert(res.json());
+          //alert(res.json());
           console.log(this.url);
-        if(res.json().code=="200")
-        {
+          if(res.json().code=="200")
+          {
+            // alert("创建成功");
+            let toast = this.toastCtrl.create({
+              message: '创建成功',
+              duration: 2000,
+              position:'middle'
+            });
+            toast.present();
+            this.navCtrl.popToRoot();
+          }else{
+            // alert("创建失败");
+            let toast = this.toastCtrl.create({
+              message: '创建失败',
+              duration: 2000,
+              position:'middle'
+            });
+            toast.present();
+          }
 
-         // alert("创建成功");
-          let toast = this.toastCtrl.create({
-            message: '创建成功',
-            duration: 2000,
-            position:'middle'
-          });
-         toast.present();
-         this.navCtrl.popToRoot();
-        }else{
-          // alert("创建失败");
-          let toast = this.toastCtrl.create({
-            message: '创建失败',
-            duration: 2000,
-            position:'middle'
-          });
-          toast.present();
-        }
-
-      },
+        },
         err=>{
           let toast = this.toastCtrl.create({
             message: '创建失败',
@@ -93,18 +100,6 @@ export class AddClassPage {
           toast.present();
         }
       );
-    //**************
-
-    // let params=JSON.stringify({id:this.id,name:this.name,subject:this.subject,head:this.head});
-    // this.http.post(this.url,params).subscribe(res=>{
-    //       //alert(res.json());
-    //       // if(res.json().data=="1")
-    //       // {
-    //       //   alert("创建成功");
-    //       // }else{
-    //       //   alert("创建失败");
-    //       // }
-    //
-    //     });
+    }
   }
 }

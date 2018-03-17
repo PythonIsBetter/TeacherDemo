@@ -17,18 +17,22 @@ import {RecordingvideoPage} from "../recordingvideo/recordingvideo";
 })
 export class ChoosePage {
   student : any;
+  classInfo: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.student = this.navParams.get("item");
+    this.student = this.navParams.get("student");
+    this.classInfo = this.navParams.get("classInfo");
+    console.log(this.classInfo,this.student);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChoosePage');
   }
 
-  toExercise(event, item) {
+  toExercise(item1,item2) {
     this.navCtrl.push(ExercisePage, {
-      item: item,//student
+      student: item1,//student
+      classInfo:item2,
     });
   }
   toVideo(event) {
