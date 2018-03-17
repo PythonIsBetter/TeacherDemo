@@ -35,7 +35,7 @@ export class StuManagePage {
     this.classInfo = navParams.get('classInfo');//主要用班级cid
     this.choose = "1";
 
-    this.url="http://101.201.238.157/demo/index/getStuPassed1?id=";//其实用的ｃｌａｓｓｉｄ
+    this.url="http://47.100.203.126:81/index.php/demo/index/getStuPassed1?id=";//其实用的ｃｌａｓｓｉｄ
     this.url=this.url+this.classInfo.cid;
 
   }
@@ -81,7 +81,7 @@ export class StuManagePage {
 
   itemTapped(item) {
     this.navCtrl.push(AddStuPage, {
-      classInfo: item//传ｃｌａｓｓｉｄ
+      classInfo: item//传classid
     });
   }
 

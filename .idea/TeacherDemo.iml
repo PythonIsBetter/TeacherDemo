@@ -13,5 +13,6 @@
     <orderEntry type="library" name="@types/angular" level="application" />
     <orderEntry type="library" name="@types/cordova" level="application" />
     <orderEntry type="library" name="@types/cordova-ionic" level="application" />
+    <orderEntry type="library" name="@types/angular-es" level="application" />
   </component>
 </module>

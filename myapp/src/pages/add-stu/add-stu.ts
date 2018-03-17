@@ -40,10 +40,10 @@ export class AddStuPage {
     this.students = [];
 
 
-    this.urlGetStuPassed = "http://101.201.238.157/demo/index/getStuPassed1?id=";
-    this.urlGetStuNotPassed="http://101.201.238.157/demo/index/getStuNotPassed1?id=";
-    this.urlLetStuPassed="http://101.201.238.157/demo/index/letStuPassed";
-    this.urlLetStuAllPassed="http://101.201.238.157/demo/index/letStuAllPassed";
+    this.urlGetStuPassed = "http://47.100.203.126:81/index.php/demo/index/getStuPassed1?id=";
+    this.urlGetStuNotPassed="http://47.100.203.126:81/index.php/demo/index/getStuNotPassed1?id=";
+    this.urlLetStuPassed="http://47.100.203.126:81/index.php/demo/index/letStuPassed";
+    this.urlLetStuAllPassed="http://47.100.203.126:81/index.php/demo/index/letStuAllPassed";
 
     this.urlGetStuNotPassed += this.classInfo.cid;
     this.urlGetStuPassed += this.classInfo.cid;
@@ -89,8 +89,9 @@ export class AddStuPage {
 
 
   letStuPassed(uid){
-    this.urlLetStuPassed="http://101.201.238.157/demo/index/letStuPassed";
+    this.urlLetStuPassed="http://47.100.203.126:81/index.php/demo/index/letStuPassed";
     this.urlLetStuPassed = this.urlLetStuPassed+"?"+"id="+uid+"&&claid="+this.classInfo.cid;
+    console.log(this.letStuPassed);
     this.http.get(this.urlLetStuPassed)
       .subscribe(res=>{
         //alert(res.json());

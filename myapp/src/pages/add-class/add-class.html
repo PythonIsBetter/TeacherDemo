@@ -20,23 +20,25 @@
 
 <ion-content padding>
 
-  <!--<div class="list" align="center" style="line-height:80px">
+  <div class="list" align="center" style="line-height:80px">
     <div>
       <label class="item item-input" >
-      <span class="input-label">班级邀请码：</span>
-      <input type="text" id="idx" class="input1" placeholder="请输入班级邀请码">
+      <span class="input-label" >邀请码：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" id="idx" class="input1" placeholder="请输入邀请码">
       </label>
     </div>
+
     <div>
       <label class="item item-input" >
-        <span class="input-label" item-left>班级名称：</span>
-        <input type="text" id="namex" class="input1">
+        <span class="input-label">班级名称：</span>&nbsp;
+        <input type="text" id="namex" class="input1" placeholder="请输入班级名">
       </label>
     </div>
+
     <div>
       <label class="item item-input" >
         <span class="input-label" >科目：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &lt;!&ndash;<input type="text" id="subjectx" class="input1" >&ndash;&gt;
+        <!--<input type="text" id="subjectx" class="input1" >-->
         <div class="select">
           <select name='make' id="mySelect">
             <option *ngFor="let subject of subjects">{{subject}}</option>
@@ -44,45 +46,48 @@
         </div>
       </label>
     </div>
+
     <div>
       <label class="item item-input" >
-        <span class="input-label" >班主任：</span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" id="headx" class="input1">
+        <span class="input-label" >班主任：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" id="headx" class="input1" placeholder="请输入班主任姓名">
       </label>
     </div>
+
     <div class="padding">
       <button  (click)="addclass()"><b>创建</b></button>
     </div>
 
-  </div>-->
+  </div>
 
-  <ion-card>
-    <ion-list>
+  <!--<ion-card>
+    <ion-list inset>
       <ion-item>
-        <ion-label  text-center="" style="width: 154px">班级邀请码：</ion-label>
-        <ion-input [(ngModel)]="id" type="text" placeholder="班级邀请码" text-center></ion-input>
+        <ion-label   style="width: 154px" text-left="">班级邀请码：</ion-label>
+        <ion-input [(ngModel)]="id" type="text" placeholder="邀请码" text-center></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label  text-center="" style="width: 154px">班级名称：</ion-label>
+        <ion-label  text-left="" style="width: 154px">班级名称：</ion-label>
         <ion-input [(ngModel)]="name" type="text" text-center placeholder="班级名称">{{name}}</ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label text-center="">科目：</ion-label>
+        <ion-label text-left="" >科目：</ion-label>
         <ion-select [(ngModel)]="subject" cancelText="取消" placeholder="选择科目">
           <ion-option *ngFor="let sub of subjects" text-center [value]="sub">{{sub}}</ion-option>
         </ion-select>
+
       </ion-item>
 
       <ion-item>
-        <ion-label  text-center="" style="width: 154px">班主任：</ion-label>
-        <ion-input [(ngModel)]="head" type="text" placeholder="班级名称" text-center></ion-input>
+        <ion-label  text-left="" style="width: 154px">班主任：</ion-label>
+        <ion-input [(ngModel)]="head" type="text"  text-center></ion-input>
       </ion-item>
 
     </ion-list>
   </ion-card>
-  <ion-card>
-    <button ion-item text-center color="primary" (click)="addclass()">创建班级！</button>
-  </ion-card>
+
+    <button style="border-radius: 15px;" ion-item  text-center color="primary" (click)="addclass()">创建班级！</button>-->
+
 </ion-content>

@@ -38,7 +38,7 @@ export class StudentDoneHomeworkPage
   //加载选择题
   loadQuestion()
   {
-    this.http.request("http://101.201.238.157/demo/index/getHomeMessage?stuid="+this.stuid+"&textid="+this.id).subscribe((res:Response)=>
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/getHomeMessage?stuid="+this.stuid+"&textid="+this.id).subscribe((res:Response)=>
     {
       if(this.id==1)
       {

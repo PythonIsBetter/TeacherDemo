@@ -27,8 +27,8 @@ export class OperateClassPage {
   subjects:Array<{id:string,name:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
     this.classInfo = this.navParams.get('classInfo');
-    this.deleteUrl = "http://101.201.238.157/demo/index/deleteClass";
-    this.updateUrl = "http://101.201.238.157/demo/index/updateClass";
+    this.deleteUrl = "http://47.100.203.126:81/index.php/demo/index/deleteClass";
+    this.updateUrl = "http://47.100.203.126:81/index.php/demo/index/updateClass";
 
   }
 
@@ -38,7 +38,7 @@ export class OperateClassPage {
   }
   ionViewDidEnter(){
     this.subjects = [];
-    this.http.request('http://101.132.70.102/api/index.php/subject/index')
+    this.http.request('http://www.robinjy.com/api/index.php/subject/index')
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().content.length;i++)
         {

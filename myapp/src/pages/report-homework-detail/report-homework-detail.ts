@@ -25,7 +25,7 @@ export class ReportHomeworkDetailPage {
     this.homeworkDetail =[];
     this.homework = [];
     this.homework = this.navParams.get('item');
-    this.urlGetStuHomeMessage = "http://101.201.238.157/demo/index/getStuHomeMessageByHomeId?homeid=";
+    this.urlGetStuHomeMessage = "http://47.100.203.126:81/index.php/demo/index/getStuHomeMessageByHomeId?homeid=";
     this.urlGetStuHomeMessage += this.homework.id;
     this.http.request(this.urlGetStuHomeMessage).subscribe((res:Response)=>{
       for(let i=0;i<res.json().data.length;i++)

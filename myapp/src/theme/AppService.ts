@@ -60,7 +60,7 @@ export class AppService {
  }
     deleteclass(data):Promise<any>{
       return this.http
-        .post('http://101.201.238.157/demo/index/deleteClass', JSON.stringify(data),options)
+        .post('http://47.100.203.126:81/index.php/demo/index/deleteClass', JSON.stringify(data),options)
         .toPromise()
         .then(this.extractData)
         .catch(this.handleError);
@@ -92,7 +92,7 @@ export class AppService {
 }
 　　loginTeacher(data):Promise<any>{
     return this.http
-      .post('http://101.132.70.102/api/index.php/teacher/login', JSON.stringify(data),options)
+      .post('http://www.robinjy.com/api/index.php/teacher/login', JSON.stringify(data),options)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
@@ -240,7 +240,7 @@ export class AppService {
     });
 
     return new Promise((resolve, reject) => {
-      this.http.post("http://101.201.238.157/demo/index/post_homework",JSON.stringify(data) , options )
+      this.http.post("http://47.100.203.126:81/index.php/demo/index/post_homework",JSON.stringify(data) , options )
         .map(res => res.json())
         .subscribe(data => resolve(data), err => reject(err))
     })
@@ -257,7 +257,7 @@ export class AppService {
     });
 
     return new Promise((resolve, reject) => {
-      this.http.post("http://101.201.238.157/demo/index/post_user_info",JSON.stringify(data) , options )
+      this.http.post("http://47.100.203.126:81/index.php/demo/index/post_user_info",JSON.stringify(data) , options )
         .map(res => res.json())
         .subscribe(data => resolve(data), err => reject(err))
     })

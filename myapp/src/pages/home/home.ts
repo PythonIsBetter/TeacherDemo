@@ -31,13 +31,13 @@ export class HomePage {
       cid:"测试id"
     });
     //this.url="http://localhost:8090/public/admin/index/insert";
-    //this.url="http://101.201.238.157/demo/index/cla_insert";
+    //this.url="http://47.100.203.126:81/index.php/demo/index/cla_insert";
   }
 
   ionViewDidEnter(){//每次进入此页面均会刷新
 
     this.subjects = [];
-    this.http.request('http://101.132.70.102/api/index.php/subject/index')
+    this.http.request('http://www.robinjy.com/api/index.php/subject/index')
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().content.length;i++)
         {
@@ -50,7 +50,7 @@ export class HomePage {
       });
 
     this.classes = [];//每次初始化班级为空
-    this.http.request('http://101.201.238.157/demo/index/cla_select')
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/cla_select')
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().data.length;i++)
         {

@@ -8,11 +8,11 @@ page-add-class {
   height:35px;
 }
   .input-label{
-    font-size: 20px;
+    font-size: 18px;
     color:#2d2d2d;
-    font-family:YouYuan ;
   }
   .createbutton{
+
 
   }
   .padding button{
@@ -112,4 +112,16 @@ page-add-class {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  .create{
+    width: 80%;
+    height: 40px;
+    background: #51a7e8;
+    color: #FFFFFF;
+    font-family: YouYuan;
+    border-radius:25px;
+    -moz-border-radius:25px;
+    margin-top: 60px;
+    font-size: 30px;
+  }
+
 }

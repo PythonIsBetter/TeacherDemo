@@ -36,7 +36,7 @@ export class SelectQuestionPage
     this.jd=[];
     this.loadTheHomework();
 
-    this.http.request("http://101.201.238.157/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -77,7 +77,7 @@ export class SelectQuestionPage
   loadTheHomework()
   {
     //添加选择题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=1").subscribe((res:Response)=>
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=1").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -96,7 +96,7 @@ export class SelectQuestionPage
     });
 
     //添加填空题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=2").subscribe((res:Response)=>
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=2").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -111,7 +111,7 @@ export class SelectQuestionPage
     });
 
     //添加判断题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=3").subscribe((res:Response)=>
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=3").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -131,7 +131,7 @@ export class SelectQuestionPage
     });
 
     //添加解答题
-    this.http.request("http://101.201.238.157/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=4").subscribe((res:Response)=>
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/getQuesByHomeworkName?name="+this.homeworkName+"&type=4").subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
       {
@@ -171,7 +171,7 @@ export class SelectQuestionPage
   deleteHomework()
   {
 
-    this.http.request("http://101.201.238.157/demo/index/deleteHomework?name="+this.homeworkName).subscribe((res:Response)=> {});
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/deleteHomework?name="+this.homeworkName).subscribe((res:Response)=> {});
     this.navCtrl.popAll();
   }
 }

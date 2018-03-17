@@ -30,8 +30,8 @@ export class HomeworkListPage {
     //this.selectedItem = navParams.get('item');
     this.classInfo=navParams.get('classInfo');
     this.type=navParams.get('type');
-    this.urlListKnowledge="http://101.201.238.157/demo/index/getHomeworkList";
-    this.urlAddHomework="http://101.201.238.157/demo/index/addHomeworkList";
+    this.urlListKnowledge="http://47.100.203.126:81/index.php/demo/index/getHomeworkList";
+    this.urlAddHomework="http://47.100.203.126:81/index.php/demo/index/addHomeworkList";
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges

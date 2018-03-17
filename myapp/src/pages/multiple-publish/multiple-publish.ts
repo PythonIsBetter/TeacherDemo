@@ -37,7 +37,7 @@ export class MultiplePublishPage
 
   loadClass()//加载班级列表
   {
-    this.http.request('http://101.201.238.157/demo/index/cla_select')
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/cla_select')
       .subscribe((res:Response)=>
       {
         for(let i=0;i<res.json().data.length;i++)
@@ -58,7 +58,7 @@ export class MultiplePublishPage
 
   publishHomeWork()//上载作业
   {
-    this.http.get("http://101.201.238.157/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
+    this.http.get("http://47.100.203.126:81/index.php/demo/index/publishHomework?name="+this.homeworkName).subscribe(res=>
     {
       if (res.json().data == "1")
       {
@@ -73,7 +73,7 @@ export class MultiplePublishPage
         {
           for(let i=0;i<this.otherClass.length;i++)
           {
-            this.http.request("http://101.201.238.157/demo/index/addHomeworkList?name="+this.homeworkName+"&classid="+this.otherClass[i])
+            this.http.request("http://47.100.203.126:81/index.php/demo/index/addHomeworkList?name="+this.homeworkName+"&classid="+this.otherClass[i])
               .subscribe((res: Response) =>
               {
                 if(res.json().data=="1")

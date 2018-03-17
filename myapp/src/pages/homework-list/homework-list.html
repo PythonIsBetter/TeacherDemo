@@ -17,14 +17,12 @@
 </ion-header>
 
 
-<ion-content padding style="background: #f4f4f4;">
+<ion-content padding style="background: #f8f8f8;">
+
+  <ion-searchbar style="position: fixed;z-index: 15;width: 80%; left: 10%" id="temp" (ionInput)="getItems($event)" style="width: 100%;" [ngModel]='inpustring ' > </ion-searchbar>
+
 
   <div>
-
-    <div style="position: fixed;z-index: 15;width: 80%; left: 10%" >
-      <ion-searchbar  id="temp" (ionInput)="getItems($event)" style="width: 100%;" [ngModel]='inpustring ' > </ion-searchbar>
-    </div>
-
     <br><br><br>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list>
@@ -33,7 +31,6 @@
         </ion-item>
       </ion-list>
     </div>
-
   </div>
 
   <div>
@@ -42,6 +39,5 @@
       <span style="margin-left: 20px;font-size: 20px;width: 70%" >{{item.name}}</span>
       <!--<img  src="assets/icon/you.png" style="width: 25px;float: right;"/>-->
     </button>
-
   </div>
 </ion-content>

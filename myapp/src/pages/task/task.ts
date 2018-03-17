@@ -31,7 +31,7 @@ export class TaskPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeworkPage');
-    this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
+    this.http.request('http://47.100.203.126:81/index.php/index/request_homework_list/'+ this.user+"/"+this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
         console.log(this.listData)
@@ -40,7 +40,7 @@ export class TaskPage {
 
   //请求不同科目的知识点
   segmentChanged() {
-    this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
+    this.http.request('http://47.100.203.126:81/index.php/index/request_homework_list/'+ this.user+"/"+this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });
