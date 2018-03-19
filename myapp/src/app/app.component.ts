@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import {LoginPage} from "../pages/login/login";
+import {PageNewPage} from "../pages/page-new/page-new";
 @Injectable()
 @Component({
   selector:'ion-app',
@@ -13,11 +14,20 @@ import {LoginPage} from "../pages/login/login";
 export class MyApp
 {
   //rootPage:any = TabsPage;
-  rootPage:any = LoginPage;
+  rootPage:any;
   userinfo:any;
   pagenextarr:any;
 
   constructor(private toastCtrl: ToastController,public loadingCtrl: LoadingController, public alertCtrl: AlertController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+
+    if(localStorage.getItem("obelog")=='true'){
+      this.rootPage=LoginPage;
+    }else{
+      this.rootPage=PageNewPage;
+      localStorage.setItem("obelog",'true');
+    }
+    //this.rootPage='PageNewPage';
+   // this.rootPage=LoginPage;
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.

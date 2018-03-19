@@ -63,6 +63,7 @@ import {LoginPage} from "../pages/login/login";
 import {StuInfoPage} from "../pages/stu-info/stu-info";
 import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
 import {AboutModifyPage} from "../pages/about/about-modify";
+import {PageNewPage} from "../pages/page-new/page-new";
 
 @NgModule({
   declarations: [
@@ -116,7 +117,7 @@ import {AboutModifyPage} from "../pages/about/about-modify";
     StuInfoPage,
     MultiplePublishPage,
     AboutModifyPage,
-
+    PageNewPage
   ],
   imports: [
     BrowserModule,
@@ -174,7 +175,8 @@ import {AboutModifyPage} from "../pages/about/about-modify";
     LoginPage,
     StuInfoPage,
     MultiplePublishPage,
-    AboutModifyPage
+    AboutModifyPage,
+    PageNewPage
   ],
   providers: [
     ScreenOrientation,

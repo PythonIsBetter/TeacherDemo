@@ -51,6 +51,7 @@ export class LoginPage {
           res.content.userinfo.tokenId=res.content.tokenId
          // this.appComponent.userinfo=res.content.userinfo
          // this.appComponent.presentToast('登录成功!');
+          alert(res.content.userinfo.id);
           localStorage.setItem('id',res.content.userinfo.id);
           localStorage.setItem('username',res.content.userinfo.username);
           localStorage.setItem('mobile',res.content.userinfo.mobile);
@@ -74,6 +75,18 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+  }
+
+  slideNext() {
+    this.innerSlider.slideNext();
+  }
+
+  slidePrevious() {
+    this.innerSlider.slidePrev();
+  }
+
+  goToSignup() {
+    this.slider.slideTo(2);
   }
 
 }
