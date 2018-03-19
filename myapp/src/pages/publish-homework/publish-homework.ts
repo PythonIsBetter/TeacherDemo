@@ -22,15 +22,20 @@ export class PublishHomeworkPage
   urlListKnowledge:string;
   inpustring:any='';
   type:string;
+  cid:number;
+
 
   // 关键字
   private  keyword:string;
   private  titleFilter:FormControl = new  FormControl();
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http)
   {
-    this.homeName = navParams.get('item');
+
+    this.cid = navParams.get('cid');
     this.type=navParams.get('type');
-    this.urlListKnowledge="http://47.100.203.126:81/index.php/demo/index/getByTypeKnowledge?type="+ this.type;
+    this.homeName = navParams.get('item');
+    this.urlListKnowledge="http://47.100.203.126:81/index.php/demo/index/getByTypeKnowledge?type=" + this.cid;
+    //+ this.type;
     this.listData=[];
     this.copeyitems=[];
     this.titleFilter.valueChanges
@@ -41,6 +46,7 @@ export class PublishHomeworkPage
 
   ionViewDidLoad()
   {
+
     console.log('ionViewDidLoad PublishHomeworkPage');
     this.http.request(this.urlListKnowledge)
       .subscribe((res: Response) => {

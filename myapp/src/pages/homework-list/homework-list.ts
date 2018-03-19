@@ -22,13 +22,18 @@ export class HomeworkListPage {
   inpustring:any='';
   classInfo:any;
   type:string;
+  cid:String;
+  subject:string
 
   // 关键字
   private  keyword:string;
   private  titleFilter:FormControl = new  FormControl();
+  private urlGetCid: string;
   constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public toastCtrl: ToastController,public modalCtrl: ModalController) {
     //this.selectedItem = navParams.get('item');
     this.classInfo=navParams.get('classInfo');
+    this.urlGetCid = "http://47.100.203.126:81/index.php/demo/index/cid_subjects?subject=" ;
+    this.subject = navParams.get('classInfo').subject;
     this.type=navParams.get('type');
     this.urlListKnowledge="http://47.100.203.126:81/index.php/demo/index/getHomeworkList";
     this.urlAddHomework="http://47.100.203.126:81/index.php/demo/index/addHomeworkList";
@@ -53,6 +58,13 @@ export class HomeworkListPage {
   }
   ionViewDidEnter() {
     console.log('ionViewDidLoad HomeworkListPage');
+    this.http.request(this.urlListKnowledge+"?classid="+this.classInfo.id)
+
+    this.http.request(this.urlGetCid + this.subject)
+      .subscribe((res: Response) => {
+        this.cid  = res.json().data;
+      });
+
     this.http.request(this.urlListKnowledge+"?classid="+this.classInfo.id)
       .subscribe((res: Response) => {
         this.listData = res.json().data;
@@ -99,7 +111,7 @@ export class HomeworkListPage {
     this.navCtrl.push(PublishHomeworkPage,
       {
         item:item,
-        type:this.type
+        cid:this.cid
       });
   }
 
