@@ -18,7 +18,7 @@ import {MyApp} from "../../app/app.component";
 export class LoginPage {
 
   public loginForm: any;
-  public backgroundImage = 'assets/icon/background-1.jpg';
+  // public backgroundImage = 'assets/icon/background-1.jpg';
   mobilelogin:any='admin';
   passwordlogin:any='admin998877';
   mobile:any='';
@@ -51,7 +51,7 @@ export class LoginPage {
           res.content.userinfo.tokenId=res.content.tokenId
          // this.appComponent.userinfo=res.content.userinfo
          // this.appComponent.presentToast('登录成功!');
-          alert(res.content.userinfo.id);
+         // alert(res.content.userinfo.id);
           localStorage.setItem('id',res.content.userinfo.id);
           localStorage.setItem('username',res.content.userinfo.username);
           localStorage.setItem('mobile',res.content.userinfo.mobile);

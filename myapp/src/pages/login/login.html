@@ -1,4 +1,5 @@
-<ion-content class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+<!--<ion-content class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">-->
+<ion-content class="transparent-header" style="background-color: #31C1FE;">
   <!--<ion-header>
     <ion-navbar>
     </ion-navbar>
@@ -35,11 +36,21 @@
       <ion-slides #innerSlider class="content-slider">
         <ion-slide class="swiper-no-swiping">
           <div style="padding: 20% 32px 32px 32px">
+            <img src="assets/icon/shouji.png" style="    left: 5px;
+              position: absolute;
+              width: 30px;
+              top: 8rem;">
             <ion-item>
+
               <ion-label floating>手机号</ion-label>
               <ion-input type="text" [(ngModel)]='mobilelogin'></ion-input>
             </ion-item>
+            <img src="assets/icon/mima.png" style="    left: 5px;
+            position: absolute;
+            width: 30px;
+            top: 14rem;">
             <ion-item>
+
               <ion-label floating>密码</ion-label>
               <ion-input type="password" [(ngModel)]='passwordlogin'></ion-input>
             </ion-item>
