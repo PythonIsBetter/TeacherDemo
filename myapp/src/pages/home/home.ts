@@ -17,11 +17,11 @@ export class HomePage {
   head:string;
   subjects:Array<{id:String,name:String}>;
   classes:Array<{id:String,name:String,subject:String,head:String,cid:String}>;
-
+  sub:Array<String>;
   constructor(public navCtrl: NavController,public http :Http) {
     this.classes=[];
     console.log(localStorage);
-
+   this.sub=["测试","数学","语文","英语"]
 
     this.classes.push({
       id:"12345",
@@ -57,7 +57,7 @@ export class HomePage {
           this.classes.push({
             id:res.json().data[i].id,
             name:res.json().data[i].name,
-            subject:res.json().data[i].subject,
+            subject:this.sub[res.json().data[i].subject],
             head:res.json().data[i].head,
             cid:res.json().data[i].cid
           });
