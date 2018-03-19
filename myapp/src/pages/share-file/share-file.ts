@@ -4,6 +4,7 @@ import {Camera,CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Media} from '@ionic-native/media';
+import {Http, Response} from "@angular/http";
 
 declare let navigator:any;
 
@@ -21,17 +22,44 @@ export class ShareFilePage
   base64Image:any;
   voidlis:any;
   page:any=0;
+  data:Date;
+  year:any;
+  month:any;
+  day:any;
+  hour:any;
+  minute:any;
+  second:any;
+  ID:String;
+  noticeTitle:string;
+  noticeContent:string;
 
   constructor(private media: Media,private imagePicker: ImagePicker,private transfer: FileTransfer,
               public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,
-              public navCtrl: NavController, public navParams: NavParams)
+              public navCtrl: NavController, public navParams: NavParams,private http: Http)
   {
-    this.voidint()
+    this.voidint();
+    this.randomId();
   }
 
   ionViewDidLoad()
   {
     console.log('ionViewDidLoad PublishNoticePage');
+  }
+
+  randomId()
+  {
+    //获取时间
+    this.data=new Date();
+    this.year=this.data.getFullYear();
+    this.month=this.data.getMonth()+1;
+    this.day=this.data.getDate();
+    this.hour=this.data.getHours();
+    this.minute=this.data.getMinutes();
+    this.second=this.data.getSeconds();
+
+    //获取当前ID
+    this.ID=this.year.toString()+this.month.toString()+this.day.toString()+
+      this.hour.toString()+this.minute.toString()+this.second.toString();
   }
 
   geiviod()
@@ -151,6 +179,10 @@ export class ShareFilePage
         headers: {}
       };
 
+    //上传id
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/uploadFile1?id='+this.ID)
+      .subscribe((res: Response) => {});
+
     fileTransfer.upload(fileurl, encodeURI('http://47.100.203.126:81/index.php/demo/index/uploadFile'), options)
       .then((data) =>
       {
@@ -169,5 +201,13 @@ export class ShareFilePage
         console.log('err');
         console.log(err)
       })
+  }
+
+  //发布文字
+  pushTheTitleAndContent()
+  {
+    // alert('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent);
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
+    //http://47.100.203.126:81/index.php/demo/index/addNotice?id=1233&title=dcs&content=dw
   }
 }

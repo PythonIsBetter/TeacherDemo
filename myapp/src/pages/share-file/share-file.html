@@ -17,7 +17,7 @@
   <div class="list" align="center" >
     <div style="margin-top: 50px">
       <label class="item item-input" >
-        <input type="text" class="input1" placeholder="请在此输入资料标题">
+        <input type="text" [(ngModel)]="noticeTitle" class="input1" placeholder="请在此输入资料标题">
       </label>
     </div>
 
@@ -25,7 +25,7 @@
 
     <div style="margin-top: 20px">
       <label class="item item-input" >
-        <textarea  class="input2"  placeholder="请在此输入资料内容"></textarea>
+        <textarea [(ngModel)]="noticeContent"  class="input2"  placeholder="请在此输入资料内容"></textarea>
       </label>
     </div>
 
@@ -34,7 +34,7 @@
     <img src="assets/icon/tupian.png" style="width:40px;height:40px;margin: 10px;" (click)="getimg()">
 
     <div class="padding">
-      <button><b>分 享</b></button>
+      <button (click)="pushTheTitleAndContent()"><b>分 享</b></button>
     </div>
 
   </div>
