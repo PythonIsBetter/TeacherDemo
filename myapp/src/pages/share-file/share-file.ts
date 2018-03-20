@@ -180,7 +180,7 @@ export class ShareFilePage
       };
 
     //上传id
-    this.http.request('http://47.100.203.126:81/index.php/demo/index/uploadFile1?id='+this.ID)
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/uploadFile2?id='+this.ID)
       .subscribe((res: Response) => {});
 
     fileTransfer.upload(fileurl, encodeURI('http://47.100.203.126:81/index.php/demo/index/uploadFile'), options)
@@ -207,7 +207,7 @@ export class ShareFilePage
   pushTheTitleAndContent()
   {
     // alert('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent);
-    this.http.request('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/addResource?id='+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
     //http://47.100.203.126:81/index.php/demo/index/addNotice?id=1233&title=dcs&content=dw
   }
 }

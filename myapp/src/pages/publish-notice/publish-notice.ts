@@ -209,7 +209,7 @@ export class PublishNoticePage
   pushTheTitleAndContent()
   {
    // alert('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent);
-    this.http.request('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/addNotice?id='+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
     //http://47.100.203.126:81/index.php/demo/index/addNotice?id=1233&title=dcs&content=dw
   }
 }
