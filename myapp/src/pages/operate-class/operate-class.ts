@@ -44,9 +44,10 @@ export class OperateClassPage {
         {
           this.subjects.push({
               id: res.json().content[i].id,
-              name: res.json().content[i].subject_name
+              name: res.json().content[i].subject_name,
             }
           );
+          console.log(this.subjects);
         }
       });
   }
@@ -58,7 +59,7 @@ export class OperateClassPage {
           let options = new RequestOptions({
             headers: headers
           });
-        let body = "id=" + this.classInfo.cid;
+        let body = "id=" + this.classInfo.id;
     return new Promise((resolve, reject) => {
       this.http.post(this.deleteUrl, body, options )
         .map(res => res.json())
@@ -84,6 +85,13 @@ export class OperateClassPage {
     let options = new RequestOptions({
       headers: headers
     });
+
+    let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex + 1;
+    this.subjectid = selectIndex.toString();
+    this.name= (<HTMLInputElement>document.getElementById("namex")).value;
+   // this.subject= (selectIndex).toString();
+    this.head= (<HTMLInputElement>document.getElementById("headx")).value;
+
     let body = "claid=" + this.classInfo.cid + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
     return new Promise((resolve, reject) => {
       this.http.post(this.updateUrl, body, options )

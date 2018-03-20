@@ -1,17 +1,11 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-center>作业列表</ion-title>
-
-    <!--<ion-navbar>
-      <ion-searchbar (ionInput)="getItems($event)"  [(ngModel)]='inpustring' style="width: 85%;">
-      </ion-searchbar>
-    </ion-navbar>-->
-
-    <div class="rightbutton">
-      <ion-icon name="add" style="position:absolute;padding-left: 36%;font-size: 155%"  (click)="presentContactModal()"></ion-icon>
-      <!--<img src="assets/icon/Plus.png"  (click)="presentContactModal()" height="30px" width="30px">-->
-    </div>
+    <ion-title text-center>
+      作业列表
+      <ion-icon name="add" style="position:absolute;padding-left: 28%;font-size: 155%"  (click)="presentContactModal()">
+      </ion-icon>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,10 +14,7 @@
 <ion-content padding style="background: #f8f8f8;">
 
   <ion-searchbar style="position: fixed;z-index: 15;width: 80%; left: 10%" id="temp" (ionInput)="getItems($event)" style="width: 100%;" [ngModel]='inpustring ' > </ion-searchbar>
-
-
   <div>
-    <br><br><br>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list>
         <ion-item *ngFor="let item of items" (click)="selectQuestion($event,item)" style="font-size: 20px">

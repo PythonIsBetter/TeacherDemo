@@ -56,11 +56,10 @@ export class LoginPage {
           localStorage.setItem('username',res.content.userinfo.username);
           localStorage.setItem('mobile',res.content.userinfo.mobile);
           localStorage.setItem('age',res.content.userinfo.age);
-          localStorage.setItem('age',res.content.userinfo.age);
           localStorage.setItem('address',res.content.userinfo.address);
           localStorage.setItem('email',res.content.userinfo.email);
           localStorage.setItem('avatar',res.content.userinfo.avatar);
-          console.log(res.content.userinfo.avatar);
+          console.log(localStorage.getItem('username'));
           this.app.getRootNav().push(TabsPage);
 
         }else{

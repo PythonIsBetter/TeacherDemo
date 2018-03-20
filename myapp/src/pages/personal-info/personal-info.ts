@@ -42,7 +42,7 @@ export class PersonalInfoPage {
   //接收数据
   listData: Object;
   //登录用户
-  user: string = localStorage.getItem("user");
+  user: string ;
   gender:string = "男";
   name:string = '';
   ages:number;
@@ -62,10 +62,10 @@ export class PersonalInfoPage {
     this.avatarUrl = "http://101.132.70.102" + localStorage.getItem('avatar');
   }
 
-  @Input() src: string = "http://placehold.it/80x80/";
+  /*@Input() src: string = "http://placehold.it/80x80/";
   ionViewDidLoad() {
     console.log('ionViewDidLoad  PersonPage');
-    this.http.request('http://222.73.69.146:8088/index.php/index/request1/' + this.user)
+    this.http.request('http://www.robinjy.com/api/index.php/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {
@@ -99,7 +99,7 @@ export class PersonalInfoPage {
           console.log(this.listData)
         }
       });
-  }
+  }*/
 
 
   //更改昵称
@@ -213,9 +213,9 @@ export class PersonalInfoPage {
     }
 
 
-    fileTransfer.upload(fileurl, encodeURI('http://222.73.69.146:8088/index.php/index.php/demo/index/uploadavatar/' + this.user), options)
+    fileTransfer.upload(fileurl, encodeURI('http://www.robinjy.com/api/index.php/index.php/demo/index/uploadavatar/' + this.user), options)
       .then((data) => {
-        this.http.request('http://222.73.69.146:8088/index.php/index/request1/' + this.user)
+        this.http.request('http://www.robinjy.com/api/index.php/index/request1/' + this.user)
           .subscribe((res: Response) => {
             this.listData = res.json();
             if (this.listData != null) {
