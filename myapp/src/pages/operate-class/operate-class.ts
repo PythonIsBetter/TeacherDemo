@@ -29,11 +29,10 @@ export class OperateClassPage {
     this.classInfo = this.navParams.get('classInfo');
     this.deleteUrl = "http://47.100.203.126:81/index.php/demo/index/deleteClass";
     this.updateUrl = "http://47.100.203.126:81/index.php/demo/index/updateClass";
-
+    this.subjectid = navParams.get("classInfo").subject;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad OperateClassPage');
     console.log(this.classInfo);
   }
   ionViewDidEnter(){
@@ -79,41 +78,53 @@ export class OperateClassPage {
   }
 
   update(){
-    let headers = new Headers({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
-    let options = new RequestOptions({
-      headers: headers
-    });
 
-    let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex + 1;
-    this.subjectid = selectIndex.toString();
+    //let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex + 1;
+    /*let selectIndex = document.getElementById("mySelect").Value;
+    console.log(selectIndex);
+    this.subjectid = selectIndex.toString();*/
+    console.log(this.subjectid)
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
-   // this.subject= (selectIndex).toString();
     this.head= (<HTMLInputElement>document.getElementById("headx")).value;
 
-    let body = "claid=" + this.classInfo.cid + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
-    return new Promise((resolve, reject) => {
-      this.http.post(this.updateUrl, body, options )
-        .map(res => res.json())
-        .subscribe(data =>{
-          if(data.code==200) {
+    if(!(this.name || this.head)){
+      let toast  =this.toast.create({
+        message: '请至少修改一项',
+        duration: 2000,
+        position: 'middle'
+      });
+      toast.present();
+    }
+    else {
+      let headers = new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      });
+      let options = new RequestOptions({
+        headers: headers
+      });
+      let body = "claid=" + this.classInfo.cid + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
+      return new Promise((resolve, reject) => {
+        this.http.post(this.updateUrl, body, options)
+          .map(res => res.json())
+          .subscribe(data => {
+            if (data.code == 200) {
+              let toast = this.toast.create({
+                message: '修改班级信息成功！',
+                duration: 2000,
+                position: 'middle'
+              });
+              toast.present();
+              this.navCtrl.popToRoot();
+            }
+          }, err => {
             let toast = this.toast.create({
-              message: '修改班级信息成功！',
-              duration: 2000,
+              message: '修改班级信息失败！！！',
+              duration: 3000,
               position: 'middle'
             });
             toast.present();
-            this.navCtrl.popToRoot();
-          }
-        }, err => {
-          let toast = this.toast.create({
-            message: '修改班级信息失败！！！',
-            duration: 3000,
-            position: 'middle'
-          });
-          toast.present();
-        })
-    })
+          })
+      })
+    }
   }
 }

@@ -33,9 +33,6 @@ export class ExercisePage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExercisePage');
-    /*console.log(this.user);//5?
-    console.log(localStorage);*/
 
     //进入页面请求知识点
     console.log(this.user,this.subject);
@@ -45,13 +42,6 @@ export class ExercisePage {
       });
   }
 
-  //请求不同科目的知识点
-  segmentChanged() {
-    this.http.request("http://47.100.203.126:81/index.php/index/request_record_list/"+this.user+"/" + this.subject)
-      .subscribe((res: Response) => {
-        this.listData = res.json();
-      });
-  }
 
   itemSelectedchild(event,j,itemch){
     event.stopPropagation();

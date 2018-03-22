@@ -14,6 +14,7 @@
 <ion-content padding style="background: #f8f8f8;">
 
   <ion-searchbar style="position: fixed;z-index: 15;width: 80%; left: 10%" id="temp" (ionInput)="getItems($event)" style="width: 100%;" [ngModel]='inpustring ' > </ion-searchbar>
+ <!-- 用于显示搜索结果-->
   <div>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list>
@@ -24,8 +25,9 @@
     </div>
   </div>
 
+  <!--用于显示作业-->
   <div>
-    <button ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
+    <button ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)" on-hold="deleteHomework(item.id)">
       <img src="assets/icon/yuan.png"/>
       <span style="margin-left: 20px;font-size: 20px;width: 70%" >{{item.name}}</span>
       <!--<img  src="assets/icon/you.png" style="width: 25px;float: right;"/>-->

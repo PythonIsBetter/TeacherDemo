@@ -49,14 +49,14 @@
     <div>
       <label class="item item-input" >
         <span class="input-label" >班级编码</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" id="idx" class="input1" placeholder="请输入邀请码">
+        <input type="text" id="idx" class="input1" placeholder="{{classInfo.cid}}" disabled>
       </label>
     </div>
 
     <div>
       <label class="item item-input" >
         <span class="input-label">班级名称：</span>&nbsp;
-        <input type="text" id="namex" class="input1" placeholder="请输入班级名">
+        <input type="text" id="namex" class="input1" placeholder="{{classInfo.name}}">
       </label>
     </div>
 
@@ -65,7 +65,7 @@
         <span class="input-label" >科目：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!--<input type="text" id="subjectx" class="input1" >-->
         <div class="select">
-          <select name='make' id="mySelect">
+          <select name='make' id="mySelect" [(ngModel)]="subjectid">
             <option *ngFor="let subject of subjects">{{subject.name}}</option>
           </select>
         </div>
@@ -75,7 +75,7 @@
     <div>
       <label class="item item-input" >
         <span class="input-label" >班主任：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" id="headx" class="input1" placeholder="请输入班主任姓名">
+        <input type="text" id="headx" class="input1" placeholder="{{classInfo.head}}">
       </label>
     </div>
 

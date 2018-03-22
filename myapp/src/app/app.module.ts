@@ -65,6 +65,7 @@ import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
 import {AboutModifyPage} from "../pages/about/about-modify";
 import {PageNewPage} from "../pages/page-new/page-new";
 
+
 @NgModule({
   declarations: [
     MyApp,
