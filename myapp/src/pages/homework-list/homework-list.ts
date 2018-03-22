@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, App, ToastController,ModalController} from 'ionic-angular';
 import {FormControl} from "@angular/forms";
 import {Http,Response,Headers,RequestOptions} from "@angular/http";
+import {Dialogs} from '@ionic-native/dialogs';
 import 'rxjs/Rx';
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {HomeworkModifyPage} from "./homework-modify";
@@ -146,7 +147,7 @@ export class HomeworkListPage {
   }
 
   deleteHomework(homeworkId){
-    /*let promise = this.dialogs.confirm(
+    /*let promise = this.dialog.confirm(
       '要删除此班级吗?', // message
       "确认？",            // callback to invoke with index of button pressed
       ['取消','确认']     // buttonLabels
@@ -155,6 +156,7 @@ export class HomeworkListPage {
     promise.then(function (tt) {
       t = tt;
     });*/
+
     if (1) {
       let headers = new Headers({
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -186,5 +188,8 @@ export class HomeworkListPage {
           })
       })
     }
+  }
+  de(){
+    console.log("de");
   }
 }

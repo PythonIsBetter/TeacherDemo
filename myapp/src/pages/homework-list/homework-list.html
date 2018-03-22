@@ -27,7 +27,7 @@
 
   <!--用于显示作业-->
   <div>
-    <button ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)" on-hold="deleteHomework(item.id)">
+    <button id="Button" ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)" on-hold="de">
       <img src="assets/icon/yuan.png"/>
       <span style="margin-left: 20px;font-size: 20px;width: 70%" >{{item.name}}</span>
       <!--<img  src="assets/icon/you.png" style="width: 25px;float: right;"/>-->

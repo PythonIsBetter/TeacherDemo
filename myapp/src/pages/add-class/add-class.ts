@@ -51,6 +51,7 @@ export class AddClassPage {
     this.id= (<HTMLInputElement>document.getElementById("idx")).value;
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.subject= (selectIndex).toString();
+
     console.log(this.subject);
     this.head= (<HTMLInputElement>document.getElementById("headx")).value;
 

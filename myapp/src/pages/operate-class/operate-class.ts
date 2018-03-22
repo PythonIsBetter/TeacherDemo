@@ -24,18 +24,23 @@ export class OperateClassPage {
   name:string;
   subjectid:String;
   head:string;
+  subject:string;
   subjects:Array<{id:string,name:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
     this.classInfo = this.navParams.get('classInfo');
     this.deleteUrl = "http://47.100.203.126:81/index.php/demo/index/deleteClass";
     this.updateUrl = "http://47.100.203.126:81/index.php/demo/index/updateClass";
-    this.subjectid = navParams.get("classInfo").subject;
   }
 
   ionViewDidLoad() {
     console.log(this.classInfo);
   }
   ionViewDidEnter(){
+
+
+
+
+
     this.subjects = [];
     this.http.request('http://www.robinjy.com/api/index.php/subject/index')
       .subscribe((res:Response)=>{
@@ -78,12 +83,15 @@ export class OperateClassPage {
   }
 
   update(){
-
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/cid_subjects?subject=' + this.subject)
+      .subscribe((res:Response)=>{
+          this.subjectid = res.json().data;
+      });
+    console.log(this.subject,this.subjectid);
     //let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex + 1;
     /*let selectIndex = document.getElementById("mySelect").Value;
     console.log(selectIndex);
     this.subjectid = selectIndex.toString();*/
-    console.log(this.subjectid)
     this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.head= (<HTMLInputElement>document.getElementById("headx")).value;
 
@@ -102,7 +110,7 @@ export class OperateClassPage {
       let options = new RequestOptions({
         headers: headers
       });
-      let body = "claid=" + this.classInfo.cid + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
+      let body = "claid=" + this.classInfo.id + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
       return new Promise((resolve, reject) => {
         this.http.post(this.updateUrl, body, options)
           .map(res => res.json())

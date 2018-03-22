@@ -65,7 +65,7 @@
         <span class="input-label" >科目：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <!--<input type="text" id="subjectx" class="input1" >-->
         <div class="select">
-          <select name='make' id="mySelect" [(ngModel)]="subjectid">
+          <select name='make' id="mySelect" [(ngModel)]="subject">
             <option *ngFor="let subject of subjects">{{subject.name}}</option>
           </select>
         </div>

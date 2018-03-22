@@ -10,6 +10,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 //import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Media, MediaObject } from '@ionic-native/media';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Dialogs} from '@ionic-native/dialogs';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
