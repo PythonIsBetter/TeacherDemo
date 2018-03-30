@@ -22,14 +22,14 @@ export class OperateClassPage {
   deleteUrl: string;
   classInfo: any;
   name:string;
-  subjectid:String;
+  subjectid:number;
   head:string;
   subject:string;
   cid:string;
   subjects:Array<{id:string,name:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
     this.classInfo = this.navParams.get('classInfo');
-
+    this.subjectid = 0;
     this.deleteUrl = "http://47.100.203.126:81/index.php/demo/index/deleteClass";
     this.updateUrl = "http://47.100.203.126:81/index.php/demo/index/updateClass";
   }
@@ -86,7 +86,51 @@ export class OperateClassPage {
   update(){
     this.http.request('http://47.100.203.126:81/index.php/demo/index/cid_subjects?subject=' + this.subject)
       .subscribe((res:Response)=>{
-          this.subjectid = res.json().data;
+        console.log(res.json().data);
+          let t = res.json().data;
+        console.log(t);
+          this.subjectid = t;
+        console.log(this.subjectid);
+
+        if(!(this.name != this.classInfo.name || this.head != this.classInfo.head || this.classInfo.subject != this.subject || this.cid != this.classInfo.cid)){
+          let toast  =this.toast.create({
+            message: '请至少修改一项',
+            duration: 2000,
+            position: 'middle'
+          });
+          toast.present();
+        }
+        else {
+          let headers = new Headers({
+            'Content-Type': 'application/x-www-form-urlencoded'
+          });
+          let options = new RequestOptions({
+            headers: headers
+          });
+          let body = "claid=" + this.classInfo.id + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
+          return new Promise((resolve, reject) => {
+            this.http.post(this.updateUrl, body, options)
+              .map(res => res.json())
+              .subscribe(data => {
+                if (data.code == 200) {
+                  let toast = this.toast.create({
+                    message: '修改班级信息成功！',
+                    duration: 2000,
+                    position: 'middle'
+                  });
+                  toast.present();
+                  this.navCtrl.popToRoot();
+                }
+              }, err => {
+                let toast = this.toast.create({
+                  message: '修改班级信息失败！！！',
+                  duration: 3000,
+                  position: 'middle'
+                });
+                toast.present();
+              })
+          })
+        }
       });
     console.log(this.subject,this.subjectid);
     //let selectIndex=(<HTMLSelectElement>document.getElementById("mySelect")).selectedIndex + 1;
@@ -96,44 +140,6 @@ export class OperateClassPage {
    /* this.name= (<HTMLInputElement>document.getElementById("namex")).value;
     this.head= (<HTMLInputElement>document.getElementById("headx")).value;*/
 
-    if(!(this.name != this.classInfo.name || this.head != this.classInfo.head || this.classInfo.subject != this.subject || this.cid != this.classInfo.cid)){
-      let toast  =this.toast.create({
-        message: '请至少修改一项',
-        duration: 2000,
-        position: 'middle'
-      });
-      toast.present();
-    }
-    else {
-      let headers = new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded'
-      });
-      let options = new RequestOptions({
-        headers: headers
-      });
-      let body = "claid=" + this.classInfo.id + "&name=" + this.name + "&subjectid=" + this.subjectid + "&head=" + this.head;
-      return new Promise((resolve, reject) => {
-        this.http.post(this.updateUrl, body, options)
-          .map(res => res.json())
-          .subscribe(data => {
-            if (data.code == 200) {
-              let toast = this.toast.create({
-                message: '修改班级信息成功！',
-                duration: 2000,
-                position: 'middle'
-              });
-              toast.present();
-              this.navCtrl.popToRoot();
-            }
-          }, err => {
-            let toast = this.toast.create({
-              message: '修改班级信息失败！！！',
-              duration: 3000,
-              position: 'middle'
-            });
-            toast.present();
-          })
-      })
-    }
+
   }
 }
