@@ -28,6 +28,7 @@ export class HomePage {
 
   ionViewDidEnter() {//每次进入此页面均会刷新
 
+
     this.subjects = [];
     /*this.http.request('http://www.robinjy.com/api/index.php/subject/index')
       .subscribe((res: Response) => {
