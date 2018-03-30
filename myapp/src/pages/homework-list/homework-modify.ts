@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { IonicPage,ViewController} from 'ionic-angular';
+import {IonicPage, NavController, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the HomeworkModifyPage page.
@@ -16,7 +16,7 @@ import { IonicPage,ViewController} from 'ionic-angular';
 export class HomeworkModifyPage {
   homeworkName :String;
 
-  constructor(public viewCtrl: ViewController) {
+  constructor(public viewCtrl: ViewController,public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
@@ -24,6 +24,7 @@ export class HomeworkModifyPage {
   }
   submit(){
     this.viewCtrl.dismiss(this.homeworkName);
+    this.navCtrl.popToRoot();
   }
   cancel(){
     this.viewCtrl.dismiss("cancel");

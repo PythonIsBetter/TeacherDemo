@@ -77,5 +77,11 @@ export class AddJieDaPage
     }
 
     this.navCtrl.pop();
+    this.navCtrl.pop();
+    this.navCtrl.push(SelectQuestionPage,
+      {
+        everyQuestion: this.everyQuestion,//每一到道题目
+        homeworkName:this.homeworkName
+      });
   }
 }

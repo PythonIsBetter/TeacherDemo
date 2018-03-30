@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams, ToastController, ViewController} from 'ionic-angular';
 import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -21,7 +21,7 @@ export class AddXuanZePage
   homeworkName:string;
   everyQuestion: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController,public modalCtrl: ModalController,public viewCtrl: ViewController)
   {
     this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.type = navParams.get('item');//题目类型
@@ -79,5 +79,11 @@ export class AddXuanZePage
     }
 
     this.navCtrl.pop();
+    this.navCtrl.pop();
+    this.navCtrl.push(SelectQuestionPage,
+      {
+        everyQuestion: this.everyQuestion,//每一到道题目
+        homeworkName:this.homeworkName
+      });
   }
 }

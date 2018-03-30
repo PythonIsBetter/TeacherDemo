@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, App, ToastController,ModalController} from 'ionic-angular';
 import {FormControl} from "@angular/forms";
 import {Http,Response,Headers,RequestOptions} from "@angular/http";
-import {Dialogs} from '@ionic-native/dialogs';
 import 'rxjs/Rx';
 import {PublishHomeworkPage} from "../publish-homework/publish-homework";
 import {HomeworkModifyPage} from "./homework-modify";
@@ -57,6 +56,7 @@ export class HomeworkListPage {
       if(data != "cancel"){
         console.log(data);
         this.addHomeworklist(data);
+        this.ionViewDidEnter();
       }
     });
   }
@@ -134,6 +134,7 @@ export class HomeworkListPage {
             position:'middle'
           });
           toast.present();
+          // window.location.reload();
         }else{
           // alert("创建失败");
           let toast = this.toastCtrl.create({

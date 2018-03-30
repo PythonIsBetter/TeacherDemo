@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -10,6 +10,7 @@ import {AddJieDaPage} from "../add-jie-da/add-jie-da";
 import {DetailedQuestionPage} from "../detailed-question/detailed-question";
 import {MultiplePublishPage} from "../multiple-publish/multiple-publish";
 import {HomePage} from "../home/home";
+import {HomeworkModifyPage} from "../homework-list/homework-modify";
 
 @IonicPage()
 @Component({
@@ -26,7 +27,7 @@ export class SelectQuestionPage
   tk:Array<{id:number,titleID:number,question:string,answer:string}>;//填空题（序号+题号+题目+答案）
   pd: Array<{id:number,titleID:number, question: string, answer: string }>;//判断题（序号+题号+题目+答案）
   jd: Array<{id:number,titleID:number, question: string, answer: string }>;//解答题（序号+题号+题目+答案）
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController,public modalCtrl: ModalController)
   {
     this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.homeworkName=navParams.get('homeworkName');
@@ -34,6 +35,7 @@ export class SelectQuestionPage
     this.tk=[];
     this.pd=[];
     this.jd=[];
+
     this.loadTheHomework();
 
     this.http.request("http://47.100.203.126:81/index.php/demo/index/getHomeworkState?name="+this.homeworkName).subscribe((res:Response)=>
@@ -43,15 +45,27 @@ export class SelectQuestionPage
         this.check= res.json().data[i].ispublished;
       }
     });
-
   }
 
-  ionViewDidLoad( item )
+  ionViewDidEnter ( item )
   {
     console.log('ionViewDidLoad SelectQuestionPage');
     if(this.check==0) //未发布过的，开放编辑
       this.edit(item);
+
+    // this.loadTheHomework();
   }
+
+  // ionViewWillEnter()
+  // {
+  //   this.loadTheHomework();
+  // }
+
+  // ionViewWillEnter()
+  // {
+  //   this.navCtrl.pop();
+  //   this.navCtrl.push(SelectQuestionPage);
+  // }
 
   edit(item)
   {
@@ -59,7 +73,7 @@ export class SelectQuestionPage
     switch(item)
     {
       case 1://选择题
-        this.navCtrl.push(AddXuanZePage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
+       this.navCtrl.push(AddXuanZePage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
         break;
       case 2://填空题
         this.navCtrl.push(AddTianKongPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
