@@ -29,13 +29,13 @@ export class HomePage {
   ionViewDidEnter() {//每次进入此页面均会刷新
 
     this.subjects = [];
-    this.http.request('http://www.robinjy.com/api/index.php/subject/index')
+    /*this.http.request('http://www.robinjy.com/api/index.php/subject/index')
       .subscribe((res: Response) => {
         for (let i = 0; i < res.json().content.length; i++) {
           this.subs.constructor(res.json().content[i].id, res.json().content[i].subject_name);
         }
         console.log(this.subs);
-      });
+      });*/
 
     this.classes = [];//每次初始化班级为空
 
@@ -46,7 +46,7 @@ export class HomePage {
           this.classes.push({
             id: res.json().data[i].id,
             name: res.json().data[i].name,
-            subject: res.json().data[i].subject,
+            subject: res.json().data[i].subject.toString(),
             head: res.json().data[i].head,
             cid: res.json().data[i].cid
           });
@@ -73,17 +73,17 @@ export class HomePage {
     console.log(this.classes);
     console.log(this.subjects);
 
-    // itemTapped(event, item) {
-    //   this.navCtrl.push(AddClassPage, {
-    //     item: item
-    //   });
-    // }
-    //
-    // itemTapped1(item) {
-    //   this.navCtrl.push(ClassDetailPage, {
-    //     classInfo: item,//传班级信息过去
-    //   });
-    // }
 
+}
+  itemTapped(event, item){
+    this.navCtrl.push(AddClassPage, {
+      item: item
+    });
+  }
+
+  itemTapped1(item){
+    this.navCtrl.push(ClassDetailPage, {
+      classInfo: item,//传班级信息过去
+    });
   }
 }

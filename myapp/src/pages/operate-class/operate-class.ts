@@ -25,22 +25,23 @@ export class OperateClassPage {
   subjectid:String;
   head:string;
   subject:string;
+  cid:string;
   subjects:Array<{id:string,name:string}>;
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http,public toast: ToastController) {
     this.classInfo = this.navParams.get('classInfo');
+
     this.deleteUrl = "http://47.100.203.126:81/index.php/demo/index/deleteClass";
     this.updateUrl = "http://47.100.203.126:81/index.php/demo/index/updateClass";
   }
 
   ionViewDidLoad() {
     console.log(this.classInfo);
+    this.subject = this.classInfo.subject;
+    this.name = this.classInfo.name;
+    this.head = this.classInfo.head;
+    this.cid  = this.classInfo.cid;
   }
   ionViewDidEnter(){
-
-
-
-
-
     this.subjects = [];
     this.http.request('http://www.robinjy.com/api/index.php/subject/index')
       .subscribe((res:Response)=>{
@@ -92,10 +93,10 @@ export class OperateClassPage {
     /*let selectIndex = document.getElementById("mySelect").Value;
     console.log(selectIndex);
     this.subjectid = selectIndex.toString();*/
-    this.name= (<HTMLInputElement>document.getElementById("namex")).value;
-    this.head= (<HTMLInputElement>document.getElementById("headx")).value;
+   /* this.name= (<HTMLInputElement>document.getElementById("namex")).value;
+    this.head= (<HTMLInputElement>document.getElementById("headx")).value;*/
 
-    if(!(this.name || this.head)){
+    if(!(this.name != this.classInfo.name || this.head != this.classInfo.head || this.classInfo.subject != this.subject || this.cid != this.classInfo.cid)){
       let toast  =this.toast.create({
         message: '请至少修改一项',
         duration: 2000,
