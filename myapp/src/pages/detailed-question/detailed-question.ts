@@ -14,11 +14,13 @@ export class DetailedQuestionPage
   id:number;//序号
   titleID:number;//题号
   question:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer:string}>;//题目（题号+题目+选项+选项+选项+选项+答案）
+  kind:number;//题目类型
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
     this.id = navParams.get('id');//题号
     this.titleID=navParams.get('titleID');
+    this.kind=0;
     this.question=[];
     this.loadQuestion();
   }
@@ -34,16 +36,19 @@ export class DetailedQuestionPage
       {
         //选择题
         if(res.json().data[i].type==1)
+        {
           this.question.push
           ({
             id:res.json().data[i].titleId,//题号
             question:res.json().data[i].titleBody,//题目
-            A:"A、 "+res.json().data[i].A,//选项们
-            B:"B、 "+res.json().data[i].B,
-            C:"C、 "+res.json().data[i].C,
-            D:"D、 "+res.json().data[i].D,
+            A:res.json().data[i].A,//选项们
+            B:res.json().data[i].B,
+            C:res.json().data[i].C,
+            D:res.json().data[i].D,
             answer:res.json().data[i].answer,//答案
           });
+          this.kind=1;
+        }
 
         //非选择题
         else

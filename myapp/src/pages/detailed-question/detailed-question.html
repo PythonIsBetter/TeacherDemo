@@ -12,33 +12,23 @@
 </ion-header>
 
 <<ion-content padding style="background: #f8f8f8;">
-  <div class="list" align="left" *ngFor="let que of question">
+  <div class="list" align="left"  *ngFor="let que of question">
     <br>
     <span [innerHTML]="que.question"></span>
     <br>
-
-    <div class="blank" align="left" [innerHTML]="que.A">
-      <!--{{que.A}}-->
-    </div>
     <br>
 
-    <div class="blank" align="left" [innerHTML]="que.B">
-      <!--{{que.B}}-->
-    </div>
-    <br>
+    <!--选择题-->
+    <div class="selekuang" *ngIf="kind==1"><button>A</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.A"></div></div>
+    <div class="selekuang" *ngIf="kind==1"><button>B</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.B"></div></div>
+    <div class="selekuang" *ngIf="kind==1"><button>C</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.C"></div></div>
+    <div class="selekuang" *ngIf="kind==1"><button>D</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.D"></div></div>
+    <div class="selekuang" *ngIf="kind==1"><button>答</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.answer"></div></div>
 
-    <div class="blank" align="left" [innerHTML]="que.C">
-      <!--{{que.C}}-->
-    </div>
-    <br>
-
-    <div class="blank" align="left" [innerHTML]="que.D">
-      <!--{{que.D}}-->
-    </div>
-    <br>
-
-    <div class="blank" align="left">
+    <!--非选择题-->
+    <div class="blank" align="left"  *ngIf="kind==0">
       &nbsp;&nbsp;答案： <span [innerHTML]="que.answer"></span>
     </div>
   </div>
+
 </ion-content>
