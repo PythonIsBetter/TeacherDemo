@@ -3,8 +3,8 @@ page-select-question
   .list
   {
     //list的宽度和高度
-    width: 100%;
-    height: 70%;
+    //width: 100%;
+    //height: 120%;
     font-size: 22px;//字体大小
     margin:0 auto; //框框居中
     //框框的阴影
@@ -34,15 +34,14 @@ page-select-question
   .num
   {
     //圆形按钮位置和大小
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-top: 2%;
     margin-left: 3%;
-    line-height: 20%;
     border-radius: 100%; //让它从方的变成圆的
     border: 2px solid rgba(0, 21, 255, 0.91);//边框的粗细和颜色
     background-color: transparent;//数字是按钮，因此把背景变透明
-    float: left;//让多个div在一行内显示
+   // float: left;//让多个div在一行内显示
     font-size: 18px;//字体大小
   }
 

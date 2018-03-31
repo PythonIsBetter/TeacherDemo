@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, ViewController} from 'ionic-angular';
+import {createElementCssSelector} from "@angular/compiler";
 
 /**
  * Generated class for the HomeworkModifyPage page.
@@ -23,8 +24,13 @@ export class HomeworkModifyPage {
     console.log('ionViewDidLoad HomeworkModifyPage');
   }
   submit(){
-    this.viewCtrl.dismiss(this.homeworkName);
-    this.navCtrl.popToRoot();
+    if(this.homeworkName==null)
+      alert("请填写作业名称");
+    else
+    {
+      this.viewCtrl.dismiss(this.homeworkName);
+      this.navCtrl.popToRoot();
+    }
   }
   cancel(){
     this.viewCtrl.dismiss("cancel");

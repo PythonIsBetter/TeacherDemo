@@ -39,16 +39,17 @@ export class PublishNoticePage
              public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,
               public navCtrl: NavController, public navParams: NavParams, private http: Http)
   {
-    this.voidint();
+    //this.voidint();
     this.randomId();
   }
 
   ionViewDidLoad()
   {
     console.log('ionViewDidLoad PublishNoticePage');
+    this.voidint();
   }
 
-  randomId()
+  public randomId()
   {
     //获取时间
     this.data=new Date();
@@ -208,8 +209,15 @@ export class PublishNoticePage
   //发布文字
   pushTheTitleAndContent()
   {
-   // alert('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent);
-    this.http.request('http://47.100.203.126:81/index.php/demo/index/addNotice?id='+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
+    if(this.noticeTitle==null||this.noticeContent==null)
+      alert("请填写内容!");
+    else
+    {
+      this.http.request('http://47.100.203.126:81/index.php/demo/index/addNotice?id='+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {
+        alert("发布成功");
+        this.navCtrl.pop();
+      });
+    }
     //http://47.100.203.126:81/index.php/demo/index/addNotice?id=1233&title=dcs&content=dw
   }
 }

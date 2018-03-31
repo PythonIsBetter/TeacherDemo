@@ -36,7 +36,7 @@ export class AddTianKongPage
 
   loadTK()
   {
-    this.url="http://47.100.203.126:81/index.php/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type;//用get方式获得数据
+    this.url="http://47.100.203.126:81/index.php/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type+"& homename="+this.homeworkName;//用get方式获得数据
     this.http.request(this.url).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)
@@ -65,7 +65,7 @@ export class AddTianKongPage
     {
       this.http.get("http://47.100.203.126:81/index.php/demo/index/addHomeworkDetail?name="+ this.homeworkName+"&textid="+this.tkChoose[k]).subscribe(res=>
       {
-        if (res.json().code != "200")
+          if (res.json().code != "200")
           alert("第 "+k+" 题添加失败");
       });
     }

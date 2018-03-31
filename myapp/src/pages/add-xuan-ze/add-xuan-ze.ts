@@ -40,7 +40,7 @@ export class AddXuanZePage
   //加载选择题
   loadXZ()
   {
-    this.url="http://47.100.203.126:81/index.php/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type;//用get方式获得数据
+    this.url="http://47.100.203.126:81/index.php/demo/index/getquesbyexamID?examid="+this.examID+"& type="+this.type+"& homename="+this.homeworkName;//用get方式获得数据
     this.http.request(this.url).subscribe((res:Response)=>
     {
       for(let i=0;i<res.json().data.length;i++)

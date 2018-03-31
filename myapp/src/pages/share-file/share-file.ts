@@ -38,7 +38,7 @@ export class ShareFilePage
               public navCtrl: NavController, public navParams: NavParams,private http: Http)
   {
     this.voidint();
-    this.randomId();
+    //this.randomId();
   }
 
   ionViewDidLoad()
@@ -206,8 +206,14 @@ export class ShareFilePage
   //发布文字
   pushTheTitleAndContent()
   {
-    // alert('http://47.100.203.126:81/index.php/demo/index/addNotice?id=1'+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent);
-    this.http.request('http://47.100.203.126:81/index.php/demo/index/addResource?id='+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {});
-    //http://47.100.203.126:81/index.php/demo/index/addNotice?id=1233&title=dcs&content=dw
+    if(this.noticeTitle==null||this.noticeContent==null)
+      alert("请填写内容!");
+    else
+    {
+      this.http.request('http://47.100.203.126:81/index.php/demo/index/addResource?id='+this.ID+'&title='+this.noticeTitle+'&content='+this.noticeContent).subscribe((res: Response) => {
+        alert("分享成功");
+        this.navCtrl.pop();
+      });
+    }
   }
 }

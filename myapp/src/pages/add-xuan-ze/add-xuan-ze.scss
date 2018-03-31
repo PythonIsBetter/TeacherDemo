@@ -87,47 +87,37 @@ page-add-xuan-ze
     font-size: 10px;
   }
 
-  .selekuang
-  {
+  .selekuang{
     border: solid 1px #aeaeae;
     /* height: 30px; */
     border-radius: 18px;
     position: relative;
     text-align: left;
     margin-top: 10px;
-    button
-    {
+    button{
       width: 30px;
       height: 30px;
       background-color: #aeaeae;
       border-radius: 15px;
     }
   }
-
-  .selekuang.panduan
-  {
+  .selekuang.panduan{
     font-size: 30px;
     width: 160px;
     margin: 10px;
     display: inline-block;
   }
-
-  .selecdiv
-  {
+  .selecdiv{
     display: inline-block;
   }
-
-  .selectclass.selekuang
-  {
+  .selectclass.selekuang{
     border: solid 1px #488aff;
     // color: #488aff;
-    button
-    {
+    button{
       background-color: #488aff;
       color: #fff;
     }
-    ion-icon
-    {
+    ion-icon{
       color: #488aff;
     }
   }
