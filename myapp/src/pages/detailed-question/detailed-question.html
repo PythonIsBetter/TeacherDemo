@@ -6,13 +6,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>第 {{id}} 题</ion-title>
+    <ion-title style="font-size: 22px">第 {{id}} 题</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <<ion-content padding style="background: #f8f8f8;">
-  <div class="list" align="left"  *ngFor="let que of question">
+  <div class="list" align="left"  *ngFor="let que of question" style="font-size: 20px">
     <br>
     <span [innerHTML]="que.question"></span>
     <br>

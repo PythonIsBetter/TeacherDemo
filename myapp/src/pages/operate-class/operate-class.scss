@@ -1,11 +1,13 @@
 page-operate-class{
   .input1{
-    border-radius: 10px;
-    -moz-border-radius:10px;
-    background: #ffffff;;
-    border:1px solid #a1a1a1;
+    //border-radius: 10px;
+    //-moz-border-radius:10px;
+    background: #ffffff;
     width: 50%;
-    height:35px;
+    height:45px;
+    background:none;
+    border:none;
+    border-bottom:1px solid #ddd;
   }
   .input-label{
     font-size: 20px;

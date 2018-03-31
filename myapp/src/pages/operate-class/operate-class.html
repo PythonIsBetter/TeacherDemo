@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-center> 修改与删除班级 </ion-title>
+    <ion-title style="font-size: 22px" text-center> 修改与删除班级 </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -45,11 +45,10 @@
   <button ion-item text-center color="danger" (click)="deletee()">删除班级</button>
   </ion-card>-->
 
-  <div class="list" align="center" style="line-height:80px">
+  <div class="list" align="left" style="line-height:60px ">
     <div>
       <label class="item item-input" >
-        <span class="input-label" >班级编码</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" id="idx" class="input1" placeholder="{{cid}}" disabled>
+        <span class="input-label" >班级编码：   {{cid}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </label>
     </div>
 
@@ -79,10 +78,10 @@
       </label>
     </div>
 
-    <div class="padding">
+    <div class="padding" align="center">
       <button  (click)="update()"><b>确认修改</b></button>
     </div>
-    <div class="padding">
+    <div class="padding" align="center">
       <button  (click)="deletee()"><b>删除班级</b></button>
     </div>
 
