@@ -14,22 +14,19 @@
 
 <ion-content padding style="background: #f8f8f8;">
   <div>
-    <!--<ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 45px;top: 25px;"></ion-icon>-->
-
     <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]='inpustring'>
-
+      <!--显示搜索结果-->
     </ion-searchbar>
     <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: #fff;">
       <ion-list >
-        <ion-item *ngFor="let item of items" (click)="itemSelectedchild($event,item.id)" >
+        <ion-item *ngFor="let item of items" (click)="selectQuestion($event,item)" >
           {{ item.cname }}
         </ion-item>
       </ion-list>
     </div>
-
   </div>
-  <!--<ion-searchbar  [formControl]="titleFilter"></ion-searchbar>-->
 
+  <!--显示知识点列表-->
   <div>
     <button  ion-item *ngFor="let item of listData;let i=index;" (click)="selectQuestion($event,item)">
       <img src="assets/icon/yuan.png"/>

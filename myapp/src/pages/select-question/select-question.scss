@@ -39,7 +39,7 @@ page-select-question
     margin-top: 2%;
     margin-left: 3%;
     border-radius: 100%; //让它从方的变成圆的
-    border: 2px solid rgba(0, 21, 255, 0.91);//边框的粗细和颜色
+    border: 2px solid #59B8E7;//边框的粗细和颜色
     background-color: transparent;//数字是按钮，因此把背景变透明
    // float: left;//让多个div在一行内显示
     font-size: 18px;//字体大小
@@ -66,7 +66,7 @@ page-select-question
     color: #FFFFFF;
     font-family: 黑体;
     -moz-border-radius:25px;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 10%;
     border-radius: 25px;
   }

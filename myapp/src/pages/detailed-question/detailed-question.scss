@@ -42,4 +42,17 @@ page-detailed-question
       color: #488aff;
     }
   }
+
+  .padding_red
+  {
+    height: 6%;
+    width: 80%;
+    background: rgba(255, 0, 13, 0.73);
+    color: #FFFFFF;
+    font-family: 黑体;
+    -moz-border-radius:25px;
+    margin-top: 10%;
+    margin-left: 10%;
+    border-radius: 25px;
+  }
 }

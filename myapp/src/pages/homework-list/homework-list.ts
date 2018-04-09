@@ -15,7 +15,8 @@ export class HomeworkListPage {
 
   //selectedItem: any;
   listData:any;
-  items: any[];
+  //items:Array<{name:any,id:any,isPublished:number}>;
+  items:any;
   copeyitems:any[];
   urlListKnowledge:string;
   urlAddHomework:string;
@@ -71,13 +72,17 @@ export class HomeworkListPage {
         this.cid  = res.json().data;
       });
 
-    this.http.request(this.urlListKnowledge+"?classid="+this.classInfo.id)
-      .subscribe((res: Response) => {
+    this.http.request(this.urlListKnowledge+"?classid="+this.classInfo.id).subscribe((res: Response) =>
+      {
         this.listData = res.json().data;
-        for (let i = 0; i < this.listData.length; i++) {
-          this.items.push({
-            name:this.listData[i].name,
-            id:this.listData[i].id});
+        for (let i = 0; i < this.listData.length; i++)
+        {
+          this.items.push
+          ({
+            name: this.listData[i].name,
+            id: this.listData[i].id,
+            isPublished: this.listData[i].ispublished,
+          });
         }
         this.copeyitems=HomeworkListPage.deepCoyp(this.items)
       });
@@ -117,7 +122,8 @@ export class HomeworkListPage {
     this.navCtrl.push(PublishHomeworkPage,
       {
         item:item,
-        cid:this.cid
+        cid:this.cid,
+        classInfo:this.classInfo
       });
   }
 

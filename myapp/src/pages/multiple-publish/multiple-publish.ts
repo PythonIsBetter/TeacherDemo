@@ -17,6 +17,7 @@ export class MultiplePublishPage
 {
   type:number;//类型，判断当前要发布的是作业还是通知，0是作业，1是通知
   homeworkName:string;//作业名称，传到服务器上的
+  classInfo:any;
   class:Array<{id:String,name:String}>;//班级列表
   otherClass:Array<string>;//多选班级列表
 
@@ -24,6 +25,7 @@ export class MultiplePublishPage
   {
     this.type = navParams.get('type');//接受类型，0是作业，1是通知
     this.homeworkName = navParams.get('homeworkName');//接受得到作业名字
+    this.classInfo=navParams.get("classInfo");
     this.class = [];//初始化
     this.otherClass=[];//初始化
     this.loadClass();
@@ -37,7 +39,7 @@ export class MultiplePublishPage
 
   loadClass()//加载班级列表
   {
-    this.http.request('http://47.100.203.126:81/index.php/demo/index/cla_select')
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/cla_select1?name='+ this.classInfo.name)
       .subscribe((res:Response)=>
       {
         for(let i=0;i<res.json().data.length;i++)

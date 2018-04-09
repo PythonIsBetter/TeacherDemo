@@ -11,6 +11,7 @@ import {DetailedQuestionPage} from "../detailed-question/detailed-question";
 import {MultiplePublishPage} from "../multiple-publish/multiple-publish";
 import {HomePage} from "../home/home";
 import {HomeworkModifyPage} from "../homework-list/homework-modify";
+import {HomeworkListPage} from "../homework-list/homework-list";
 
 @IonicPage()
 @Component({
@@ -22,6 +23,8 @@ export class SelectQuestionPage
   everyQuestion: any;
   homeworkName:string;
   check:number;
+  item:any;
+  classInfo:any;
 
   xz:Array<{id:number,titleID:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（序号+题号+题目+选项+选项+选项+选项+答案）
   tk:Array<{id:number,titleID:number,question:string,answer:string}>;//填空题（序号+题号+题目+答案）
@@ -31,6 +34,8 @@ export class SelectQuestionPage
   {
     this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.homeworkName=navParams.get('homeworkName');
+    this.item=navParams.get('item');
+    this.classInfo=navParams.get("classInfo");
     this.xz=[];
     this.tk=[];
     this.pd=[];
@@ -55,17 +60,6 @@ export class SelectQuestionPage
 
     // this.loadTheHomework();
   }
-
-  // ionViewWillEnter()
-  // {
-  //   this.loadTheHomework();
-  // }
-
-  // ionViewWillEnter()
-  // {
-  //   this.navCtrl.pop();
-  //   this.navCtrl.push(SelectQuestionPage);
-  // }
 
   edit(item)
   {
@@ -163,11 +157,14 @@ export class SelectQuestionPage
   //点击题目序号之后显示题目详情
   showDetailedQuestion(titleID,id)
   {
-    this.navCtrl.push(
+    this.navCtrl.push
+    (
       DetailedQuestionPage,
       {
         titleID:titleID,
-        id:id
+        id:id,
+        homeworkName:this.homeworkName,
+        everyQuestion:this.everyQuestion
       });
   }
 
@@ -178,14 +175,20 @@ export class SelectQuestionPage
       {
         type:0,
         homeworkName:this.homeworkName,
+        classInfo:this.classInfo
       });
   }
 
   //删除作业
   deleteHomework()
   {
-
     this.http.request("http://47.100.203.126:81/index.php/demo/index/deleteHomework?name="+this.homeworkName).subscribe((res:Response)=> {});
-    this.navCtrl.popAll();
+    this.navCtrl.pop();
+    this.navCtrl.pop();
+    this.navCtrl.pop();
+    this.navCtrl.push(HomeworkListPage,
+      {
+        classInfo:this.classInfo,
+      });
   }
 }

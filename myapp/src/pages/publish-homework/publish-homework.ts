@@ -23,6 +23,7 @@ export class PublishHomeworkPage
   inpustring:any='';
   type:string;
   cid:number;
+  classInfo:any;
 
 
   // 关键字
@@ -34,6 +35,7 @@ export class PublishHomeworkPage
     this.cid = navParams.get('cid');
     this.type=navParams.get('type');
     this.homeName = navParams.get('item');
+    this.classInfo=navParams.get("classInfo");
     this.urlListKnowledge="http://47.100.203.126:81/index.php/demo/index/getByTypeKnowledge?type=" + this.cid;
     //+ this.type;
     this.listData=[];
@@ -88,7 +90,9 @@ export class PublishHomeworkPage
     this.navCtrl.push(SelectQuestionPage,
       {
         everyQuestion:item,//每一到道题目
-        homeworkName:this.homeName.name
+        homeworkName:this.homeName.name,
+        item:this.homeName,
+        classInfo:this.classInfo
       });
   }
 }

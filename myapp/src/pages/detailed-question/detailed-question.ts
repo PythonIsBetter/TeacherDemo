@@ -3,6 +3,8 @@ import {IonicPage, NavController, NavParams, ToastController} from 'ionic-angula
 import {Http,Response}from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
+import {MultiplePublishPage} from "../multiple-publish/multiple-publish";
+import {SelectQuestionPage} from "../select-question/select-question";
 
 @IonicPage()
 @Component({
@@ -13,6 +15,8 @@ export class DetailedQuestionPage
 {
   id:number;//序号
   titleID:number;//题号
+  homeworkName:string;//作业名称
+  everyQuestion:any;
   question:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer:string}>;//题目（题号+题目+选项+选项+选项+选项+答案）
   kind:number;//题目类型
 
@@ -20,6 +24,8 @@ export class DetailedQuestionPage
   {
     this.id = navParams.get('id');//题号
     this.titleID=navParams.get('titleID');
+    this.homeworkName=navParams.get('homeworkName');//作业名称
+    this.everyQuestion=navParams.get('everyQuestion');
     this.kind=0;
     this.question=[];
     this.loadQuestion();
@@ -64,6 +70,19 @@ export class DetailedQuestionPage
           });
       }
     });
+  }
+
+  //删除作业
+  deleteHomework()
+  {
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/deleteHomeworkDetail?name="+this.homeworkName+"&textid="+ this.titleID).subscribe((res:Response)=> {});
+    this.navCtrl.pop();
+    this.navCtrl.pop();
+    this.navCtrl.push(SelectQuestionPage,
+      {
+        everyQuestion: this.everyQuestion,//每一到道题目
+        homeworkName:this.homeworkName
+      });
   }
 
 }
