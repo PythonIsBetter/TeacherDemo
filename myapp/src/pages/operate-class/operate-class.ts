@@ -47,11 +47,14 @@ export class OperateClassPage {
       .subscribe((res:Response)=>{
         for(let i=0;i<res.json().content.length;i++)
         {
-          this.subjects.push({
+          if(res.json().content[i].subject_name!= this.subject)
+          {
+            this.subjects.push
+            ({
               id: res.json().content[i].id,
               name: res.json().content[i].subject_name,
-            }
-          );
+            });
+          }
           console.log(this.subjects);
         }
       });
