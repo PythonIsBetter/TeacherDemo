@@ -3,20 +3,22 @@ page-multiple-publish
   //发布按钮
   .padding
   {
-    height: 6%;
-    width: 80%;
-    background: #51a7e8;
+    height: 7%;
+    width: 85%;
+    position: fixed;
+    bottom: 70px;
+    left: 7%;
+    background: #59B8E7;
     color: #FFFFFF;
     font-family: 黑体;
     -moz-border-radius:25px;
-    margin-top: 10%;
-    margin-left: 10%;
     border-radius: 25px;
+    font-size: 18px;
   }
 
   .padding_red
   {
-    height: 6%;
+    height: 7%;
     width: 80%;
     background: rgba(255, 0, 13, 0.73);
     color: #FFFFFF;
@@ -25,6 +27,7 @@ page-multiple-publish
     margin-top: 10%;
     margin-left: 10%;
     border-radius: 25px;
+    font-size: 18px;
   }
 
   //多选框
