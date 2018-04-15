@@ -26,12 +26,14 @@ export class HomeworkResultPage
   num:number;//题目总数
   rateRight:number;//正确率
   rateWrong:number;//错误率
+  kind:number;//题目类型
   question:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer:string}>;//题目（题号+题目+选项+选项+选项+选项+答案）
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
     this.id = navParams.get('id');//题号
     this.titleID=navParams.get('titleID');
+    this.kind=0;
     this.question=[];
     this.loadQuestion();
   }
@@ -57,6 +59,7 @@ export class HomeworkResultPage
       {
         //选择题
         if(res.json().data[i].type==1)
+        {
           this.question.push
           ({
             id:res.json().data[i].titleId,//题号
@@ -67,6 +70,8 @@ export class HomeworkResultPage
             D:"D、 "+res.json().data[i].D,
             answer:res.json().data[i].answer,//答案
           });
+          this.kind=1;
+        }
 
         //非选择题
         else

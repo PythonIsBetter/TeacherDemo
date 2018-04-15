@@ -53,13 +53,15 @@ export class HomeworkListPage {
     //this.app.getRootNav().push(HomeworkModifyPage);
     let toHomeworkModify = this.modalCtrl.create(HomeworkModifyPage);
     toHomeworkModify.present();
-    toHomeworkModify.onDidDismiss(data => {
-      if(data != "cancel"){
+    toHomeworkModify.onDidDismiss(data =>
+    {
+      if(data != "cancel" && data!=null){
         console.log(data);
         this.addHomeworklist(data);
         this.ionViewDidEnter();
       }
-    });
+    }
+    );
   }
   ionViewDidEnter() {
     this.items=[];

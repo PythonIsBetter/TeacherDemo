@@ -14,14 +14,13 @@
 
 
 <ion-content padding>
+  <br>
   <ion-list >
     <ion-item >
       <ion-label item-left>作业名称</ion-label>
       <ion-input [(ngModel)]="homeworkName" type="text"></ion-input>
     </ion-item>
   </ion-list>
-  <div>
-  <a ion-button bar-dark (click)="cancel()">取消</a>
-  <a ion-button bar-balanced style="right: -65%"  (click)="submit()">确认</a>
-  </div>
+  <button class="padding"  align="center" (click)="submit()"><b>确 认</b></button>
+  <button class="padding"  align="center" (click)="cancel()"><b>取 消</b></button>
 </ion-content>
