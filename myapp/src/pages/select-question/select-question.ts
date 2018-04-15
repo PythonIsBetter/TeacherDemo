@@ -180,7 +180,7 @@ export class SelectQuestionPage
   }
 
   //删除作业
-  deleteHomework()
+  deleteHomework(check)
   {
     this.http.request("http://47.100.203.126:81/index.php/demo/index/deleteHomework?name="+this.homeworkName).subscribe((res:Response)=> {});
     this.navCtrl.pop();
@@ -189,6 +189,7 @@ export class SelectQuestionPage
     this.navCtrl.push(HomeworkListPage,
       {
         classInfo:this.classInfo,
+        check:check,
       });
   }
 }

@@ -61,7 +61,7 @@
   </div>
 
   <button *ngIf="check==0" class="padding"  align="center" (click)="publishHomeWork()"><b>下一步</b></button>
-  <button class="padding_red"  align="center" (click)="deleteHomework()"><b>删除</b></button>
+  <button *ngIf="check==0" class="padding_red"  align="center" (click)="deleteHomework(check)"><b>删 除</b></button>
 
   <br>
   <br>

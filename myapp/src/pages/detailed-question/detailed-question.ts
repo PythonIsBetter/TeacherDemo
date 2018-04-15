@@ -19,6 +19,7 @@ export class DetailedQuestionPage
   everyQuestion:any;
   question:Array<{id:number,question:string,A:string,B:string,C:string,D:string,answer:string}>;//题目（题号+题目+选项+选项+选项+选项+答案）
   kind:number;//题目类型
+  check:number;//发布还是未发布
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
@@ -26,6 +27,7 @@ export class DetailedQuestionPage
     this.titleID=navParams.get('titleID');
     this.homeworkName=navParams.get('homeworkName');//作业名称
     this.everyQuestion=navParams.get('everyQuestion');
+    this.check=this.navParams.get('check');
     this.kind=0;
     this.question=[];
     this.loadQuestion();

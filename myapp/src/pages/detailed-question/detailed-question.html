@@ -23,14 +23,13 @@
     <div class="selekuang" *ngIf="kind==1"><button>B</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.B"></div></div>
     <div class="selekuang" *ngIf="kind==1"><button>C</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.C"></div></div>
     <div class="selekuang" *ngIf="kind==1"><button>D</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.D"></div></div>
-    <div class="selekuang" *ngIf="kind==1"><button>答</button><div *ngIf="kind==1" class="selecdiv" [innerHTML]="que.answer"></div></div>
-
-    <!--非选择题-->
-    <div class="blank" align="left"  *ngIf="kind==0">
-      &nbsp;&nbsp;答案： <span [innerHTML]="que.answer"></span>
+    <br>
+    <div class="blank" align="left">
+      &nbsp;&nbsp;答案： <br>
+      &nbsp;&nbsp; <span [innerHTML]="que.answer"></span>
     </div>
   </div>
 
-  <button class="padding_red"  align="center" (click)="deleteHomework()"><b>删除</b></button>
+  <button *ngIf="check==0" class="padding_red"  align="center" (click)="deleteHomework()"><b>删 除</b></button>
 
 </ion-content>
