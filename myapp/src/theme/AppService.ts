@@ -247,6 +247,7 @@ export class AppService {
 
 
   }
+
   changeInfo(data): Promise<any>  { //修该信息
 
     let headers = new Headers({
@@ -274,4 +275,5 @@ export class AppService {
       .then(this.extractData)
       .catch(this.handleError);
   }
+
 }

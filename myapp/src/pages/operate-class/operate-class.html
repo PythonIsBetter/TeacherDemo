@@ -62,10 +62,10 @@
     <div>
       <label class="item item-input" >
         <span class="input-label" >科目：</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <!--<input type="text" id="subjectx" class="input1" >-->
         <div class="select">
-          <select  name='make' id="mySelect">
-            <option>{{subject}}</option>
-            <option *ngFor="let S of subjects" >{{S.name}}</option>
+          <select name='make' id="mySelect" [(ngModel)]="subject">
+            <option *ngFor="let sub of subjects" >{{sub.name}}</option>
           </select>
         </div>
       </label>

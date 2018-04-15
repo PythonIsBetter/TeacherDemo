@@ -1,24 +1,44 @@
-<!--
-  Generated template for the ChoosePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
     <ion-title style="font-size: 22px">选择操作</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <H4>专项练习</H4>
   <ion-list>
-    <ion-item>
-      <button ion-button full large round (click)="toExercise(student,classInfo)">专项练习</button>
-      <button ion-button full large round (click)="toVideo($event)">录播课</button>
+    <ion-item ion-item *ngFor="let item of listD1;let i=index;" (click)="itemSelected(i,item)">
+      <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
+      <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
+      <span style="margin-left: 20px;">{{item.cname}}</span>
+      <img *ngIf="!item.open" src="assets/icon/you.png" style="width: 25px;float: right;"/>
+      <img *ngIf="item.open" src="assets/icon/xia.png" style="width: 25px;float: right;"/>
+      <div *ngIf="item.open">
+
+        <div ion-item *ngFor="let itemch of item.sub_knowledege;let j=index;" (click)="itemSelectedchild($event,j,itemch)">
+          <span style="font-size: 25px;margin-right: 20px;font-weight: bold;">-</span>{{itemch.cname}}</div>
+      </div>
     </ion-item>
   </ion-list>
+  <H4>综合测试</H4>
+  <ion-list>
+    <ion-item ion-item *ngFor="let item of listD2;let i=index;" (click)="itemSelected(i+D1len,item)">
+      <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
+      <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
+      <span style="margin-left: 20px;">{{item.cname}}</span>
+      <img *ngIf="!item.open" src="assets/icon/you.png" style="width: 25px;float: right;"/>
+      <img *ngIf="item.open" src="assets/icon/xia.png" style="width: 25px;float: right;"/>
+      <div *ngIf="item.open">
+
+        <div ion-item *ngFor="let itemch of item.sub_knowledege;let j=index;" (click)="itemSelectedchild($event,j,itemch)">
+          <span style="font-size: 25px;margin-right: 20px;font-weight: bold;">-</span>{{itemch.cname}}</div>
+      </div>
+    </ion-item>
+  </ion-list>
+    <ion-item>
+      <button ion-button full large round (click)="toVideo($event)">录播课</button>
+    </ion-item>
 </ion-content>
 

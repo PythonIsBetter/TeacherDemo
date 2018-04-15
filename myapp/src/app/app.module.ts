@@ -63,7 +63,9 @@ import {StuInfoPage} from "../pages/stu-info/stu-info";
 import {MultiplePublishPage} from "../pages/multiple-publish/multiple-publish";
 import {AboutModifyPage} from "../pages/about/about-modify";
 import {PageNewPage} from "../pages/page-new/page-new";
-
+import {StudentHomeworkDetailPage} from "../pages/student-homework-detail/student-homework-detail";
+import {StuParcticePage} from "../pages/stu-parctice/stu-parctice";
+import {StuParcticeDetailPage} from "../pages/stu-parctice-detail/stu-parctice-detail";
 
 @NgModule({
   declarations: [
@@ -117,7 +119,10 @@ import {PageNewPage} from "../pages/page-new/page-new";
     StuInfoPage,
     MultiplePublishPage,
     AboutModifyPage,
-    PageNewPage
+    PageNewPage,
+    StudentHomeworkDetailPage,
+    StuParcticePage,
+    StuParcticeDetailPage
   ],
   imports: [
     BrowserModule,
@@ -176,7 +181,10 @@ import {PageNewPage} from "../pages/page-new/page-new";
     StuInfoPage,
     MultiplePublishPage,
     AboutModifyPage,
-    PageNewPage
+    PageNewPage,
+    StudentHomeworkDetailPage,
+    StuParcticePage,
+    StuParcticeDetailPage
   ],
   providers: [
     ScreenOrientation,

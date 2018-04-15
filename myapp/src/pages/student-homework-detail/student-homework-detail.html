@@ -1,0 +1,123 @@
+<!--
+  Generated template for the MistakeDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item style="width: 100%;background-color: #f4f4f4">
+    <label>{{cname}}</label> <label item-right>{{test_number}}/{{count}}</label>
+  </ion-item>
+
+  <div (swipe)="swipeEvnet($event,test[test_number - 1].type,test[test_number - 1].titleId)">
+    <ion-list style="background-color: #f4f4f4" inset *ngIf="test">
+      <!--选择题-->
+      <label ion-text *ngIf="test[test_number - 1].type == 1">
+        <span>（选择题)</span><span [innerHtml]="test[test_number - 1].titleBody"></span><br>
+        <br>
+        <ion-list>
+
+          <div class="selekuang" style="">
+            <button>A</button>
+            <div class="selecdiv" [innerHtml]="test[test_number - 1].A">
+            </div>
+          </div>
+          <div class="selekuang" style="">
+            <button>B</button>
+            <div class="selecdiv" [innerHtml]="test[test_number - 1].B">
+            </div>
+          </div>
+          <div class="selekuang" style="">
+            <button>C</button>
+            <div class="selecdiv" [innerHtml]="test[test_number - 1].C">
+            </div>
+          </div>
+          <div class="selekuang" style="">
+            <button>D</button>
+            <div class="selecdiv" [innerHtml]="test[test_number - 1].D">
+            </div>
+          </div>
+          <!--<button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'A' || selectCoA || toAnswer[test[test_number - 1].titleId] == 'A') ? 'secondary':'light'" (click)="choseanswer('A',test[test_number - 1].titleId)">
+            <span style="color: black">A.</span>
+            <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
+          </button>
+
+          <button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'B' ||selectCoB || toAnswer[test[test_number - 1].titleId] == 'B') ? 'secondary':'light'" (click)="choseanswer('B',test[test_number - 1].titleId)">
+            <span style="color: black">B.</span>
+            <div style="color: black" [innerHtml]="test[test_number - 1].B"></div>
+          </button>
+          <button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'C'|| selectCoC || toAnswer[test[test_number - 1].titleId] == 'C') ? 'secondary':'light'" (click)="choseanswer('C',test[test_number - 1].titleId)">
+            <span style="color: black">C.</span>
+            <div style="color: black" [innerHtml]="test[test_number - 1].C"></div>
+          </button>
+          <button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'D'|| selectCoD || toAnswer[test[test_number - 1].titleId] == 'D') ? 'secondary':'light'" (click)="choseanswer('D',test[test_number - 1].titleId)">
+            <span item-left style="color: black">D.</span>
+            <span style="color: black" [innerHtml]="test[test_number - 1].D"></span>
+          </button>-->
+        </ion-list>
+      </label>
+      <!--填空题-->
+      <label ion-text *ngIf="test[test_number - 1].type == 2">
+        （填空题)
+        <div [innerHtml]="test[test_number - 1].titleBody"></div>
+        <br>
+        <br>
+        输入答案：<input ion-inupt style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" [(ngModel)]="tiankong"
+                    color="danger" placeholder='{{toAnswer[test[test_number - 1].titleId]}}' clearOnEdit="true">
+        <ion-item *ngIf="localAnswer[test_number-1]">{{localAnswer[test_number-1]}}</ion-item>
+      </label>
+      <!--判断题-->
+      <label ion-text *ngIf="test[test_number - 1].type == 3">
+        （判断题)
+        <div [innerHtml]="test[test_number - 1].titleBody"></div>
+        <br>
+        <br>
+        <button ion-button round small outline block
+                [color]="(localAnswer[test_number -1] == '1'|| pCoT || toAnswer[test[test_number - 1].titleId] == '1') ? 'secondary':'light'"
+                (click)="pAn('1',test[test_number - 1].titleId)">
+          <span style="color: black">正确</span>
+        </button>
+        <button ion-button round small outline block
+                [color]="(localAnswer[test_number -1] == '0'|| pCoF || toAnswer[test[test_number - 1].titleId] == '0') ? 'secondary':'light'"
+                (click)="pAn('0',test[test_number - 1].titleId)">
+          <span style="color: black">错误</span>
+        </button>
+      </label>
+      <!--解答题-->
+      <label ion-text *ngIf="test[test_number - 1].type == 4">
+        （解答题）
+        <div [innerHtml]="test[test_number - 1].titleBody"></div>
+        <br>
+        <br>
+        输入答案：
+        <ion-textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;" [(ngModel)]="jieda">
+          {{toAnswer[test[test_number - 1].titleId]}}
+        </ion-textarea>
+        <ion-item *ngIf="localAnswer[test_number-1]">{{localAnswer[test_number-1]}}</ion-item>
+      </label>
+    </ion-list>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+  <!--<ion-list no-lines style="position: absolute; margin-bottom: 10%;margin-right: 10%">-->
+  <!--<ion-item>-->
+  <!--<button ion-button item-right (click)="leftSubject(test[test_number - 1].type,test[test_number - 1].titleId)">上一题</button>-->
+  <!--<button ion-button item-right (click)="nextSubject(test[test_number - 1].type,test[test_number - 1].titleId)">{{button}}</button>-->
+  <!--</ion-item>-->
+  <!--</ion-list>-->
+
+
+</ion-content>

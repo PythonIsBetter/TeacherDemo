@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Http, Response} from "@angular/http";
 import {TaskPage} from "../task/task";
+import {StudentHomeworkDetailPage} from "../student-homework-detail/student-homework-detail";
 
 /**
  * Generated class for the ReportHomeworkDetailPage page.
@@ -19,12 +20,14 @@ export class ReportHomeworkDetailPage {
   urlGetStuHomeMessage: string;
   homeworkDetail:Array<{uid:string,stuName:string,mark:string,wrongAnswer:string,submitLastTime:string}>;
   homework:any;
+  subject:any;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http) {
     this.homeworkDetail =[];
     this.homework = [];
-    this.homework = this.navParams.get('item');
+    this.homework = this.navParams.get('homework');
+    this.subject = this,navParams.get('subject');
     this.urlGetStuHomeMessage = "http://47.100.203.126:81/index.php/demo/index/getStuHomeMessageByHomeId?homeid=";
     this.urlGetStuHomeMessage += this.homework.id;
     this.http.request(this.urlGetStuHomeMessage).subscribe((res:Response)=>{
@@ -50,8 +53,9 @@ export class ReportHomeworkDetailPage {
   }
 
   itemTapped(event,student){
-    this.navCtrl.push(TaskPage,{
-      item:student,//主要用他的stuid
+    this.navCtrl.push(StudentHomeworkDetailPage,{
+      student:student,//主要用他的stuid
+      homework:this.homework
     });
 
   }

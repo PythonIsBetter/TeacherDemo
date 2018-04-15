@@ -37,6 +37,7 @@ export class OperateClassPage {
   ionViewDidLoad() {
     console.log(this.classInfo);
     this.subject = this.classInfo.subject;
+    console.log(this.subject);
     this.name = this.classInfo.name;
     this.head = this.classInfo.head;
     this.cid  = this.classInfo.cid;

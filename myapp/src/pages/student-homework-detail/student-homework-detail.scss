@@ -1,0 +1,40 @@
+page-student-homework-detail {
+
+  .selekuang{
+    border: solid 1px #aeaeae;
+
+    border-radius: 18px;
+    position: relative;
+    text-align: left;
+    margin-top: 10px;
+    button{
+      width: 30px;
+      height: 30px;
+
+      background-color: #aeaeae;
+      border-radius: 15px;
+    }
+  }
+  .selecdiv{
+    display: inline;
+  }
+  $slide-height-small: 40px;
+  $slide-height-large: 50px;
+  .slide-title {
+    width: 100%;
+    height: $slide-height-small;
+    color: #666666;
+    padding: 0;
+  }
+
+  .slide-title-unit {
+    padding-bottom: 8px;
+    font-size: 14px;
+    height: $slide-height-small;
+    line-height: $slide-height-small;
+  }
+
+  .scroll-content{
+    background-color: #F5F4F4;
+  }
+}

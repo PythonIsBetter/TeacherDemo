@@ -22,7 +22,7 @@ import {StuInfoPage} from "../stu-info/stu-info";
 export class StuManagePage {
 
   choose: string ="1";//初始化为0，根据前台的ngmodel绑定值
-
+  subjectId:number;
   name:string;
   age:string;
   sex:string;
@@ -45,6 +45,12 @@ export class StuManagePage {
   }
 
   ionViewDidEnter(){
+
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/cid_subjects?subject=" + this.classInfo.subject)
+      .subscribe((res: Response) => {
+        this.subjectId = res.json().data;
+        console.log(this.subjectId)
+      });
 
     this.students=[];
     this.http.request(this.url)
@@ -85,10 +91,11 @@ export class StuManagePage {
     });
   }
 
-  itemTapped1(item1,item2) {
+  itemTapped1(item1) {
     this.navCtrl.push(ChoosePage, {
       student: item1,
-      classInfo: item2,//student
+      classInfo: this.classInfo,//student
+      subjectId: this.subjectId
     });
   }
 
