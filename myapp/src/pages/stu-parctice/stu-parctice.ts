@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AlertController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {Http,Response} from "@angular/http";
+import {Http, Response} from "@angular/http";
 import {StuParcticeDetailPage} from "../stu-parctice-detail/stu-parctice-detail";
 
 
@@ -31,12 +31,12 @@ export class StuParcticePage {
   //题目总数
   count: any;
   //做题时间
-  t:string;
+  t: string;
   //正确数量
   correct: number = 0;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http,public app: App,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, public alertCtrl: AlertController) {
     this.item = this.navParams.get("subject");
     this.cid = this.navParams.get("cid");
     this.userid = this.navParams.get('stuid');
@@ -50,7 +50,7 @@ export class StuParcticePage {
     console.log('ionViewDidLoad ExerciseDetailPage');
 
 
-    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_record_test/?id="+this.userid+"&kid=" + this.cid)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_record_test/?id=" + this.userid + "&kid=" + this.cid)
       .subscribe((res: Response) => {
         this.data = res.json();
         this.count = res.json().length;
@@ -60,18 +60,19 @@ export class StuParcticePage {
           this.t = this.data[0].uptime;
 
           //获取正确题目数
-          for (var a of res.json()){
+          for (var a of res.json()) {
             if (a.answer == a.uanswer) {
               this.correct = this.correct + 1;
             }
           }
-        }else {
+        } else {
           this.showAlert();
         }
 
       });
 
   }
+
   showAlert() {
     let alert = this.alertCtrl.create({
       title: '没有数据!',
@@ -86,8 +87,9 @@ export class StuParcticePage {
     alert.present();
   }
 
-  itemSelected(item,id,cname) {
-    this.app.getRootNav().push(StuParcticeDetailPage,{cid:item,test_number:id,cname:cname,stuid:this.userid});
+  itemSelected(item, id, cname) {
+    this.navCtrl.push(StuParcticeDetailPage, {cid: item, test_number: id, cname: cname, stuid: this.userid});
+    //this.app.getRootNav().push(StuParcticeDetailPage, {cid: item, test_number: id, cname: cname, stuid: this.userid});
   }
 
 }

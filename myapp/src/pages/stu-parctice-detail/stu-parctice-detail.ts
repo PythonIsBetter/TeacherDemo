@@ -77,7 +77,8 @@ export class StuParcticeDetailPage {
 
   //跳转到下一个页面
   nextPage(){
-    this.app.getRootNav().push('PageexamPage');
+    this.navCtrl.push('PageexamPage');
+    //this.app.getRootNav().push('PageexamPage');
 
   }
 

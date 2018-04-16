@@ -115,14 +115,16 @@ export class ChoosePage {
 
   itemSelectedchild(event, j, itemch) {
     event.stopPropagation();
-    this.app.getRootNav().push(StuParcticePage, {subject: itemch, cid: itemch.id,stuid:this.userid});
+    //this.app.getRootNav().push(StuParcticePage, {subject: itemch, cid: itemch.id,stuid:this.userid});
+    this.navCtrl.push(StuParcticePage, {subject: itemch, cid: itemch.id,stuid:this.userid});
     console.log(j)
   }
 
   itemSelected(j, item) {
     console.log(this.listData[j]);
     if (this.listData[j].sub_knowledege.length == 0) {
-      this.app.getRootNav().push(StuParcticePage, {subject: item, cid: item.id,stuid:this.userid});
+      //this.app.getRootNav().push(StuParcticePage, {subject: item, cid: item.id,stuid:this.userid});
+      this.navCtrl.push(StuParcticePage, {subject: item, cid: item.id,stuid:this.userid});
     } else {
       for (let i = 0; i < this.listData.length; i++) {
         if (i == j) {
