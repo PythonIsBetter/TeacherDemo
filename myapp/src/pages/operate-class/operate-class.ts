@@ -95,10 +95,6 @@ export class OperateClassPage {
         this.subjectid = t;
         console.log(this.subjectid);
 
-        alert(this.name+"->"+this.classInfo.name);
-        alert(this.head+"->"+this.classInfo.head);
-        alert(this.subject+"->"+this.classInfo.subject);
-
         //班级名称、老师、科目
         if(this.name == this.classInfo.name && this.head == this.classInfo.head && this.subject == this.classInfo.subject)
         {
