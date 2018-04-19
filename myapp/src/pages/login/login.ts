@@ -48,7 +48,8 @@ export class LoginPage {
     this.appService.loginTeacher(servedata).then(
       res => {
         if(res.code==200){
-          res.content.userinfo.tokenId=res.content.tokenId
+          res.content.userinfo.tokenId=res.content.tokenId;
+          console.log(res.content.tokenId);
          // this.appComponent.userinfo=res.content.userinfo
          // this.appComponent.presentToast('登录成功!');
          // alert(res.content.userinfo.id);

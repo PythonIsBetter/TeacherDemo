@@ -96,7 +96,8 @@ export class OperateClassPage {
           this.subjectid = t;
         console.log(this.subjectid);
 
-        if(!(this.name != this.classInfo.name || this.head != this.classInfo.head || this.classInfo.subject != this.subject || this.cid != this.classInfo.cid)){
+        if(!(this.name != this.classInfo.name || this.head != this.classInfo.head ||
+          this.classInfo.subject != this.subject || this.cid != this.classInfo.cid)){
           let toast  =this.toast.create({
             message: '请至少修改一项',
             duration: 2000,

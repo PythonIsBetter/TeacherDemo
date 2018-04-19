@@ -66,6 +66,7 @@ import {PageNewPage} from "../pages/page-new/page-new";
 import {StudentHomeworkDetailPage} from "../pages/student-homework-detail/student-homework-detail";
 import {StuParcticePage} from "../pages/stu-parctice/stu-parctice";
 import {StuParcticeDetailPage} from "../pages/stu-parctice-detail/stu-parctice-detail";
+import {VideorecordPage} from "../pages/videorecord/videorecord";
 
 @NgModule({
   declarations: [
@@ -122,7 +123,8 @@ import {StuParcticeDetailPage} from "../pages/stu-parctice-detail/stu-parctice-d
     PageNewPage,
     StudentHomeworkDetailPage,
     StuParcticePage,
-    StuParcticeDetailPage
+    StuParcticeDetailPage,
+    VideorecordPage
   ],
   imports: [
     BrowserModule,
@@ -184,7 +186,8 @@ import {StuParcticeDetailPage} from "../pages/stu-parctice-detail/stu-parctice-d
     PageNewPage,
     StudentHomeworkDetailPage,
     StuParcticePage,
-    StuParcticeDetailPage
+    StuParcticeDetailPage,
+    VideorecordPage
   ],
   providers: [
     ScreenOrientation,

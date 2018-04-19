@@ -4,6 +4,7 @@ import {RecordingvideoPage} from "../recordingvideo/recordingvideo";
 import {FormControl} from "@angular/forms";
 import {Http, Response} from "@angular/http";
 import {StuParcticePage} from "../stu-parctice/stu-parctice";
+import {VideorecordPage} from "../videorecord/videorecord";
 
 
 /**
@@ -142,6 +143,6 @@ export class ChoosePage {
   }
 
   toVideo(event) {
-    this.navCtrl.push(RecordingvideoPage, {});
+    this.navCtrl.push(VideorecordPage, {});
   }
 }
