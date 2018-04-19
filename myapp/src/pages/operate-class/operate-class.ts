@@ -37,7 +37,6 @@ export class OperateClassPage {
   ionViewDidLoad() {
     console.log(this.classInfo);
     this.subject = this.classInfo.subject;
-    console.log(this.subject);
     this.name = this.classInfo.name;
     this.head = this.classInfo.head;
     this.cid  = this.classInfo.cid;
@@ -62,13 +61,13 @@ export class OperateClassPage {
   }
 
   deletee() {
-          let headers = new Headers({
-            'Content-Type': 'application/x-www-form-urlencoded'
-          });
-          let options = new RequestOptions({
-            headers: headers
-          });
-        let body = "id=" + this.classInfo.id;
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+    let body = "id=" + this.classInfo.id;
     return new Promise((resolve, reject) => {
       this.http.post(this.deleteUrl, body, options )
         .map(res => res.json())
@@ -91,9 +90,9 @@ export class OperateClassPage {
     this.http.request('http://47.100.203.126:81/index.php/demo/index/cid_subjects?subject=' + this.subject)
       .subscribe((res:Response)=>{
         console.log(res.json().data);
-          let t = res.json().data;
+        let t = res.json().data;
         console.log(t);
-          this.subjectid = t;
+        this.subjectid = t;
         console.log(this.subjectid);
 
         if(!(this.name != this.classInfo.name || this.head != this.classInfo.head || this.classInfo.subject != this.subject || this.cid != this.classInfo.cid)){
@@ -141,8 +140,8 @@ export class OperateClassPage {
     /*let selectIndex = document.getElementById("mySelect").Value;
     console.log(selectIndex);
     this.subjectid = selectIndex.toString();*/
-   /* this.name= (<HTMLInputElement>document.getElementById("namex")).value;
-    this.head= (<HTMLInputElement>document.getElementById("headx")).value;*/
+    /* this.name= (<HTMLInputElement>document.getElementById("namex")).value;
+     this.head= (<HTMLInputElement>document.getElementById("headx")).value;*/
 
 
   }
