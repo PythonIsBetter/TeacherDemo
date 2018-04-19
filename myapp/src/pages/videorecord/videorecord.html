@@ -1,0 +1,29 @@
+<ion-header>
+  <button style="position: absolute;z-index: 12;right: 8rem;top: 1rem;padding: 1rem;border-radius: 0.5rem;" (click)="search()">搜索</button>
+  <ion-navbar>
+    <ion-searchbar style="width: 80%" (ionInput)="getItems($event)">
+    </ion-searchbar>
+    <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 6px;">
+      <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
+    </ion-select>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content (swipe)="swipeEvent($event)" style="margin-top: 25px;background-color: #F6F5F5; padding: 40px;">
+  <div>
+    <ion-list>
+      <ng-container *ngFor="let item of vidoaarrData;let i=index;">
+        <ion-item (click)="toOperationPage(item.id)" *ngIf="subject == item.sid" style="border-radius: 5px;">
+          <ion-thumbnail item-left>
+            <img src="{{item.icon}}">
+          </ion-thumbnail>
+          <span>{{item.cname}}</span><br>
+          <span>{{item.description}}</span>
+          <br>
+          热度：<span>{{item.view}}</span>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+  </div>
+</ion-content>
