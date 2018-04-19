@@ -164,7 +164,8 @@ export class SelectQuestionPage
         titleID:titleID,
         id:id,
         homeworkName:this.homeworkName,
-        everyQuestion:this.everyQuestion
+        everyQuestion:this.everyQuestion,
+        check:this.check
       });
   }
 
