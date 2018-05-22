@@ -17,15 +17,32 @@ page-operate-class{
   .createbutton{
 
   }
-  .padding button{
-    width: 70%;
-    height: 40px;
+  .padding
+  {
+    height: 10%;
+    width: 80%;
+    font-size: 18px;
     background: #59B8E7;
     color: #FFFFFF;
-    font-family: YouYuan;
-    border-radius:25px;
+    font-family: 黑体;
     -moz-border-radius:25px;
+    margin-top: 10%;
+    margin-left: 10%;
+    border-radius: 25px;
+  }
 
+  .padding_red
+  {
+    height: 10%;
+    width: 80%;
+    font-size: 18px;
+    background: rgba(255, 0, 13, 0.73);
+    color: #FFFFFF;
+    font-family: 黑体;
+    -moz-border-radius:25px;
+    margin-top: 5%;
+    margin-left: 10%;
+    border-radius: 25px;
   }
   .item-input ul{
     display: none;
