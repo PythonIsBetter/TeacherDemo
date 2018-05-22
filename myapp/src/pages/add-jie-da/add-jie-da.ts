@@ -23,9 +23,9 @@ export class AddJieDaPage
   count: number;//计数
   jd: Array<{ id: number, question: string, answer: string }>;//解答题（题号+题目+答案）
   jdChoose: Array<number> = [];
-  checkBox: any;
   homeworkName:string;
   everyQuestion: any;
+  classInfo:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController)
   {
@@ -33,6 +33,7 @@ export class AddJieDaPage
     this.type = navParams.get('item');//题目类型
     this.examID = this.everyQuestion.id;//知识点ID
     this.homeworkName=navParams.get('homeworkName');//作业名称
+    this.classInfo=this.navParams.get("classInfo");
     this.jd = [];
     this.count = 0;
     this.loadJD();
@@ -81,7 +82,8 @@ export class AddJieDaPage
     this.navCtrl.push(SelectQuestionPage,
       {
         everyQuestion: this.everyQuestion,//每一到道题目
-        homeworkName:this.homeworkName
+        homeworkName:this.homeworkName,
+        classInfo:this.classInfo,
       });
   }
 }

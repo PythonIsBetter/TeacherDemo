@@ -62,7 +62,7 @@ export class StuParcticeDetailPage {
     if (this.test_number < this.count) {
       this.test_number ++;
     }else {
-      this.app.getRootNav().pop();
+
     }
 
   }

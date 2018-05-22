@@ -23,7 +23,6 @@ export class SelectQuestionPage
   everyQuestion: any;
   homeworkName:string;
   check:number;
-  item:any;
   classInfo:any;
 
   xz:Array<{id:number,titleID:number,question:string,A:string,B:string,C:string,D:string,answer}>;//选择题（序号+题号+题目+选项+选项+选项+选项+答案）
@@ -34,7 +33,6 @@ export class SelectQuestionPage
   {
     this.everyQuestion = navParams.get('everyQuestion');//获取每一题的实例
     this.homeworkName=navParams.get('homeworkName');
-    this.item=navParams.get('item');
     this.classInfo=navParams.get("classInfo");
     this.xz=[];
     this.tk=[];
@@ -67,16 +65,16 @@ export class SelectQuestionPage
     switch(item)
     {
       case 1://选择题
-       this.navCtrl.push(AddXuanZePage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
+       this.navCtrl.push(AddXuanZePage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion,classInfo:this.classInfo});
         break;
       case 2://填空题
-        this.navCtrl.push(AddTianKongPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
+        this.navCtrl.push(AddTianKongPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion,classInfo:this.classInfo});
         break;
       case 3://判断题
-        this.navCtrl.push(AddPanDuanPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
+        this.navCtrl.push(AddPanDuanPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion,classInfo:this.classInfo});
         break;
       case 4://解答题
-        this.navCtrl.push(AddJieDaPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion});
+        this.navCtrl.push(AddJieDaPage, {item:item, homeworkName:this.homeworkName, everyQuestion:this.everyQuestion,classInfo:this.classInfo});
         break;
     }
   }

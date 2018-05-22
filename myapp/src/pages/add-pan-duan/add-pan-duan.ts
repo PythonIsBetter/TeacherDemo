@@ -25,6 +25,7 @@ export class AddPanDuanPage {
   checkBox: any;
   homeworkName:string;
   everyQuestion: any;
+  classInfo:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController)
   {
@@ -32,6 +33,7 @@ export class AddPanDuanPage {
     this.type = navParams.get('item');//题目类型
     this.examID = this.everyQuestion.id;//知识点ID
     this.homeworkName=navParams.get('homeworkName');//作业名称
+    this.classInfo=this.navParams.get("classInfo");
     this.pd = [];
     this.count = 0;
     this.loadPD();
@@ -80,7 +82,8 @@ export class AddPanDuanPage {
     this.navCtrl.push(SelectQuestionPage,
       {
         everyQuestion: this.everyQuestion,//每一到道题目
-        homeworkName:this.homeworkName
+        homeworkName:this.homeworkName,
+        classInfo:this.classInfo,
       });
   }
 }

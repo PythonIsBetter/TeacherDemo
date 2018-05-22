@@ -20,6 +20,7 @@ export class AddXuanZePage
   xzChoose:Array<number>=[];
   homeworkName:string;
   everyQuestion: any;
+  classInfo:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController,public modalCtrl: ModalController,public viewCtrl: ViewController)
   {
@@ -27,6 +28,7 @@ export class AddXuanZePage
     this.type = navParams.get('item');//题目类型
     this.examID = this.everyQuestion.id;//知识点ID
     this.homeworkName=navParams.get('homeworkName');
+    this.classInfo=this.navParams.get("classInfo");
     this.xz=[];
     this.count=0;
     this.loadXZ();
@@ -83,7 +85,8 @@ export class AddXuanZePage
     this.navCtrl.push(SelectQuestionPage,
       {
         everyQuestion: this.everyQuestion,//每一到道题目
-        homeworkName:this.homeworkName
+        homeworkName:this.homeworkName,
+        classInfo:this.classInfo,
       });
   }
 }

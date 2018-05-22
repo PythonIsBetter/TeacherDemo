@@ -18,6 +18,7 @@ export class AddTianKongPage
   tkChoose:Array<number>=[];
   homeworkName:string;
   everyQuestion: any;
+  classInfo:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http :Http,public toastCtrl: ToastController)
   {
@@ -25,6 +26,7 @@ export class AddTianKongPage
     this.type = navParams.get('item');//题目类型
     this.examID = this.everyQuestion.id;//知识点ID
     this.homeworkName=navParams.get('homeworkName');//作业名称
+    this.classInfo=this.navParams.get("classInfo");
     this.tk = [];
     this.count = 0;
     this.loadTK();
@@ -75,7 +77,8 @@ export class AddTianKongPage
     this.navCtrl.push(SelectQuestionPage,
       {
         everyQuestion: this.everyQuestion,//每一到道题目
-        homeworkName:this.homeworkName
+        homeworkName:this.homeworkName,
+        classInfo:this.classInfo,
       });
   }
 }
