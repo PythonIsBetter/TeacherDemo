@@ -46,7 +46,7 @@ export class BeforeStuHomeWorkDetailPage {
     console.log('ionViewDidLoad ExerciseDetailPage');
 
 
-    this.http.request("http://47.100.203.126:81/index.php/demo/index/request778/?hid="+this.cid+"&uid=" + this.userid)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request777/?hid="+this.cid+"&uid=" + this.userid)
       .subscribe((res: Response) => {
         this.data = res.json();
         this.count = res.json().length;

@@ -40,7 +40,7 @@ export class AfterStuHomeWorkDetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AfterStuHomeWorkDetailPage');
     console.log(this.user,this.cid);
-    this.http.request("http://47.100.203.126:81/index.php/demo/index/request779/?hid="+this.cid+"&uid="+ this.user)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request777/?hid="+this.cid+"&uid="+ this.user)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);
