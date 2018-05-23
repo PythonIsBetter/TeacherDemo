@@ -122,7 +122,7 @@ export class ChoosePage {
   }
 
   itemSelected(j, item) {
-    console.log(this.listData[j]);
+    console.log(this.listData[j],item,this.userid);
     if (this.listData[j].sub_knowledege.length == 0) {
       //this.app.getRootNav().push(StuParcticePage, {subject: item, cid: item.id,stuid:this.userid});
       this.navCtrl.push(StuParcticePage, {subject: item, cid: item.id,stuid:this.userid});

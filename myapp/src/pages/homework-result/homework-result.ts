@@ -64,10 +64,10 @@ export class HomeworkResultPage
           ({
             id:res.json().data[i].titleId,//题号
             question:res.json().data[i].titleBody,//题目
-            A:"A、 "+res.json().data[i].A,//选项们
-            B:"B、 "+res.json().data[i].B,
-            C:"C、 "+res.json().data[i].C,
-            D:"D、 "+res.json().data[i].D,
+            A:res.json().data[i].A,//选项们
+            B:res.json().data[i].B,
+            C:res.json().data[i].C,
+            D:res.json().data[i].D,
             answer:res.json().data[i].answer,//答案
           });
           this.kind=1;

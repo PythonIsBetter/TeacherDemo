@@ -1,0 +1,92 @@
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <label>{{cname}} {{test_number}}/{{count}} </label>
+  </ion-item>
+
+  <ion-list inset *ngIf="test">
+    <!--选择题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 1">
+      （选择题)<span [innerHtml]="test[test_number - 1].titleBody"></span><br>
+      <br>
+      <ion-list>
+        <!--[ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"-->
+        <div class="selekuang" style="">
+          <button>A</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].A">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>B</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].B">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>C</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].C">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>D</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].D">
+          </div>
+        </div>
+      </ion-list>
+    </label>
+
+
+
+    <!--填空题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 2">
+      （填空题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
+      <br>
+      输入答案：<input ion-inupt style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true">
+    </label>
+    <!--判断题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 3">
+      （判断题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
+      <br>
+      <button ion-button="" round small outline block>
+        正确
+      </button>
+      <button ion-button="" round small outline block>
+        错误
+      </button>
+    </label>
+    <!--解答题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 4">
+      （解答题） <div [innerHtml]="test[test_number - 1].titleBody"></div><br>
+      <br>
+      输入答案：<ion-textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;"></ion-textarea>
+    </label>
+  </ion-list>
+
+  <!--答案解析-->
+  <ion-list no-lines>
+    <ion-item *ngIf="test">
+      正确答案: <span [innerHtml]="test[test_number - 1].answer"></span> <span item-right>学生的答案:</span> <span item-right [innerHtml]="test[test_number - 1].answer_record"></span>
+    </ion-item>
+    <ion-item *ngIf="test">
+      解析:<div [innerHtml]="test[test_number - 1].answer"></div>
+    </ion-item>
+    <ion-item>
+      <button ion-button item-right (click)="leftSubject()">上一题</button>
+      <button ion-button item-right (click)="nextSubject()">下一题</button>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+
+
+</ion-content>

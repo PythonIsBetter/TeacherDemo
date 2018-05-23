@@ -67,6 +67,8 @@ import {StudentHomeworkDetailPage} from "../pages/student-homework-detail/studen
 import {StuParcticePage} from "../pages/stu-parctice/stu-parctice";
 import {StuParcticeDetailPage} from "../pages/stu-parctice-detail/stu-parctice-detail";
 import {VideorecordPage} from "../pages/videorecord/videorecord";
+import {BeforeStuHomeWorkDetailPage} from "../pages/before-stu-home-work-detail/before-stu-home-work-detail";
+import {AfterStuHomeWorkDetailPage} from "../pages/after-stu-home-work-detail/after-stu-home-work-detail";
 
 @NgModule({
   declarations: [
@@ -124,7 +126,9 @@ import {VideorecordPage} from "../pages/videorecord/videorecord";
     StudentHomeworkDetailPage,
     StuParcticePage,
     StuParcticeDetailPage,
-    VideorecordPage
+    VideorecordPage,
+    BeforeStuHomeWorkDetailPage,
+    AfterStuHomeWorkDetailPage
   ],
   imports: [
     BrowserModule,
@@ -187,7 +191,9 @@ import {VideorecordPage} from "../pages/videorecord/videorecord";
     StudentHomeworkDetailPage,
     StuParcticePage,
     StuParcticeDetailPage,
-    VideorecordPage
+    VideorecordPage,
+    BeforeStuHomeWorkDetailPage,
+    AfterStuHomeWorkDetailPage
   ],
   providers: [
     ScreenOrientation,

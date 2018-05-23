@@ -1,11 +1,10 @@
 import {Component} from '@angular/core';
 import {AlertController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http, Response} from "@angular/http";
-import {StuParcticeDetailPage} from "../stu-parctice-detail/stu-parctice-detail";
-
+import {AfterStuHomeWorkDetailPage} from "../after-stu-home-work-detail/after-stu-home-work-detail";
 
 /**
- * Generated class for the StuParcticePage page.
+ * Generated class for the BeforeStuHomeWorkDetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -13,11 +12,10 @@ import {StuParcticeDetailPage} from "../stu-parctice-detail/stu-parctice-detail"
 
 @IonicPage()
 @Component({
-  selector: 'page-stu-parctice',
-  templateUrl: 'stu-parctice.html',
+  selector: 'page-before-stu-home-work-detail',
+  templateUrl: 'before-stu-home-work-detail.html',
 })
-export class StuParcticePage {
-
+export class BeforeStuHomeWorkDetailPage {
   //subjectID
   item: Object;
 
@@ -35,7 +33,6 @@ export class StuParcticePage {
   //正确数量
   correct: number = 0;
 
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public app: App, public alertCtrl: AlertController) {
     this.item = this.navParams.get("subject");//没用的这个subject
     this.cid = this.navParams.get("cid");
@@ -45,12 +42,11 @@ export class StuParcticePage {
     console.log(this.userid);
   }
 
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExerciseDetailPage');
 
 
-    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_record_test/?id=" + this.userid + "&kid=" + this.cid)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request778/?hid="+this.cid+"&uid=" + this.userid)
       .subscribe((res: Response) => {
         this.data = res.json();
         this.count = res.json().length;
@@ -61,7 +57,7 @@ export class StuParcticePage {
 
           //获取正确题目数
           for (let a of res.json()) {
-            if (a.answer == a.uanswer) {
+            if (a.answer == a.answer_record) {
               this.correct = this.correct + 1;
             }
           }
@@ -88,7 +84,7 @@ export class StuParcticePage {
   }
 
   itemSelected(item, id, cname) {
-    this.navCtrl.push(StuParcticeDetailPage, {cid: item, test_number: id, cname: cname, stuid: this.userid});
+    this.navCtrl.push(AfterStuHomeWorkDetailPage, {cid: item, test_number: id, cname: cname, stuid: this.userid});
     //this.app.getRootNav().push(StuParcticeDetailPage, {cid: item, test_number: id, cname: cname, stuid: this.userid});
   }
 

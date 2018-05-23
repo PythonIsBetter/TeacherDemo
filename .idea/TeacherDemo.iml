@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/myapp/node_modules/_cordova-ios@4.5.4@cordova-ios/tests/spec/unit/fixtures/dummyProj/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/myapp/node_modules/_cordova-ios@4.5.4@cordova-ios/tests/spec/unit/fixtures/testProj/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/myapp/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/myapp/www" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
@@ -10,9 +12,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="@types/angular" level="application" />
-    <orderEntry type="library" name="@types/cordova" level="application" />
-    <orderEntry type="library" name="@types/cordova-ionic" level="application" />
-    <orderEntry type="library" name="@types/angular-es" level="application" />
   </component>
 </module>
